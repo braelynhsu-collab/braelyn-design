@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braelyn. | About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root, [data-theme="light"] {
+            --bg-color: #F7F7F5; 
+            --text-color: #111; 
+            --accent-red: #E2211C; 
+            --nav-bg: rgba(247, 247, 245, 0.95);
+            --nav-border: rgba(0,0,0,0.03);
+            --nav-shadow: rgba(0,0,0,0.08);
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #111111;
+            --text-color: #F7F7F5;
+            --accent-red: #E2211C;
+            --nav-bg: rgba(17, 17, 17, 0.95);
+            --nav-border: rgba(255, 255, 255, 0.05);
+            --nav-shadow: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            font-family: var(--font-main); 
+            overflow-x: hidden;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        #cursor {
+            position: fixed; top: 0; left: 0; width: 6px; height: 6px;
+            background: var(--accent-red); border-radius: 20px;
+            pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, transform 0.1s ease-out, background 0.3s, border 0.3s;
+        }
+        #cursor.active {
+            width: 45px; height: 45px; background: transparent;
+            border: 1px solid var(--accent-red);
+        }
+        #cursor.active::after, #cursor.active::before {
+            content: ''; position: absolute; background: var(--accent-red);
+        }
+        #cursor.active::after { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        #cursor.active::before { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem;
+            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--nav-border);
+            transition: background-color 0.5s, border-color 0.5s;
+        }
+        .logo { font-size: 26px; font-weight: 800; display: flex; align-items: baseline; letter-spacing: -1px; }
+        .logo span { width: 7px; height: 7px; background: var(--accent-red); border-radius: 50%; margin-left: 3px; }
+
+        .nav-links { display: flex; gap: 3rem; align-items: center; }
+        .nav-links a { 
+            font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+            text-decoration: none; color: inherit; position: relative;
+            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .nav-links a:hover { transform: translateY(-5px); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -18px; left: 10%; width: 80%; height: 2px;
+            background: var(--nav-shadow); border-radius: 50%; filter: blur(3px);
+            opacity: 0; transition: opacity 0.4s;
+        }
+        .nav-links a:hover::after { opacity: 1; }
+
+        .theme-toggle {
+            font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+            background: none; border: 1px solid var(--text-color); color: inherit;
+            padding: 8px 16px; cursor: none;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover { background: var(--accent-red); border-color: var(--accent-red); color: #fff; transform: translateY(-5px); }
+
+        .page-content {
+            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+        }
+        .page-title { font-weight: 600; font-size: clamp(2.2rem, 5vw, 6rem); line-height: 1.1; text-transform: uppercase; }
+        .page-sub { margin-top: 1.5rem; font-weight: 400; font-size: 12px; letter-spacing: 3px; color: #888; text-transform: uppercase; }
+
+        [data-theme="dark"] .page-sub { color: #555; }
+    </style>
+</head>
+<body data-theme="light">
+
+    <div id="cursor"></div>
+
+    <nav>
+        <div class="logo">Braelyn<span></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="approach.html">Approach</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <button class="theme-toggle" id="themeToggle">DARK</button>
+        </div>
+    </nav>
+
+    <section class="page-content">
+        <h1 class="page-title">About</h1>
+        <p class="page-sub">Coming soon</p>
+    </section>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        const interactive = document.querySelectorAll('a, .theme-toggle');
+        interactive.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+        });
+
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        function getTimeBasedTheme() {
+            const hour = new Date().getHours();
+            return (hour >= 6 && hour < 18) ? 'light' : 'dark';
+        }
+
+        function getTheme() {
+            const savedTheme = localStorage.getItem('braelyn-theme');
+            return savedTheme || getTimeBasedTheme();
+        }
+
+        function setTheme(theme) {
+            body.setAttribute('data-theme', theme);
+            themeToggle.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+            localStorage.setItem('braelyn-theme', theme);
+        }
+
+        function toggleTheme() {
+            const current = body.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        setTheme(getTheme());
+    </script>
+</body>
+</html>
