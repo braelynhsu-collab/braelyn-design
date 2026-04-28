@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braelyn. | The Perfect Stack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #F7F7F5; 
+            --text-color: #111; 
+            --accent-red: #E2211C; 
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-main); overflow-x: hidden; }
+
+        /* --- 1. V12 磁吸准星指针 --- */
+        #cursor {
+            position: fixed; top: 0; left: 0; width: 6px; height: 6px;
+            background: var(--accent-red); border-radius: 20px;
+            pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, transform 0.1s ease-out, background 0.3s, border 0.3s;
+        }
+        /* 激活态：变身准星 */
+        #cursor.active {
+            width: 45px; height: 45px; background: transparent;
+            border: 1px solid var(--accent-red);
+        }
+        #cursor.active::after, #cursor.active::before {
+            content: ''; position: absolute; background: var(--accent-red);
+        }
+        #cursor.active::after { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        #cursor.active::before { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+        /* --- 2. 导航栏 (带底色遮罩 + 灰色投影) --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem;
+            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            background-color: rgba(247, 247, 245, 0.95);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+        .logo { font-size: 26px; font-weight: 800; display: flex; align-items: baseline; letter-spacing: -1px; }
+        .logo span { width: 7px; height: 7px; background: var(--accent-red); border-radius: 50%; margin-left: 3px; }
+
+        .nav-links { display: flex; gap: 3rem; }
+        .nav-links a { 
+            font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+            text-decoration: none; color: inherit; position: relative;
+            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .nav-links a:hover { transform: translateY(-5px); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -18px; left: 10%; width: 80%; height: 2px;
+            background: rgba(0,0,0,0.08); border-radius: 50%; filter: blur(3px);
+            opacity: 0; transition: opacity 0.4s;
+        }
+        .nav-links a:hover::after { opacity: 1; }
+
+        /* --- 3. 首屏 --- */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+        }
+        .hero-title { font-weight: 600; font-size: clamp(2.2rem, 5vw, 6rem); line-height: 1.1; text-transform: uppercase; }
+        .hero-sub { margin-top: 1.5rem; font-weight: 400; font-size: 12px; letter-spacing: 3px; color: #888; text-transform: uppercase; }
+
+        /* --- 4. 连续叠压排版 (全员咬合) --- */
+        .works { padding: 0 6rem 15rem 6rem; position: relative; }
+        .project-card { position: relative; transition: z-index 0.3s; }
+        
+        .proj-1 { width: 55%; margin-left: 0; z-index: 10; }
+        .proj-2 { width: 35%; margin-left: auto; margin-top: -35vh; z-index: 20; }
+        .proj-3 { width: 80%; margin: -15vh auto 0 auto; z-index: 15; }
+        .proj-4 { width: 45%; margin-top: -20vh; margin-left: 2%; z-index: 25; }
+        .proj-5 { width: 38%; margin-left: auto; margin-right: 5%; margin-top: -30vh; z-index: 30; }
+        .proj-6 { width: 55%; margin-top: -25vh; margin-left: 10%; z-index: 35; }
+
+        .img-wrapper { 
+            width: 100%; overflow: hidden; background: none; 
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease;
+            position: relative;
+        }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s; }
+        
+        .project-card:hover { z-index: 100; }
+        .project-card:hover .img-wrapper { transform: translateY(-10px) scale(1.04); box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
+        .project-card:hover img { filter: brightness(0.5); transform: scale(1.08); }
+
+        .proj-info { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            text-align: center; opacity: 0; transition: 0.5s; pointer-events: none;
+        }
+        .project-card:hover .proj-info { opacity: 1; }
+        .proj-title { font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -1px; }
+        .proj-tag { font-size: 11px; color: var(--accent-red); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+
+        /* --- 5. 底部：右上角悬浮小雪花 --- */
+        .footer {
+            padding: 12rem 4rem; border-top: 1px solid rgba(0,0,0,0.06);
+            display: flex; justify-content: center; align-items: center;
+        }
+        .footer-title {
+            font-size: clamp(3rem, 10vw, 12rem); font-weight: 800; letter-spacing: -4px;
+            position: relative; line-height: 1;
+        }
+        .flower-asterisk {
+            position: absolute; top: -0.1em; right: -0.6em;
+            width: 0.5em; height: 0.5em; fill: var(--accent-red);
+            animation: rotateFlower 18s linear infinite;
+        }
+        @keyframes rotateFlower { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    </style>
+</head>
+<body>
+
+    <div id="cursor"></div>
+
+    <nav>
+        <div class="logo">Braelyn<span></span></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Projects</a>
+            <a href="#">Approach</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="hero-title">DESIGN IS KNOWING<br>WHICH ONES TO KEEP</h1>
+        <p class="hero-sub">A problem well stated is a problem half solved</p>
+    </section>
+
+    <section class="works">
+        <div class="project-card proj-1">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600" style="aspect-ratio:16/10;">
+                <div class="proj-info"><div class="proj-title">Lumina</div><div class="proj-tag">Product Design</div></div>
+            </div>
+        </div>
+        <div class="project-card proj-2">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800" style="aspect-ratio:4/6;">
+                <div class="proj-info"><div class="proj-title">Vogue</div><div class="proj-tag">Editorial</div></div>
+            </div>
+        </div>
+        <div class="project-card proj-3">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1600" style="aspect-ratio:21/9;">
+                <div class="proj-info"><div class="proj-title">Objekt</div><div class="proj-tag">Art Direction</div></div>
+            </div>
+        </div>
+        <div class="project-card proj-4">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1600" style="aspect-ratio:16/9;">
+                <div class="proj-info"><div class="proj-title">Identity</div><div class="proj-tag">Branding</div></div>
+            </div>
+        </div>
+        <div class="project-card proj-5">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800" style="aspect-ratio:4/5;">
+                <div class="proj-info"><div class="proj-title">System</div><div class="proj-tag">UX/UI Design</div></div>
+            </div>
+        </div>
+        <div class="project-card proj-6">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200" style="aspect-ratio:16/10;">
+                <div class="proj-info"><div class="proj-title">Future Studio</div><div class="proj-tag">Concept</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <h1 class="footer-title">
+            Let's talk 
+            <svg class="flower-asterisk" viewBox="0 0 100 100">
+                <g transform="translate(50,50)">
+                    <path d="M-6,-45 C-6,-52 6,-52 6,-45 L4,0 L-4,0 Z" transform="rotate(0)" />
+                    <path d="M-6,-45 C-6,-52 6,-52 6,-45 L4,0 L-4,0 Z" transform="rotate(60)" />
+                    <path d="M-6,-45 C-6,-52 6,-52 6,-45 L4,0 L-4,0 Z" transform="rotate(120)" />
+                    <path d="M-6,-45 C-6,-52 6,-52 6,-45 L4,0 L-4,0 Z" transform="rotate(180)" />
+                    <path d="M-6,-45 C-6,-52 6,-52 6,-45 L4,0 L-4,0 Z" transform="rotate(240)" />
+                    <path d="M-6,-45 C-6,-52 6,-52 6,-45 L4,0 L-4,0 Z" transform="rotate(300)" />
+                </g>
+            </svg>
+        </h1>
+    </section>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        const interactive = document.querySelectorAll('.img-wrapper, a, .footer-title');
+        interactive.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+        });
+    </script>
+</body>
+</html>
