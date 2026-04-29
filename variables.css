@@ -1,0 +1,18 @@
+:root, [data-theme="light"] {
+    --bg-color: #FFFFFF; 
+    --text-color: #111; 
+    --accent-red: #8A1C1C; 
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-border: rgba(0,0,0,0.05);
+    --nav-shadow: rgba(0,0,0,0.08);
+    --font-main: 'Montserrat', sans-serif;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1A1A1A; 
+    --text-color: #E8E8E8; 
+    --accent-red: #6B1515; 
+    --nav-bg: rgba(26, 26, 26, 0.95);
+    --nav-border: rgba(255, 255, 255, 0.05);
+    --nav-shadow: rgba(255, 255, 255, 0.08);
+}

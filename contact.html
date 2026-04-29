@@ -17,10 +17,10 @@
         }
 
         [data-theme="dark"] {
-            --bg-color: #111111;
-            --text-color: #F7F7F5;
-            --accent-red: #8A1C1C;
-            --nav-bg: rgba(17, 17, 17, 0.95);
+            --bg-color: #1A1A1A;
+            --text-color: #E8E8E8;
+            --accent-red: #6B1515;
+            --nav-bg: rgba(26, 26, 26, 0.95);
             --nav-border: rgba(255, 255, 255, 0.05);
         }
 
@@ -62,9 +62,9 @@
         .nav-links a { 
             font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
             text-decoration: none; color: inherit; position: relative;
-            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: color 0.3s;
         }
-        .nav-links a:hover { transform: translateY(-5px); }
+        .nav-links a:hover { color: var(--accent-red); }
         .nav-links a::after {
             content: ''; position: absolute; bottom: -18px; left: 10%; width: 80%; height: 2px;
             background: rgba(0,0,0,0.08); border-radius: 50%; filter: blur(3px);
@@ -76,10 +76,10 @@
         .theme-toggle {
             background: none; border: none; color: inherit;
             padding: 8px; cursor: none;
-            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: opacity 0.3s;
             display: flex; align-items: center; justify-content: center;
         }
-        .theme-toggle:hover { transform: translateY(-5px); }
+        .theme-toggle:hover { opacity: 0.7; }
         .theme-toggle svg { transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
         .theme-toggle:hover svg { transform: rotate(30deg); }
 

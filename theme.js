@@ -23,11 +23,10 @@
         const current = body.getAttribute('data-theme');
         const newTheme = current === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
-        // 保存到 sessionStorage（仅本次会话，刷新后恢复自动）
         sessionStorage.setItem('braelyn-theme-override', newTheme);
     }
 
-    // 初始化：优先用 sessionStorage（用户本次会话手动切换），否则按时间
+    // 初始化：优先用 sessionStorage，否则按时间
     const override = sessionStorage.getItem('braelyn-theme-override');
     const theme = override || getTimeTheme();
     setTheme(theme);
