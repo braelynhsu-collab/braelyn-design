@@ -23,19 +23,19 @@
             --font-main: 'Montserrat', sans-serif;
         }
 
-        /* --- 设计系统：夜间模式 (温和深灰) --- */
+        /* --- 设计系统：夜间模式 (五彩斑斓的黑) --- */
         [data-theme="dark"] {
-            --bg-color: #1A1A1A;
-            --text-color: #E8E8E8;
-            --accent-red: #6B1515;
-            --nav-bg: rgba(26, 26, 26, 0.95);
-            --nav-border: rgba(255, 255, 255, 0.05);
+            --bg-color: #0D0D0D; 
+            --text-color: #E8E8E8; 
+            --accent-red: #7A1818; 
+            --nav-bg: rgba(15, 15, 15, 0.95);
+            --nav-border: rgba(255, 255, 255, 0.06);
             --nav-shadow: rgba(255, 255, 255, 0.08);
-            --hero-sub: #555;
-            --img-bg: #2A2A2A;
-            --img-hover-brightness: brightness(0.4);
-            --card-shadow: rgba(0,0,0,0.3);
-            --footer-border: rgba(255, 255, 255, 0.05);
+            --hero-sub: #666;
+            --img-bg: #1A1A1A;
+            --img-hover-brightness: brightness(0.5);
+            --card-shadow: rgba(0,0,0,0.4);
+            --footer-border: rgba(255, 255, 255, 0.06);
         }
 
         /* --- 设计系统：夜间模式 --- */
@@ -94,9 +94,9 @@
         .nav-links a { 
             font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
             text-decoration: none; color: inherit; position: relative;
-            transition: color 0.3s;
+            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
         }
-        .nav-links a:hover { color: var(--accent-red); }
+        .nav-links a:hover { transform: translateY(-5px); }
         .nav-links a::after {
             content: ''; position: absolute; bottom: -18px; left: 10%; width: 80%; height: 2px;
             background: var(--accent-red); border-radius: 50%; filter: blur(3px);
