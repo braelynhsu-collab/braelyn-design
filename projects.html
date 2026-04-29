@@ -14,6 +14,9 @@
             --nav-bg: rgba(247, 247, 245, 0.95);
             --nav-border: rgba(0,0,0,0.03);
             --nav-shadow: rgba(0,0,0,0.08);
+            --card-bg: transparent;
+            --card-hover-shadow: rgba(0,0,0,0.12);
+            --filter-brightness: brightness(0.5);
             --font-main: 'Montserrat', sans-serif;
         }
 
@@ -24,6 +27,9 @@
             --nav-bg: rgba(17, 17, 17, 0.95);
             --nav-border: rgba(255, 255, 255, 0.05);
             --nav-shadow: rgba(255, 255, 255, 0.08);
+            --card-bg: #222;
+            --card-hover-shadow: rgba(0,0,0,0.5);
+            --filter-brightness: brightness(0.4);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
@@ -83,13 +89,92 @@
         }
         .theme-toggle:hover { background: var(--accent-red); border-color: var(--accent-red); color: #fff; transform: translateY(-5px); }
 
-        .page-content {
-            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+        /* --- Projects Page Specific --- */
+        .page-header {
+            padding: 12rem 6rem 4rem 6rem;
         }
         .page-title { font-weight: 600; font-size: clamp(2.2rem, 5vw, 6rem); line-height: 1.1; text-transform: uppercase; }
         .page-sub { margin-top: 1.5rem; font-weight: 400; font-size: 12px; letter-spacing: 3px; color: #888; text-transform: uppercase; }
-
         [data-theme="dark"] .page-sub { color: #555; }
+
+        .projects-grid {
+            padding: 4rem 6rem 15rem 6rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        .project-item {
+            position: relative;
+            transition: z-index 0.3s;
+        }
+        .project-item:hover { z-index: 100; }
+
+        .project-img-wrapper {
+            width: 100%;
+            overflow: hidden;
+            background: var(--card-bg);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease;
+            position: relative;
+        }
+        .project-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s;
+        }
+
+        .project-item:hover .project-img-wrapper {
+            transform: translateY(-10px) scale(1.04);
+            box-shadow: 0 30px 60px var(--card-hover-shadow);
+        }
+        .project-item:hover img {
+            filter: var(--filter-brightness);
+            transform: scale(1.08);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: 0.5s;
+            pointer-events: none;
+        }
+        .project-item:hover .project-overlay { opacity: 1; }
+        .project-name { font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -1px; }
+        .project-tag { font-size: 11px; color: var(--accent-red); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-top: 0.5rem; }
+
+        .project-meta {
+            margin-top: 1.5rem;
+        }
+        .project-meta h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .project-meta p {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-red);
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        /* 大图项目 */
+        .project-item.wide {
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1.5rem 2rem; }
+            .nav-links { gap: 1.5rem; }
+            .page-header { padding: 10rem 2rem 3rem 2rem; }
+            .projects-grid { padding: 3rem 2rem 10rem 2rem; grid-template-columns: 1fr; gap: 3rem; }
+        }
     </style>
 </head>
 <body data-theme="light">
@@ -108,9 +193,97 @@
         </div>
     </nav>
 
-    <section class="page-content">
-        <h1 class="page-title">Projects</h1>
-        <p class="page-sub">Coming soon</p>
+    <section class="page-header">
+        <h1 class="page-title">Selected<br>Works</h1>
+        <p class="page-sub">A collection of projects that define the studio</p>
+    </section>
+
+    <section class="projects-grid">
+        <!-- 宽图项目 -->
+        <div class="project-item wide">
+            <div class="project-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600" style="aspect-ratio:21/9;">
+                <div class="project-overlay">
+                    <div class="project-name">Lumina</div>
+                    <div class="project-tag">Product Design</div>
+                </div>
+            </div>
+            <div class="project-meta">
+                <h3>Lumina</h3>
+                <p>Product Design</p>
+            </div>
+        </div>
+
+        <!-- 普通项目 -->
+        <div class="project-item">
+            <div class="project-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800" style="aspect-ratio:4/5;">
+                <div class="project-overlay">
+                    <div class="project-name">Vogue</div>
+                    <div class="project-tag">Editorial</div>
+                </div>
+            </div>
+            <div class="project-meta">
+                <h3>Vogue</h3>
+                <p>Editorial</p>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1600" style="aspect-ratio:4/3;">
+                <div class="project-overlay">
+                    <div class="project-name">Objekt</div>
+                    <div class="project-tag">Art Direction</div>
+                </div>
+            </div>
+            <div class="project-meta">
+                <h3>Objekt</h3>
+                <p>Art Direction</p>
+            </div>
+        </div>
+
+        <div class="project-item wide">
+            <div class="project-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1600" style="aspect-ratio:16/9;">
+                <div class="project-overlay">
+                    <div class="project-name">Identity</div>
+                    <div class="project-tag">Branding</div>
+                </div>
+            </div>
+            <div class="project-meta">
+                <h3>Identity</h3>
+                <p>Branding</p>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800" style="aspect-ratio:4/5;">
+                <div class="project-overlay">
+                    <div class="project-name">System</div>
+                    <div class="project-tag">UX/UI Design</div>
+                </div>
+            </div>
+            <div class="project-meta">
+                <h3>System</h3>
+                <p>UX/UI Design</p>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200" style="aspect-ratio:16/10;">
+                <div class="project-overlay">
+                    <div class="project-name">Future Studio</div>
+                    <div class="project-tag">Concept</div>
+                </div>
+            </div>
+            <div class="project-meta">
+                <h3>Future Studio</h3>
+                <p>Concept</p>
+            </div>
+        </div>
     </section>
 
     <script>
@@ -120,7 +293,7 @@
             cursor.style.top = e.clientY + 'px';
         });
 
-        const interactive = document.querySelectorAll('a, .theme-toggle');
+        const interactive = document.querySelectorAll('.project-img-wrapper, a, .theme-toggle');
         interactive.forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
