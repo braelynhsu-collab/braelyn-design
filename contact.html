@@ -74,12 +74,14 @@
         .nav-links a:hover::after { opacity: 1; }
 
         .theme-toggle {
-            font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
-            background: none; border: 1px solid var(--text-color); color: inherit;
-            padding: 8px 16px; cursor: none;
-            transition: all 0.3s;
+            background: none; border: none; color: inherit;
+            padding: 8px; cursor: none;
+            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+            display: flex; align-items: center; justify-content: center;
         }
-        .theme-toggle:hover { background: var(--accent-red); border-color: var(--accent-red); color: #fff; transform: translateY(-5px); }
+        .theme-toggle:hover { transform: translateY(-5px); }
+        .theme-toggle svg { transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
+        .theme-toggle:hover svg { transform: rotate(30deg); }
 
         /* --- Contact Page Editorial Style --- */
         .contact-hero {
@@ -229,33 +231,7 @@
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
         });
-
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-
-        function getTimeBasedTheme() {
-            const hour = new Date().getHours();
-            return (hour >= 6 && hour < 18) ? 'light' : 'dark';
-        }
-
-        function getTheme() {
-            const savedTheme = localStorage.getItem('braelyn-theme');
-            return savedTheme || getTimeBasedTheme();
-        }
-
-        function setTheme(theme) {
-            body.setAttribute('data-theme', theme);
-            themeToggle.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
-            localStorage.setItem('braelyn-theme', theme);
-        }
-
-        function toggleTheme() {
-            const current = body.getAttribute('data-theme');
-            setTheme(current === 'dark' ? 'light' : 'dark');
-        }
-
-        themeToggle.addEventListener('click', toggleTheme);
-        setTheme(getTheme());
     </script>
+    <script src="theme.js"></script>
 </body>
 </html>
