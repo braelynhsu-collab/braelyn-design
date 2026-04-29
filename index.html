@@ -25,32 +25,17 @@
 
         /* --- 设计系统：夜间模式 (五彩斑斓的黑) --- */
         [data-theme="dark"] {
-            --bg-color: #0D0D0D; 
-            --text-color: #E8E8E8; 
-            --accent-red: #7A1818; 
-            --nav-bg: rgba(15, 15, 15, 0.95);
-            --nav-border: rgba(255, 255, 255, 0.06);
-            --nav-shadow: rgba(255, 255, 255, 0.08);
+            --bg-color: #0A0A0A; 
+            --text-color: #C8C8C8; 
+            --accent-red: #6B1515; 
+            --nav-bg: rgba(8, 8, 8, 0.95);
+            --nav-border: rgba(255,255,255,0.08);
+            --nav-shadow: rgba(255,255,255,0.1);
             --hero-sub: #666;
             --img-bg: #1A1A1A;
             --img-hover-brightness: brightness(0.5);
-            --card-shadow: rgba(0,0,0,0.4);
-            --footer-border: rgba(255, 255, 255, 0.06);
-        }
-
-        /* --- 设计系统：夜间模式 --- */
-        [data-theme="dark"] {
-            --bg-color: #111111;
-            --text-color: #F7F7F5;
-            --accent-red: #E2211C;
-            --nav-bg: rgba(17, 17, 17, 0.95);
-            --nav-border: rgba(255, 255, 255, 0.05);
-            --nav-shadow: rgba(255, 255, 255, 0.08);
-            --hero-sub: #555;
-            --img-bg: #222;
-            --img-hover-brightness: brightness(0.4);
-            --card-shadow: rgba(0,0,0,0.5);
-            --footer-border: rgba(255, 255, 255, 0.05);
+            --card-shadow: rgba(0,0,0,0.6);
+            --footer-border: rgba(255,255,255,0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
@@ -94,13 +79,16 @@
         .nav-links a { 
             font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
             text-decoration: none; color: inherit; position: relative;
-            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+            display: inline-block;
+            padding: 20px 0 25px 0;
+            transition: margin 0.4s cubic-bezier(0.2, 1, 0.3, 1);
         }
-        .nav-links a:hover { transform: translateY(-5px); }
+        .nav-links a:hover { margin-top: -5px; }
         .nav-links a::after {
             content: ''; position: absolute; bottom: -18px; left: 10%; width: 80%; height: 2px;
-            background: var(--accent-red); border-radius: 50%; filter: blur(3px);
+            border-radius: 50%; filter: blur(3px);
             opacity: 0; transition: opacity 0.4s;
+            background: var(--nav-shadow);
         }
         .nav-links a:hover::after { opacity: 0.5; }
 
@@ -108,7 +96,7 @@
         .theme-toggle {
             background: none; border: none; color: inherit;
             padding: 8px; cursor: none;
-            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: opacity 0.3s;
             display: flex; align-items: center; justify-content: center;
         }
         .theme-toggle:hover { opacity: 0.7; }
@@ -127,11 +115,11 @@
         .project-card { position: relative; transition: z-index 0.3s; }
         
         .proj-1 { width: 55%; margin-left: 0; z-index: 10; }
-        .proj-2 { width: 35%; margin-left: auto; margin-top: -35vh; z-index: 20; }
-        .proj-3 { width: 80%; margin: -15vh auto 0 auto; z-index: 15; }
-        .proj-4 { width: 45%; margin-top: -20vh; margin-left: 2%; z-index: 25; }
-        .proj-5 { width: 38%; margin-left: auto; margin-right: 5%; margin-top: -30vh; z-index: 30; }
-        .proj-6 { width: 55%; margin-top: -25vh; margin-left: 10%; z-index: 35; }
+        .proj-2 { width: 35%; margin-left: auto; margin-top: -35vh; z-index: 20; } 
+        .proj-3 { width: 80%; margin: -15vh auto 0 auto; z-index: 15; } 
+        .proj-4 { width: 45%; margin-top: -20vh; margin-left: 2%; z-index: 25; } 
+        .proj-5 { width: 38%; margin-left: auto; margin-right: 5%; margin-top: -30vh; z-index: 30; } 
+        .proj-6 { width: 55%; margin-top: -25vh; margin-left: 10%; z-index: 35; } 
 
         .img-wrapper { 
             width: 100%; overflow: hidden; background: var(--img-bg); 
@@ -185,12 +173,12 @@
     <nav>
         <div class="logo">Braelyn<span></span></div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="approach.html">Approach</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <button class="theme-toggle" id="themeToggle">DARK</button>
+            <a href="index.html"><span class="link-text">Home</span></a>
+            <a href="projects.html"><span class="link-text">Projects</span></a>
+            <a href="approach.html"><span class="link-text">Approach</span></a>
+            <a href="about.html"><span class="link-text">About</span></a>
+            <a href="contact.html"><span class="link-text">Contact</span></a>
+            <button class="theme-toggle" id="themeToggle"></button>
         </div>
     </nav>
 
