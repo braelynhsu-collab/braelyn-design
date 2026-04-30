@@ -106,89 +106,62 @@
 
         /* --- 3. 首屏 --- */
         .hero {
-            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+            min-height: 92vh;
+            padding: 9rem 6rem 4rem 6rem;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 18rem;
+            align-items: end;
+            gap: 4rem;
         }
-        .hero-title { font-weight: 600; font-size: clamp(2.2rem, 5vw, 6rem); line-height: 1.1; text-transform: uppercase; }
-        .hero-sub { margin-top: 1.5rem; font-weight: 400; font-size: 12px; letter-spacing: 3px; color: var(--hero-sub); text-transform: uppercase; }
+        .hero-title { font-weight: 700; font-size: clamp(3.4rem, 8vw, 9.5rem); line-height: 0.92; letter-spacing: -0.06em; text-transform: uppercase; }
+        .hero-sub { align-self: end; margin-bottom: 0.8rem; font-weight: 500; font-size: 11px; line-height: 1.8; letter-spacing: 2.6px; color: var(--hero-sub); text-transform: uppercase; }
 
-        /* --- 4. 错落叠加排版 (密集瀑布流) --- */
-        .works { padding: 5rem 6rem 25rem 6rem; position: relative; }
-        .project-card { position: relative; transition: z-index 0.3s; }
-        
-        /* 项目1：左上大图 */
-        .proj-1 { width: 58%; margin-left: 0; z-index: 10; }
-        /* 项目2：右上，咬住项目1右下 */
-        .proj-2 { width: 42%; margin-left: auto; margin-top: -50vh; z-index: 20; } 
-        /* 项目3：全宽，压住项目2 */
-        .proj-3 { width: 95%; margin: -15vh auto 0 2%; z-index: 15; } 
-        /* 项目4：左中，咬住项目3左下 */
-        .proj-4 { width: 50%; margin-top: -20vh; margin-left: 0; z-index: 25; } 
-        /* 项目5：右中，咬住项目4右上 */
-        .proj-5 { width: 40%; margin-left: auto; margin-right: 5%; margin-top: -45vh; z-index: 30; } 
-        /* 项目6：底部大图 */
-        .proj-6 { width: 70%; margin-top: -30vh; margin-left: 10%; z-index: 35; } 
-        /* 项目7：右下方，咬住项目6右下 */
-        .proj-7 { width: 48%; margin-left: auto; margin-right: 5%; margin-top: -50vh; z-index: 40; } 
-        /* 项目8：底部全宽，压住项目7 */
-        .proj-8 { width: 88%; margin: -22vh auto 0 4%; z-index: 32; } 
-        /* 项目9：左下方，咬住项目8左下 */
-        .proj-9 { width: 52%; margin-top: -28vh; margin-left: 0; z-index: 45; } 
-        /* 项目10：收尾，咬住项目8右下和项目9右上 */
-        .proj-10 { width: 58%; margin-top: -35vh; margin-left: 25%; z-index: 50; }
-        /* 项目2：右上，咬住proj-1右下角 */
-        .proj-2 { 
-            width: 38%; 
-            margin-left: auto; 
-            margin-top: -40vh; 
-            z-index: 20; 
-        } 
-        /* 项目3：全宽，压住proj-1和proj-2底部 */
-        .proj-3 { 
-            width: 90%; 
-            margin: -20vh auto 0 auto; 
-            z-index: 15; 
-        } 
-        /* 项目4：左下方，咬住proj-3左下 */
-        .proj-4 { 
-            width: 48%; 
-            margin-top: -25vh; 
-            margin-left: 2%; 
-            z-index: 25; 
-        } 
-        /* 项目5：右下方，咬住proj-3右下和proj-4右上 */
-        .proj-5 { 
-            width: 35%; 
-            margin-left: auto; 
-            margin-right: 3%; 
-            margin-top: -35vh; 
-            z-index: 30; 
-        } 
-        /* 项目6：底部，咬住proj-4和proj-5 */
-        .proj-6 { 
-            width: 70%; 
-            margin-top: -30vh; 
-            margin-left: 10%; 
-            z-index: 35; 
+        /* --- 4. 作品墙：克制的错落叠加 --- */
+        .works { padding: 3rem 6rem 20rem 6rem; position: relative; }
+        .works::before {
+            content: 'Selected Works';
+            display: block;
+            margin-bottom: 5rem;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.4px;
+            color: var(--accent-red);
+            text-transform: uppercase;
         }
+        .works a { display: block; position: relative; color: inherit; text-decoration: none; }
+        .project-card { position: relative; transition: z-index 0.3s; }
+
+        .proj-1 { width: 58%; margin-left: 0; z-index: 10; }
+        .proj-2 { width: 34%; margin-left: auto; margin-right: 4%; margin-top: -24vh; z-index: 22; }
+        .proj-3 { width: 76%; margin: -8vh auto 0 12%; z-index: 16; }
+        .proj-4 { width: 42%; margin-top: -12vh; margin-left: 4%; z-index: 26; }
+        .proj-5 { width: 34%; margin-left: auto; margin-right: 10%; margin-top: -28vh; z-index: 32; }
+        .proj-6 { width: 62%; margin-top: -10vh; margin-left: 20%; z-index: 28; }
+        .proj-7 { width: 30%; margin-left: 2%; margin-top: -18vh; z-index: 40; }
+        .proj-8 { width: 66%; margin-left: auto; margin-right: 0; margin-top: -20vh; z-index: 34; }
+        .proj-9 { width: 46%; margin-top: -10vh; margin-left: 8%; z-index: 42; }
+        .proj-10 { width: 52%; margin-left: auto; margin-right: 16%; margin-top: -20vh; z-index: 46; }
 
         .img-wrapper { 
             width: 100%; overflow: hidden; background: var(--img-bg); 
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease, border-color 0.5s;
             position: relative;
         }
+        [data-theme="dark"] .img-wrapper { border-color: rgba(255,255,255,0.06); }
         .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s; }
         
         .project-card:hover { z-index: 100; }
-        .project-card:hover .img-wrapper { transform: translateY(-10px) scale(1.04); box-shadow: 0 30px 60px var(--card-shadow); }
-        .project-card:hover img { filter: var(--img-hover-brightness); transform: scale(1.08); }
+        .project-card:hover .img-wrapper { transform: translateY(-8px) scale(1.025); box-shadow: 0 26px 60px var(--card-shadow); }
+        .project-card:hover img { filter: var(--img-hover-brightness); transform: scale(1.06); }
 
         .proj-info { 
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
             text-align: center; opacity: 0; transition: 0.5s; pointer-events: none;
         }
         .project-card:hover .proj-info { opacity: 1; }
-        .proj-title { font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -1px; }
-        .proj-tag { font-size: 11px; color: var(--accent-red); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+        .proj-title { font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 700; color: #fff; letter-spacing: -1px; }
+        .proj-tag { margin-top: 0.5rem; font-size: 11px; color: var(--accent-red); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
 
         /* --- 5. 底部 --- */
         .footer {
@@ -210,9 +183,13 @@
         @media (max-width: 768px) {
             nav { padding: 1.5rem 2rem; }
             .nav-links { gap: 1.5rem; }
+            .hero { min-height: 80vh; padding: 8rem 2rem 4rem 2rem; grid-template-columns: 1fr; }
             .works { padding: 0 2rem 10rem 2rem; }
-            .proj-1, .proj-3, .proj-4, .proj-6 { width: 90%; }
-            .proj-2, .proj-5 { width: 70%; }
+            .works::before { margin-bottom: 3rem; }
+            .proj-1, .proj-2, .proj-3, .proj-4, .proj-5, .proj-6, .proj-7, .proj-8, .proj-9, .proj-10 {
+                width: 100%;
+                margin: 0 0 3rem 0;
+            }
         }
     </style>
 </head>
@@ -286,7 +263,7 @@
             </div>
         </div>
         </a>
-        <a href="#" style="text-decoration:none; color:inherit;">
+        <a href="projects.html" style="text-decoration:none; color:inherit;">
         <div class="project-card proj-7">
             <div class="img-wrapper">
                 <img src="https://images.unsplash.com/photo-1558619664-4c5c39d733?q=80&w=800" style="aspect-ratio:4/5;">
@@ -294,7 +271,7 @@
             </div>
         </div>
         </a>
-        <a href="#" style="text-decoration:none; color:inherit;">
+        <a href="projects.html" style="text-decoration:none; color:inherit;">
         <div class="project-card proj-8">
             <div class="img-wrapper">
                 <img src="https://images.unsplash.com/photo-1513363120534-33046c0daea?q=80&w=1600" style="aspect-ratio:21/9;">
@@ -302,7 +279,7 @@
             </div>
         </div>
         </a>
-        <a href="#" style="text-decoration:none; color:inherit;">
+        <a href="projects.html" style="text-decoration:none; color:inherit;">
         <div class="project-card proj-9">
             <div class="img-wrapper">
                 <img src="https://images.unsplash.com/photo-1513478719562-938637d6a8c?q=80&w=1600" style="aspect-ratio:16/9;">
@@ -310,7 +287,7 @@
             </div>
         </div>
         </a>
-        <a href="#" style="text-decoration:none; color:inherit;">
+        <a href="projects.html" style="text-decoration:none; color:inherit;">
         <div class="project-card proj-10">
             <div class="img-wrapper">
                 <img src="https://images.unsplash.com/photo-1558619664-4c5c39d733?q=80&w=1200" style="aspect-ratio:16/10;">
