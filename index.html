@@ -3,25 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Braelyn. | Designer's Statement</title>
+    <title>Braelyn. | The Perfect Stack</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
+        /* --- 设计系统：白天模式 (默认) --- */
         :root, [data-theme="light"] {
             --bg-color: #F7F7F5; 
             --text-color: #111; 
             --accent-red: #E2211C; 
             --nav-bg: rgba(247, 247, 245, 0.95);
             --nav-border: rgba(0,0,0,0.03);
+            --nav-shadow: rgba(0,0,0,0.08);
+            --hero-sub: #888;
+            --img-bg: transparent;
+            --img-hover-brightness: brightness(0.5);
+            --card-shadow: rgba(0,0,0,0.12);
+            --footer-border: rgba(0,0,0,0.06);
             --font-main: 'Montserrat', sans-serif;
         }
 
+        /* --- 设计系统：夜间模式 (五彩斑斓的黑) --- */
         [data-theme="dark"] {
             --bg-color: #0A0A0A; 
             --text-color: #C8C8C8; 
             --accent-red: #6B1515; 
             --nav-bg: rgba(8, 8, 8, 0.95);
-            --nav-border: rgba(255, 255, 255, 0.08);
+            --nav-border: rgba(255,255,255,0.08);
+            --nav-shadow: rgba(255,255,255,0.1);
+            --hero-sub: #666;
+            --img-bg: #1A1A1A;
+            --img-hover-brightness: brightness(0.5);
+            --card-shadow: rgba(0,0,0,0.6);
+            --footer-border: rgba(255,255,255,0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
@@ -33,7 +47,7 @@
             transition: background-color 0.5s, color 0.5s;
         }
 
-        /* --- 磁吸准星指针 --- */
+        /* --- 1. V12 磁吸准星指针 --- */
         #cursor {
             position: fixed; top: 0; left: 0; width: 6px; height: 6px;
             background: var(--accent-red); border-radius: 20px;
@@ -50,12 +64,13 @@
         #cursor.active::after { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
         #cursor.active::before { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
-        /* --- 导航栏 --- */
+        /* --- 2. 导航栏 --- */
         nav {
             position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem;
             display: flex; justify-content: space-between; align-items: center; z-index: 1000;
             background-color: var(--nav-bg);
             border-bottom: 1px solid var(--nav-border);
+            transition: background-color 0.5s, border-color 0.5s;
         }
         .logo { font-size: 26px; font-weight: 800; display: flex; align-items: baseline; letter-spacing: -1px; }
         .logo span { width: 7px; height: 7px; background: var(--accent-red); border-radius: 50%; margin-left: 3px; }
@@ -69,7 +84,16 @@
             transition: color 0.3s;
         }
         .nav-links a:hover { color: var(--accent-red); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -18px; left: 10%; width: 80%; height: 2px;
+            border-radius: 50%; filter: blur(3px);
+            opacity: 0; transition: opacity 0.4s;
+            background: rgba(0,0,0,0.08);
+        }
+        [data-theme="dark"] .nav-links a::after { background: rgba(255,255,255,0.2); }
+        .nav-links a:hover::after { opacity: 0.5; }
 
+        /* 主题切换按钮 */
         .theme-toggle {
             background: none; border: none; color: inherit;
             padding: 8px; cursor: none;
@@ -80,132 +104,82 @@
         .theme-toggle svg { transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
         .theme-toggle:hover svg { transform: rotate(30deg); }
 
-        /* --- 实验性布局 --- */
-        .hero-section {
-            height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            padding: 0 6rem;
+        /* --- 3. 首屏 --- */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+        }
+        .hero-title { font-weight: 600; font-size: clamp(2.2rem, 5vw, 6rem); line-height: 1.1; text-transform: uppercase; }
+        .hero-sub { margin-top: 1.5rem; font-weight: 400; font-size: 12px; letter-spacing: 3px; color: var(--hero-sub); text-transform: uppercase; }
+
+        /* --- 4. 错落叠加排版 (优化版) --- */
+        .works { padding: 0 6rem 20rem 6rem; position: relative; }
+        .project-card { position: relative; transition: z-index 0.3s; }
+        
+        /* 项目1：左上，大图 */
+        .proj-1 { 
+            width: 60%; 
+            margin-left: 0; 
+            margin-top: 5rem;
+            z-index: 10; 
+        }
+        /* 项目2：右上，小图，压住项目1右下 */
+        .proj-2 { 
+            width: 35%; 
+            margin-left: auto; 
+            margin-top: -50vh; 
+            z-index: 20; 
+        } 
+        /* 项目3：全宽，压住项目2底部 */
+        .proj-3 { 
+            width: 85%; 
+            margin: -25vh auto 0 5%; 
+            z-index: 15; 
+        } 
+        /* 项目4：左中，中等，咬住项目3左下 */
+        .proj-4 { 
+            width: 50%; 
+            margin-top: -30vh; 
+            margin-left: 0; 
+            z-index: 25; 
+        } 
+        /* 项目5：右中，纵向，咬住项目4右上 */
+        .proj-5 { 
+            width: 30%; 
+            margin-left: auto; 
+            margin-right: 8%; 
+            margin-top: -45vh; 
+            z-index: 30; 
+        } 
+        /* 项目6：底部，大图，收尾 */
+        .proj-6 { 
+            width: 65%; 
+            margin-top: -35vh; 
+            margin-left: 15%; 
+            z-index: 35; 
+        }
+
+        .img-wrapper { 
+            width: 100%; overflow: hidden; background: var(--img-bg); 
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease;
             position: relative;
         }
-        .hero-text {
-            z-index: 2;
-        }
-        .hero-title { 
-            font-weight: 800; 
-            font-size: clamp(3rem, 8vw, 10rem); 
-            line-height: 0.9; 
-            text-transform: uppercase; 
-            letter-spacing: -4px;
-            margin-bottom: 2rem;
-        }
-        .hero-sub { 
-            font-size: 12px; 
-            letter-spacing: 3px; 
-            text-transform: uppercase;
-            color: var(--accent-red);
-        }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s; }
+        
+        .project-card:hover { z-index: 100; }
+        .project-card:hover .img-wrapper { transform: translateY(-10px) scale(1.04); box-shadow: 0 30px 60px var(--card-shadow); }
+        .project-card:hover img { filter: var(--img-hover-brightness); transform: scale(1.08); }
 
-        /* 视觉元素 */
-        .hero-visual {
-            position: relative;
-            height: 100%;
-            z-index: 1;
+        .proj-info { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            text-align: center; opacity: 0; transition: 0.5s; pointer-events: none;
         }
-        .floating-block {
-            position: absolute;
-            background: var(--accent-red);
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .block-1 {
-            width: 60%;
-            height: 40%;
-            top: 20%;
-            right: -10%;
-            transform: rotate(-5deg);
-        }
-        .block-2 {
-            width: 40%;
-            height: 30%;
-            bottom: 15%;
-            left: -5%;
-            transform: rotate(3deg);
-        }
+        .project-card:hover .proj-info { opacity: 1; }
+        .proj-title { font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -1px; }
+        .proj-tag { font-size: 11px; color: var(--accent-red); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
 
-        /* --- 海报感项目展示 --- */
-        .poster-section {
-            padding: 10rem 6rem;
-            position: relative;
-        }
-        .poster-item {
-            margin-bottom: 12rem;
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .poster-item:nth-child(even) {
-            direction: rtl;
-        }
-        .poster-item:nth-child(even) > * {
-            direction: ltr;
-        }
-
-        .poster-img {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-        .poster-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .poster-item:hover .poster-img img {
-            transform: scale(1.05);
-        }
-
-        .poster-text {
-            padding: 2rem;
-        }
-        .poster-number {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-red);
-            margin-bottom: 1rem;
-        }
-        .poster-name {
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-        .poster-tag {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-color);
-            opacity: 0.6;
-        }
-
-        /* 重叠效果 */
-        .poster-item:nth-child(1) .poster-img { transform: rotate(-2deg); }
-        .poster-item:nth-child(2) .poster-img { transform: rotate(1.5deg); margin-top: -5rem; }
-        .poster-item:nth-child(3) .poster-img { transform: rotate(-1deg); margin-left: 10%; }
-        .poster-item:nth-child(4) .poster-img { transform: rotate(2deg); margin-top: -8rem; }
-        .poster-item:nth-child(5) .poster-img { transform: rotate(-1.5deg); margin-left: -5%; }
-        .poster-item:nth-child(6) .poster-img { transform: rotate(1deg); margin-top: -3rem; }
-
-        /* --- 底部 --- */
+        /* --- 5. 底部 --- */
         .footer {
-            padding: 12rem 4rem; border-top: 1px solid var(--nav-border);
+            padding: 12rem 4rem; border-top: 1px solid var(--footer-border);
             display: flex; justify-content: center; align-items: center;
         }
         .footer-title {
@@ -223,16 +197,9 @@
         @media (max-width: 768px) {
             nav { padding: 1.5rem 2rem; }
             .nav-links { gap: 1.5rem; }
-            .hero-section { grid-template-columns: 1fr; padding: 8rem 2rem 0 2rem; }
-            .hero-visual { display: none; }
-            .poster-section { padding: 5rem 2rem; }
-            .poster-item { 
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                margin-bottom: 8rem;
-            }
-            .poster-item:nth-child(even) { direction: ltr; }
-            .poster-text { padding: 1rem 0; }
+            .works { padding: 0 2rem 10rem 2rem; }
+            .proj-1, .proj-3, .proj-4, .proj-6 { width: 90%; }
+            .proj-2, .proj-5 { width: 70%; }
         }
     </style>
 </head>
@@ -252,92 +219,57 @@
         </div>
     </nav>
 
-    <section class="hero-section">
-        <div class="hero-text">
-            <h1 class="hero-title">Design<br>is a<br>weapon</h1>
-            <p class="hero-sub">Braelyn — Creative Director & Designer's Statement</p>
-        </div>
-        <div class="hero-visual">
-            <div class="floating-block block-1"></div>
-            <div class="floating-block block-2"></div>
-        </div>
+    <section class="hero">
+        <h1 class="hero-title">DESIGN IS KNOWING<br>WHICH ONES TO KEEP</h1>
+        <p class="hero-sub">A problem well stated is a problem half solved</p>
     </section>
 
-    <section class="poster-section">
+    <section class="works">
         <a href="lumina.html" style="text-decoration:none; color:inherit;">
-        <div class="poster-item">
-            <div class="poster-img">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600" style="aspect-ratio:4/3;">
-            </div>
-            <div class="poster-text">
-                <div class="poster-number">Project 01</div>
-                <h3 class="poster-name">Lumina</h3>
-                <div class="poster-tag">Product Design · 2026</div>
+        <div class="project-card proj-1">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600" style="aspect-ratio:16/10;">
+                <div class="proj-info"><div class="proj-title">Lumina</div><div class="proj-tag">Product Design</div></div>
             </div>
         </div>
         </a>
-
         <a href="vogue.html" style="text-decoration:none; color:inherit;">
-        <div class="poster-item">
-            <div class="poster-img">
-                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800" style="aspect-ratio:3/4;">
-            </div>
-            <div class="poster-text">
-                <div class="poster-number">Project 02</div>
-                <h3 class="poster-name">Vogue</h3>
-                <div class="poster-tag">Editorial · 2025</div>
+        <div class="project-card proj-2">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800" style="aspect-ratio:4/6;">
+                <div class="proj-info"><div class="proj-title">Vogue</div><div class="proj-tag">Editorial</div></div>
             </div>
         </div>
         </a>
-
         <a href="objekt.html" style="text-decoration:none; color:inherit;">
-        <div class="poster-item">
-            <div class="poster-img">
-                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1600" style="aspect-ratio:16/9;">
-            </div>
-            <div class="poster-text">
-                <div class="poster-number">Project 03</div>
-                <h3 class="poster-name">Objekt</h3>
-                <div class="poster-tag">Art Direction · 2025</div>
+        <div class="project-card proj-3">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1600" style="aspect-ratio:21/9;">
+                <div class="proj-info"><div class="proj-title">Objekt</div><div class="proj-tag">Art Direction</div></div>
             </div>
         </div>
         </a>
-
         <a href="identity.html" style="text-decoration:none; color:inherit;">
-        <div class="poster-item">
-            <div class="poster-img">
-                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1600" style="aspect-ratio:4/3;">
-            </div>
-            <div class="poster-text">
-                <div class="poster-number">Project 04</div>
-                <h3 class="poster-name">Identity</h3>
-                <div class="poster-tag">Branding · 2024</div>
+        <div class="project-card proj-4">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1600" style="aspect-ratio:16/9;">
+                <div class="proj-info"><div class="proj-title">Identity</div><div class="proj-tag">Branding</div></div>
             </div>
         </div>
         </a>
-
         <a href="system.html" style="text-decoration:none; color:inherit;">
-        <div class="poster-item">
-            <div class="poster-img">
-                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1600" style="aspect-ratio:16/9;">
-            </div>
-            <div class="poster-text">
-                <div class="poster-number">Project 05</div>
-                <h3 class="poster-name">System</h3>
-                <div class="poster-tag">UX/UI Design · 2024</div>
+        <div class="project-card proj-5">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800" style="aspect-ratio:4/5;">
+                <div class="proj-info"><div class="proj-title">System</div><div class="proj-tag">UX/UI Design</div></div>
             </div>
         </div>
         </a>
-
         <a href="future-studio.html" style="text-decoration:none; color:inherit;">
-        <div class="poster-item">
-            <div class="poster-img">
-                <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200" style="aspect-ratio:3/4;">
-            </div>
-            <div class="poster-text">
-                <div class="poster-number">Project 06</div>
-                <h3 class="poster-name">Future Studio</h3>
-                <div class="poster-tag">Concept · 2023</div>
+        <div class="project-card proj-6">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200" style="aspect-ratio:16/10;">
+                <div class="proj-info"><div class="proj-title">Future Studio</div><div class="proj-tag">Concept</div></div>
             </div>
         </div>
         </a>
@@ -366,7 +298,7 @@
             cursor.style.top = e.clientY + 'px';
         });
 
-        const interactive = document.querySelectorAll('a, .theme-toggle');
+        const interactive = document.querySelectorAll('.img-wrapper, a, .footer-title, .theme-toggle');
         interactive.forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
