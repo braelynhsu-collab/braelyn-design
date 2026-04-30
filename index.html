@@ -117,7 +117,7 @@
         .hero-title { font-weight: 650; font-size: clamp(2.6rem, 5.8vw, 7rem); line-height: 1.04; letter-spacing: -0.045em; text-transform: uppercase; }
         .hero-sub { margin-top: 1.6rem; font-weight: 400; font-size: 12px; letter-spacing: 3px; color: var(--hero-sub); text-transform: uppercase; }
 
-        /* --- 4. 项目展示：非对称编辑构图 --- */
+        /* --- 4. 项目展示：高级编辑式网格 --- */
         .works { padding: 1rem 6rem 14rem 6rem; position: relative; }
         .works::before {
             content: 'Selected Works';
@@ -129,58 +129,47 @@
             color: var(--accent-red);
             text-transform: uppercase;
         }
-        .works a { display: block; position: absolute; color: inherit; text-decoration: none; }
-        .works-composition {
-            position: relative;
-            min-height: 82vh;
-            max-width: 1400px;
+        .works-grid {
+            max-width: 1440px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            column-gap: 32px;
+            row-gap: 96px;
         }
-        .project-card { position: relative; transition: z-index 0.3s; }
-
-        .works-composition > .proj-1 { width: 60%; left: 3%; top: 4%; z-index: 20; }
-        .works-composition > .proj-2 { width: 32%; right: 5%; top: 10%; z-index: 24; }
-        .works-composition > .proj-3 { width: 24%; right: 26%; bottom: 9%; z-index: 32; }
-
-        .proj-1 .img-wrapper { transform: rotate(-0.35deg); }
-        .proj-2 .img-wrapper { transform: rotate(0.55deg); }
-        .proj-3 .img-wrapper { transform: rotate(-0.8deg); }
+        .project-card { position: relative; color: inherit; text-decoration: none; }
+        .project-feature { grid-column: 1 / -1; }
+        .project-half-left { grid-column: 1 / 7; }
+        .project-half-right { grid-column: 7 / -1; margin-top: 5rem; }
+        .project-tall { grid-column: 2 / 8; }
+        .project-note {
+            grid-column: 9 / -1;
+            align-self: end;
+            padding-bottom: 2rem;
+        }
 
         .img-wrapper { 
             width: 100%; overflow: hidden; background: var(--img-bg); 
             border: 1px solid rgba(0,0,0,0.04);
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease, border-color 0.5s;
+            transition: border-color 0.5s;
             position: relative;
         }
         [data-theme="dark"] .img-wrapper { border-color: rgba(255,255,255,0.06); }
-        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s; }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s; }
+        .project-card:hover img { filter: brightness(0.82); transform: scale(1.035); }
 
-        .project-card::after {
-            content: '';
-            position: absolute;
-            inset: auto -1rem -1rem auto;
-            width: 28%;
-            height: 28%;
-            border-right: 1px solid rgba(0,0,0,0.08);
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
+        .proj-info {
+            margin-top: 1.4rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            align-items: flex-start;
         }
-        [data-theme="dark"] .project-card::after { border-color: rgba(255,255,255,0.1); }
-        
-        .project-card:hover { z-index: 100; }
-        .project-card:hover .img-wrapper { transform: translateY(-8px) rotate(0deg) scale(1.025); box-shadow: 0 26px 60px var(--card-shadow); }
-        .project-card:hover img { filter: var(--img-hover-brightness); transform: scale(1.06); }
-        .project-card:hover::after { opacity: 1; }
-
-        .proj-info { 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            text-align: center; opacity: 0; transition: 0.5s; pointer-events: none;
-        }
-        .project-card:hover .proj-info { opacity: 1; }
-        .proj-title { font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 700; color: #fff; letter-spacing: -1px; }
-        .proj-tag { margin-top: 0.5rem; font-size: 11px; color: var(--accent-red); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+        .proj-title { font-size: clamp(1.3rem, 2.2vw, 2rem); font-weight: 700; color: var(--text-color); letter-spacing: -1px; text-transform: uppercase; }
+        .proj-tag { margin-top: 0.4rem; font-size: 11px; color: var(--accent-red); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+        .project-year { font-size: 11px; color: var(--hero-sub); text-transform: uppercase; letter-spacing: 1.5px; white-space: nowrap; }
+        .project-note-title { font-size: clamp(2rem, 4vw, 4.5rem); line-height: 0.95; letter-spacing: -0.06em; text-transform: uppercase; }
+        .project-note-text { margin-top: 2rem; max-width: 24rem; font-size: 12px; line-height: 1.8; letter-spacing: 1.5px; color: var(--hero-sub); text-transform: uppercase; }
 
         /* --- 5. 底部 --- */
         .footer {
@@ -205,17 +194,9 @@
             .hero { height: 86vh; padding: 0 2rem; }
             .works { padding: 0 2rem 10rem 2rem; }
             .works::before { margin-bottom: 3rem; }
-            .works-composition { min-height: auto; }
-            .works a { position: relative; }
-            .works-composition > .proj-1, .works-composition > .proj-2, .works-composition > .proj-3 {
-                width: 100%;
-                left: auto;
-                right: auto;
-                top: auto;
-                bottom: auto;
-                margin: 0 0 3rem 0;
-            }
-            .proj-1 .img-wrapper, .proj-2 .img-wrapper, .proj-3 .img-wrapper { transform: none; }
+            .works-grid { display: block; }
+            .project-card, .project-note { display: block; margin-bottom: 4rem; }
+            .project-half-right { margin-top: 0; }
         }
     </style>
 </head>
@@ -241,31 +222,51 @@
     </section>
 
     <section class="works">
-        <div class="works-composition">
-        <a href="lumina.html" class="proj-1" style="text-decoration:none; color:inherit;">
-        <div class="project-card proj-1">
+        <div class="works-grid">
+        <a href="lumina.html" class="project-card project-feature">
             <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600" style="aspect-ratio:4/5;">
-                <div class="proj-info"><div class="proj-title">Lumina</div><div class="proj-tag">Product Design</div></div>
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1800" style="aspect-ratio:21/9;">
             </div>
-        </div>
+            <div class="proj-info">
+                <div><div class="proj-title">Lumina</div><div class="proj-tag">Product Design</div></div>
+                <div class="project-year">2026</div>
+            </div>
         </a>
-        <a href="vogue.html" class="proj-2" style="text-decoration:none; color:inherit;">
-        <div class="project-card proj-2">
+
+        <a href="vogue.html" class="project-card project-half-left">
             <div class="img-wrapper">
                 <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800" style="aspect-ratio:4/6;">
-                <div class="proj-info"><div class="proj-title">Vogue</div><div class="proj-tag">Editorial</div></div>
             </div>
-        </div>
+            <div class="proj-info">
+                <div><div class="proj-title">Vogue</div><div class="proj-tag">Editorial</div></div>
+                <div class="project-year">2025</div>
+            </div>
         </a>
-        <a href="objekt.html" class="proj-3" style="text-decoration:none; color:inherit;">
-        <div class="project-card proj-3">
+
+        <a href="objekt.html" class="project-card project-half-right">
             <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1600" style="aspect-ratio:16/10;">
-                <div class="proj-info"><div class="proj-title">Objekt</div><div class="proj-tag">Art Direction</div></div>
+                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1200" style="aspect-ratio:4/3;">
             </div>
-        </div>
+            <div class="proj-info">
+                <div><div class="proj-title">Objekt</div><div class="proj-tag">Art Direction</div></div>
+                <div class="project-year">2025</div>
+            </div>
         </a>
+
+        <a href="identity.html" class="project-card project-tall">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1200" style="aspect-ratio:4/5;">
+            </div>
+            <div class="proj-info">
+                <div><div class="proj-title">Identity</div><div class="proj-tag">Branding</div></div>
+                <div class="project-year">2024</div>
+            </div>
+        </a>
+
+        <div class="project-note">
+            <h2 class="project-note-title">Work<br>with<br>intention</h2>
+            <p class="project-note-text">A selected set of visual systems, editorial studies, and digital products shaped through restraint and clarity.</p>
+        </div>
         </div>
     </section>
 
