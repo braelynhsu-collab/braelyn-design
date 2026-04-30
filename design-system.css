@@ -1,0 +1,186 @@
+/* Shared editorial design system */
+:root,
+[data-theme="light"] {
+    --bg-color: #f7f7f5;
+    --text-color: #111111;
+    --muted-color: #7a7a74;
+    --accent-red: #8a1c1c;
+    --nav-bg: rgba(247, 247, 245, 0.94);
+    --nav-border: rgba(0, 0, 0, 0.06);
+    --footer-border: rgba(0, 0, 0, 0.06);
+    --img-bg: #ececea;
+    --img-hover-brightness: brightness(0.86);
+    --card-shadow: none;
+    --font-main: 'Montserrat', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    --space-xl: 120px;
+    --space-lg: 64px;
+    --space-md: 32px;
+    --grid-max: 1440px;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0d0d0c;
+    --text-color: #e5e2dc;
+    --muted-color: #8a8780;
+    --accent-red: #9a4a42;
+    --nav-bg: rgba(13, 13, 12, 0.94);
+    --nav-border: rgba(255, 255, 255, 0.08);
+    --footer-border: rgba(255, 255, 255, 0.08);
+    --img-bg: #171716;
+    --img-hover-brightness: brightness(0.78);
+    --card-shadow: none;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+nav {
+    padding: 32px 64px !important;
+    background: var(--nav-bg) !important;
+    border-bottom: 1px solid var(--nav-border) !important;
+    backdrop-filter: blur(12px);
+}
+
+.nav-links a {
+    padding: 16px 0 !important;
+    color: inherit !important;
+    transition: color 0.3s ease, opacity 0.3s ease !important;
+}
+
+.nav-links a:hover {
+    color: var(--accent-red) !important;
+}
+
+.nav-links a::after {
+    background: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="dark"] .nav-links a::after {
+    background: rgba(255, 255, 255, 0.14) !important;
+}
+
+.theme-toggle {
+    border: 0 !important;
+    background: transparent !important;
+}
+
+.hero,
+.page-header,
+.contact-hero {
+    padding-left: 64px !important;
+    padding-right: 64px !important;
+}
+
+.page-header,
+.contact-hero {
+    max-width: var(--grid-max) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.hero-title,
+.page-title,
+.project-title {
+    font-weight: 800 !important;
+    font-size: clamp(48px, 7vw, 112px) !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.06em !important;
+    text-transform: none !important;
+}
+
+.hero-sub,
+.page-sub,
+.project-desc {
+    color: var(--muted-color) !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    letter-spacing: 2.6px !important;
+    line-height: 1.8 !important;
+    text-transform: uppercase !important;
+}
+
+.section-label,
+.project-tag,
+.proj-tag,
+.contact-label,
+.step-number {
+    color: var(--accent-red) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+}
+
+.content-section,
+.projects-list,
+.contact-section,
+.context,
+.insight-strategy,
+.closing {
+    max-width: var(--grid-max) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 64px !important;
+    padding-right: 64px !important;
+}
+
+.img-wrapper,
+.project-img-wrapper,
+.hero-image,
+.full-image {
+    background: var(--img-bg) !important;
+    border: 1px solid var(--nav-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.img-wrapper img,
+.project-img-wrapper img,
+.hero-image img,
+.full-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-card:hover .img-wrapper,
+.project-item:hover .project-img-wrapper {
+    box-shadow: none !important;
+}
+
+.project-card:hover img,
+.project-item:hover img,
+.full-image:hover img,
+.hero-image:hover img {
+    filter: var(--img-hover-brightness) !important;
+    transform: scale(1.025) !important;
+}
+
+.footer {
+    border-top: 1px solid var(--footer-border) !important;
+}
+
+@media (max-width: 768px) {
+    nav,
+    .hero,
+    .page-header,
+    .contact-hero,
+    .content-section,
+    .projects-list,
+    .contact-section,
+    .context,
+    .insight-strategy,
+    .closing {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+
+    .hero-title,
+    .page-title,
+    .project-title {
+        font-size: clamp(40px, 13vw, 64px) !important;
+    }
+}
