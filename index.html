@@ -111,50 +111,63 @@
         .hero-title { font-weight: 600; font-size: clamp(2.2rem, 5vw, 6rem); line-height: 1.1; text-transform: uppercase; }
         .hero-sub { margin-top: 1.5rem; font-weight: 400; font-size: 12px; letter-spacing: 3px; color: var(--hero-sub); text-transform: uppercase; }
 
-        /* --- 4. 错落叠加排版 (优化版) --- */
-        .works { padding: 0 6rem 20rem 6rem; position: relative; }
+        /* --- 4. 错落叠加排版 (密集瀑布流) --- */
+        .works { padding: 5rem 6rem 25rem 6rem; position: relative; }
         .project-card { position: relative; transition: z-index 0.3s; }
         
-        /* 项目1：左上，大图 */
-        .proj-1 { 
-            width: 60%; 
-            margin-left: 0; 
-            margin-top: 5rem;
-            z-index: 10; 
-        }
-        /* 项目2：右上，小图，压住项目1右下 */
+        /* 项目1：左上大图 */
+        .proj-1 { width: 58%; margin-left: 0; z-index: 10; }
+        /* 项目2：右上，咬住项目1右下 */
+        .proj-2 { width: 42%; margin-left: auto; margin-top: -50vh; z-index: 20; } 
+        /* 项目3：全宽，压住项目2 */
+        .proj-3 { width: 95%; margin: -15vh auto 0 2%; z-index: 15; } 
+        /* 项目4：左中，咬住项目3左下 */
+        .proj-4 { width: 50%; margin-top: -20vh; margin-left: 0; z-index: 25; } 
+        /* 项目5：右中，咬住项目4右上 */
+        .proj-5 { width: 40%; margin-left: auto; margin-right: 5%; margin-top: -45vh; z-index: 30; } 
+        /* 项目6：底部大图 */
+        .proj-6 { width: 70%; margin-top: -30vh; margin-left: 10%; z-index: 35; } 
+        /* 项目7：右下方，咬住项目6右下 */
+        .proj-7 { width: 48%; margin-left: auto; margin-right: 5%; margin-top: -50vh; z-index: 40; } 
+        /* 项目8：底部全宽，压住项目7 */
+        .proj-8 { width: 88%; margin: -22vh auto 0 4%; z-index: 32; } 
+        /* 项目9：左下方，咬住项目8左下 */
+        .proj-9 { width: 52%; margin-top: -28vh; margin-left: 0; z-index: 45; } 
+        /* 项目10：收尾，咬住项目8右下和项目9右上 */
+        .proj-10 { width: 58%; margin-top: -35vh; margin-left: 25%; z-index: 50; }
+        /* 项目2：右上，咬住proj-1右下角 */
         .proj-2 { 
-            width: 35%; 
+            width: 38%; 
             margin-left: auto; 
-            margin-top: -50vh; 
+            margin-top: -40vh; 
             z-index: 20; 
         } 
-        /* 项目3：全宽，压住项目2底部 */
+        /* 项目3：全宽，压住proj-1和proj-2底部 */
         .proj-3 { 
-            width: 85%; 
-            margin: -25vh auto 0 5%; 
+            width: 90%; 
+            margin: -20vh auto 0 auto; 
             z-index: 15; 
         } 
-        /* 项目4：左中，中等，咬住项目3左下 */
+        /* 项目4：左下方，咬住proj-3左下 */
         .proj-4 { 
-            width: 50%; 
-            margin-top: -30vh; 
-            margin-left: 0; 
+            width: 48%; 
+            margin-top: -25vh; 
+            margin-left: 2%; 
             z-index: 25; 
         } 
-        /* 项目5：右中，纵向，咬住项目4右上 */
+        /* 项目5：右下方，咬住proj-3右下和proj-4右上 */
         .proj-5 { 
-            width: 30%; 
+            width: 35%; 
             margin-left: auto; 
-            margin-right: 8%; 
-            margin-top: -45vh; 
+            margin-right: 3%; 
+            margin-top: -35vh; 
             z-index: 30; 
         } 
-        /* 项目6：底部，大图，收尾 */
+        /* 项目6：底部，咬住proj-4和proj-5 */
         .proj-6 { 
-            width: 65%; 
-            margin-top: -35vh; 
-            margin-left: 15%; 
+            width: 70%; 
+            margin-top: -30vh; 
+            margin-left: 10%; 
             z-index: 35; 
         }
 
@@ -270,6 +283,38 @@
             <div class="img-wrapper">
                 <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200" style="aspect-ratio:16/10;">
                 <div class="proj-info"><div class="proj-title">Future Studio</div><div class="proj-tag">Concept</div></div>
+            </div>
+        </div>
+        </a>
+        <a href="#" style="text-decoration:none; color:inherit;">
+        <div class="project-card proj-7">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1558619664-4c5c39d733?q=80&w=800" style="aspect-ratio:4/5;">
+                <div class="proj-info"><div class="proj-title">Nova</div><div class="proj-tag">Branding</div></div>
+            </div>
+        </div>
+        </a>
+        <a href="#" style="text-decoration:none; color:inherit;">
+        <div class="project-card proj-8">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1513363120534-33046c0daea?q=80&w=1600" style="aspect-ratio:21/9;">
+                <div class="proj-info"><div class="proj-title">Horizon</div><div class="proj-tag">Digital Product</div></div>
+            </div>
+        </div>
+        </a>
+        <a href="#" style="text-decoration:none; color:inherit;">
+        <div class="project-card proj-9">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1513478719562-938637d6a8c?q=80&w=1600" style="aspect-ratio:16/9;">
+                <div class="proj-info"><div class="proj-title">Minima</div><div class="proj-tag">Art Direction</div></div>
+            </div>
+        </div>
+        </a>
+        <a href="#" style="text-decoration:none; color:inherit;">
+        <div class="project-card proj-10">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1558619664-4c5c39d733?q=80&w=1200" style="aspect-ratio:16/10;">
+                <div class="proj-info"><div class="proj-title">Echo</div><div class="proj-tag">UX/UI Design</div></div>
             </div>
         </div>
         </a>
