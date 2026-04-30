@@ -46,6 +46,8 @@ nav {
 .nav-links a {
     padding: 16px 0 !important;
     color: inherit !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
     transition: color 0.3s ease, opacity 0.3s ease !important;
 }
 
@@ -87,6 +89,97 @@ nav {
     font-size: clamp(48px, 7vw, 112px) !important;
     line-height: 0.98 !important;
     letter-spacing: -0.06em !important;
+    text-transform: none !important;
+}
+
+.hero-title-en,
+.title-en {
+    display: block;
+    font-weight: 800;
+    font-size: clamp(48px, 7vw, 112px);
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+}
+
+.hero-title-cn,
+.title-cn {
+    display: block;
+    margin-top: 24px;
+    font-weight: 400;
+    font-size: clamp(18px, 2.1vw, 30px);
+    line-height: 1.45;
+    letter-spacing: 0.04em;
+    color: var(--muted-color);
+}
+
+.nav-label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1;
+}
+
+.nav-cn {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+}
+
+.nav-en {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-color);
+}
+
+.project-title-cn {
+    display: block;
+    font-size: clamp(1.3rem, 2.2vw, 2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: var(--text-color);
+    text-transform: none;
+}
+
+.project-title-en {
+    display: block;
+    margin-top: 0.45rem;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-red);
+}
+
+.project-name,
+.proj-title,
+.project-title {
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+}
+
+.project-title > .project-title-cn {
+    font-size: clamp(28px, 4vw, 64px);
+}
+
+.project-title > .project-title-en {
+    margin-top: 18px;
+    font-size: clamp(14px, 1vw, 18px);
+}
+
+.context-text,
+.col-text,
+.body-text,
+.bio-text,
+.process-text {
+    font-family: var(--font-main);
+    font-weight: 400 !important;
+    letter-spacing: 0.03em !important;
+    line-height: 1.9 !important;
     text-transform: none !important;
 }
 
@@ -180,7 +273,26 @@ nav {
 
     .hero-title,
     .page-title,
-    .project-title {
+    .project-title,
+    .hero-title-en,
+    .title-en {
         font-size: clamp(40px, 13vw, 64px) !important;
+    }
+
+    .hero-title-cn,
+    .title-cn {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        gap: 18px !important;
+    }
+
+    .nav-cn {
+        font-size: 12px;
+    }
+
+    .nav-en {
+        display: none;
     }
 }
