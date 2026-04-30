@@ -111,50 +111,84 @@
         .hero-title { font-weight: 600; font-size: clamp(2.2rem, 5vw, 6rem); line-height: 1.1; text-transform: uppercase; }
         .hero-sub { margin-top: 1.5rem; font-weight: 400; font-size: 12px; letter-spacing: 3px; color: var(--hero-sub); text-transform: uppercase; }
 
-        /* --- 4. 错落叠加排版 (优化版) --- */
-        .works { padding: 0 6rem 20rem 6rem; position: relative; }
+        /* --- 4. 错落叠加排版 (连贯流) --- */
+        .works { padding: 5rem 6rem 20rem 6rem; position: relative; }
         .project-card { position: relative; transition: z-index 0.3s; }
         
-        /* 项目1：左上，大图 */
+        /* 项目1：左上，大图，直接开始 */
         .proj-1 { 
-            width: 60%; 
+            width: 65%; 
             margin-left: 0; 
-            margin-top: 5rem;
             z-index: 10; 
         }
-        /* 项目2：右上，小图，压住项目1右下 */
+        /* 项目2：右上，咬住项目1右下角 */
         .proj-2 { 
-            width: 35%; 
+            width: 40%; 
             margin-left: auto; 
-            margin-top: -50vh; 
+            margin-top: -45vh; 
             z-index: 20; 
         } 
         /* 项目3：全宽，压住项目2底部 */
         .proj-3 { 
-            width: 85%; 
-            margin: -25vh auto 0 5%; 
+            width: 92%; 
+            margin: -18vh auto 0 5%; 
             z-index: 15; 
         } 
-        /* 项目4：左中，中等，咬住项目3左下 */
+        /* 项目4：左下方，咬住项目3左下 */
         .proj-4 { 
-            width: 50%; 
-            margin-top: -30vh; 
+            width: 52%; 
+            margin-top: -22vh; 
             margin-left: 0; 
             z-index: 25; 
         } 
-        /* 项目5：右中，纵向，咬住项目4右上 */
+        /* 项目5：右下方，咬住项目4右上 */
         .proj-5 { 
-            width: 30%; 
+            width: 38%; 
             margin-left: auto; 
-            margin-right: 8%; 
-            margin-top: -45vh; 
+            margin-right: 5%; 
+            margin-top: -40vh; 
             z-index: 30; 
         } 
-        /* 项目6：底部，大图，收尾 */
+        /* 项目6：底部大图，收尾 */
         .proj-6 { 
-            width: 65%; 
+            width: 75%; 
+            margin-top: -28vh; 
+            margin-left: 8%; 
+            z-index: 35; 
+        }
+        /* 项目2：右上，咬住proj-1右下角 */
+        .proj-2 { 
+            width: 38%; 
+            margin-left: auto; 
+            margin-top: -40vh; 
+            z-index: 20; 
+        } 
+        /* 项目3：全宽，压住proj-1和proj-2底部 */
+        .proj-3 { 
+            width: 90%; 
+            margin: -20vh auto 0 auto; 
+            z-index: 15; 
+        } 
+        /* 项目4：左下方，咬住proj-3左下 */
+        .proj-4 { 
+            width: 48%; 
+            margin-top: -25vh; 
+            margin-left: 2%; 
+            z-index: 25; 
+        } 
+        /* 项目5：右下方，咬住proj-3右下和proj-4右上 */
+        .proj-5 { 
+            width: 35%; 
+            margin-left: auto; 
+            margin-right: 3%; 
             margin-top: -35vh; 
-            margin-left: 15%; 
+            z-index: 30; 
+        } 
+        /* 项目6：底部，咬住proj-4和proj-5 */
+        .proj-6 { 
+            width: 70%; 
+            margin-top: -30vh; 
+            margin-left: 10%; 
             z-index: 35; 
         }
 
