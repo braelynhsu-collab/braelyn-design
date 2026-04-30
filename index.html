@@ -118,7 +118,7 @@
         .hero-sub { margin-top: 1.6rem; font-weight: 400; font-size: 12px; letter-spacing: 3px; color: var(--hero-sub); text-transform: uppercase; }
 
         /* --- 4. 项目展示：非对称编辑构图 --- */
-        .works { padding: 1rem 6rem 12rem 6rem; position: relative; }
+        .works { padding: 1rem 6rem 14rem 6rem; position: relative; }
         .works::before {
             content: 'Selected Works';
             display: block;
@@ -132,25 +132,19 @@
         .works a { display: block; position: absolute; color: inherit; text-decoration: none; }
         .works-composition {
             position: relative;
-            min-height: 115vh;
-            max-width: 1440px;
+            min-height: 82vh;
+            max-width: 1400px;
             margin: 0 auto;
         }
         .project-card { position: relative; transition: z-index 0.3s; }
 
-        .works-composition > .proj-1 { width: 54%; left: 2%; top: 3%; z-index: 20; }
-        .works-composition > .proj-2 { width: 30%; right: 7%; top: 0; z-index: 30; }
-        .works-composition > .proj-3 { width: 34%; right: 0; top: 42%; z-index: 24; }
-        .works-composition > .proj-4 { width: 28%; left: 42%; top: 58%; z-index: 34; }
-        .works-composition > .proj-5 { width: 25%; left: 8%; bottom: 0; z-index: 28; }
-        .works-composition > .proj-6 { width: 46%; right: 14%; bottom: 4%; z-index: 18; }
+        .works-composition > .proj-1 { width: 60%; left: 3%; top: 4%; z-index: 20; }
+        .works-composition > .proj-2 { width: 32%; right: 5%; top: 10%; z-index: 24; }
+        .works-composition > .proj-3 { width: 24%; right: 26%; bottom: 9%; z-index: 32; }
 
-        .proj-1 .img-wrapper { transform: rotate(-0.4deg); }
-        .proj-2 .img-wrapper { transform: rotate(0.8deg); }
-        .proj-3 .img-wrapper { transform: rotate(-0.6deg); }
-        .proj-4 .img-wrapper { transform: rotate(1deg); }
-        .proj-5 .img-wrapper { transform: rotate(-0.8deg); }
-        .proj-6 .img-wrapper { transform: rotate(0.35deg); }
+        .proj-1 .img-wrapper { transform: rotate(-0.35deg); }
+        .proj-2 .img-wrapper { transform: rotate(0.55deg); }
+        .proj-3 .img-wrapper { transform: rotate(-0.8deg); }
 
         .img-wrapper { 
             width: 100%; overflow: hidden; background: var(--img-bg); 
@@ -213,8 +207,7 @@
             .works::before { margin-bottom: 3rem; }
             .works-composition { min-height: auto; }
             .works a { position: relative; }
-            .works-composition > .proj-1, .works-composition > .proj-2, .works-composition > .proj-3,
-            .works-composition > .proj-4, .works-composition > .proj-5, .works-composition > .proj-6 {
+            .works-composition > .proj-1, .works-composition > .proj-2, .works-composition > .proj-3 {
                 width: 100%;
                 left: auto;
                 right: auto;
@@ -222,7 +215,7 @@
                 bottom: auto;
                 margin: 0 0 3rem 0;
             }
-            .proj-1 .img-wrapper, .proj-2 .img-wrapper, .proj-3 .img-wrapper, .proj-4 .img-wrapper, .proj-5 .img-wrapper, .proj-6 .img-wrapper { transform: none; }
+            .proj-1 .img-wrapper, .proj-2 .img-wrapper, .proj-3 .img-wrapper { transform: none; }
         }
     </style>
 </head>
@@ -252,7 +245,7 @@
         <a href="lumina.html" class="proj-1" style="text-decoration:none; color:inherit;">
         <div class="project-card proj-1">
             <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600" style="aspect-ratio:16/10;">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600" style="aspect-ratio:4/5;">
                 <div class="proj-info"><div class="proj-title">Lumina</div><div class="proj-tag">Product Design</div></div>
             </div>
         </div>
@@ -268,32 +261,8 @@
         <a href="objekt.html" class="proj-3" style="text-decoration:none; color:inherit;">
         <div class="project-card proj-3">
             <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1600" style="aspect-ratio:21/9;">
+                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1600" style="aspect-ratio:16/10;">
                 <div class="proj-info"><div class="proj-title">Objekt</div><div class="proj-tag">Art Direction</div></div>
-            </div>
-        </div>
-        </a>
-        <a href="identity.html" class="proj-4" style="text-decoration:none; color:inherit;">
-        <div class="project-card proj-4">
-            <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1600" style="aspect-ratio:16/9;">
-                <div class="proj-info"><div class="proj-title">Identity</div><div class="proj-tag">Branding</div></div>
-            </div>
-        </div>
-        </a>
-        <a href="system.html" class="proj-5" style="text-decoration:none; color:inherit;">
-        <div class="project-card proj-5">
-            <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800" style="aspect-ratio:4/5;">
-                <div class="proj-info"><div class="proj-title">System</div><div class="proj-tag">UX/UI Design</div></div>
-            </div>
-        </div>
-        </a>
-        <a href="future-studio.html" class="proj-6" style="text-decoration:none; color:inherit;">
-        <div class="project-card proj-6">
-            <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200" style="aspect-ratio:16/10;">
-                <div class="proj-info"><div class="proj-title">Future Studio</div><div class="proj-tag">Concept</div></div>
             </div>
         </div>
         </a>
