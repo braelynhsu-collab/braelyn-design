@@ -85,13 +85,13 @@
 
         /* --- Contact Page Editorial Style --- */
         .contact-hero {
-            height: 100vh;
+            min-height: 92vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 6rem;
+            padding: 10rem 6rem 6rem;
         }
         .hero-title { 
             font-weight: 700; 
@@ -108,6 +108,16 @@
             text-transform: uppercase; 
         }
         [data-theme="dark"] .hero-sub { color: #555; }
+
+        .contact-intro {
+            max-width: 640px;
+            margin-top: 2.5rem;
+            color: var(--muted-color, #777);
+            font-size: clamp(1rem, 1.4vw, 1.25rem);
+            font-weight: 400;
+            line-height: 1.8;
+            letter-spacing: 0.04em;
+        }
 
         .contact-section {
             padding: 0 6rem 20rem 6rem;
@@ -136,6 +146,7 @@
             font-weight: 700;
             letter-spacing: -1px;
             text-transform: uppercase;
+            overflow-wrap: anywhere;
         }
 
         .contact-link {
@@ -144,6 +155,35 @@
             transition: color 0.3s;
         }
         .contact-link:hover { color: var(--accent-red); }
+
+        .contact-note {
+            margin-top: 1.2rem;
+            max-width: 420px;
+            color: var(--muted-color, #777);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+        }
+
+        .brief-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.8rem;
+            list-style: none;
+            color: var(--muted-color, #777);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .brief-list li::before {
+            content: '-';
+            margin-right: 0.75rem;
+            color: var(--accent-red);
+        }
+
+        .contact-status {
+            color: var(--text-color);
+        }
 
         .availability {
             margin-top: 12rem;
@@ -166,6 +206,12 @@
             .contact-grid { grid-template-columns: 1fr; gap: 6rem; margin-top: 8rem; }
             .availability { margin-top: 8rem; }
         }
+
+        @media (pointer: coarse) {
+            * { cursor: auto; }
+            #cursor { display: none; }
+            .theme-toggle { cursor: pointer; }
+        }
     </style>
     <link rel="stylesheet" href="design-system.css">
 </head>
@@ -180,41 +226,41 @@
             <a href="projects.html"><span class="nav-label"><span class="nav-cn">作品</span><span class="nav-en">Projects</span></span></a>
             <a href="approach.html"><span class="nav-label"><span class="nav-cn">方法</span><span class="nav-en">Approach</span></span></a>
             <a href="about.html"><span class="nav-label"><span class="nav-cn">关于</span><span class="nav-en">About</span></span></a>
-            <a href="contact.html"><span class="nav-label"><span class="nav-cn">联系</span><span class="nav-en">Contact</span></span></a>
-            <button class="theme-toggle" id="themeToggle"></button>
+            <a href="contact.html" aria-current="page"><span class="nav-label"><span class="nav-cn">联系</span><span class="nav-en">Contact</span></span></a>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换明暗主题"></button>
         </div>
     </nav>
 
     <section class="contact-hero">
         <h1 class="hero-title"><span class="title-en">Let's<br>Work</span><span class="title-cn">开始共创</span></h1>
         <p class="hero-sub">Available for select projects</p>
+        <p class="contact-intro">如果你正在规划品牌、产品体验或一套更完整的视觉系统，发来一些背景即可。我们会从目标、受众和交付边界开始，把想法整理成可执行的方向。</p>
     </section>
 
     <section class="contact-section">
         <div class="contact-grid">
             <div>
                 <div class="contact-label">Email</div>
-                <a href="mailto:hello@braelyn.com" class="contact-link">
-                    <div class="contact-value">hello@braelyn.com</div>
+                <a href="mailto:braelyn_hsu@foxmail.com?subject=Project%20Inquiry%20for%20Braelyn" class="contact-link">
+                    <div class="contact-value">braelyn_hsu@foxmail.com</div>
                 </a>
+                <p class="contact-note">通常会在 2 个工作日内回复。你也可以直接附上项目时间线、预算范围或现有资料。</p>
             </div>
             <div>
                 <div class="contact-label">Social</div>
-                <a href="#" class="contact-link">
+                <a href="https://www.linkedin.com/in/braelynxu/" class="contact-link" target="_blank" rel="noopener noreferrer">
                     <div class="contact-value">LinkedIn</div>
                 </a>
-                <div style="margin-top: 2rem;">
-                    <a href="#" class="contact-link">
-                        <div class="contact-value">WeChat</div>
-                    </a>
-                </div>
+                <ul class="brief-list" aria-label="社交联系方式">
+                    <li>WeChat: <span class="contact-status">Braelyn_X</span></li>
+                </ul>
             </div>
         </div>
 
         <div class="availability">
             <div class="contact-label">Availability</div>
             <p class="availability-text">
-                目前可承接 2026 年第二季度开始的新项目。如果你正在规划品牌、产品或视觉系统，我们可以先从一次对话开始。
+                <span class="contact-status">目前可承接 2026 年第二季度开始的新项目。</span> 如果你正在规划品牌、产品或视觉系统，我们可以先用一次 30 分钟的对话确认方向、范围和下一步是否适合合作。
             </p>
         </div>
     </section>
@@ -241,7 +287,7 @@
             </div>
             <div class="footer-contact">
                 <p class="footer-label">联系 / Contact</p>
-                <a href="mailto:hello@braelyn.design">hello@braelyn.design</a>
+                <a href="mailto:braelyn_hsu@foxmail.com">braelyn_hsu@foxmail.com</a>
             </div>
             <div class="footer-copy">
                 <p>&copy; 2026 Braelyn. All rights reserved.</p>
