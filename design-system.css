@@ -136,18 +136,17 @@ nav {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 340px;
-    height: 340px;
-    margin: -170px 0 0 -170px;
+    width: 480px;
+    height: 480px;
+    margin: -240px 0 0 -240px;
     border-radius: 999px;
-    background: radial-gradient(circle, rgba(138, 28, 28, 0.10), transparent 60%);
-    filter: blur(20px);
+    background: radial-gradient(circle, rgba(138, 28, 28, 0.35), rgba(138, 28, 28, 0.06) 45%, transparent 65%);
+    filter: blur(40px);
     will-change: transform;
-    transition: transform 0.08s linear;
 }
 
 [data-theme="dark"] .orb-blur {
-    background: radial-gradient(circle, rgba(138, 28, 28, 0.15), transparent 60%);
+    background: radial-gradient(circle, rgba(138, 28, 28, 0.50), rgba(138, 28, 28, 0.10) 45%, transparent 65%);
 }
 
 .hero-badge {
