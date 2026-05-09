@@ -249,6 +249,77 @@ nav {
     font-size: clamp(14px, 1vw, 18px);
 }
 
+.home-signal {
+    max-width: var(--grid-max);
+    margin: 0 auto;
+    padding: 0 64px 120px;
+}
+
+.signal-intro {
+    max-width: 980px;
+    margin-bottom: 56px;
+}
+
+.signal-title {
+    font-size: clamp(34px, 5vw, 86px);
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: -0.07em;
+    color: var(--text-color);
+}
+
+.signal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--nav-border);
+    border: 1px solid var(--nav-border);
+}
+
+.signal-card {
+    min-height: 300px;
+    padding: 32px;
+    background: var(--bg-color);
+}
+
+.signal-index {
+    display: block;
+    margin-bottom: 64px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-red);
+}
+
+.signal-card h3 {
+    margin-bottom: 18px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.signal-card p,
+.signal-now p:last-child {
+    color: var(--muted-color);
+    font-size: 14px;
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+}
+
+.signal-now {
+    display: grid;
+    grid-template-columns: 0.32fr 0.68fr;
+    gap: 64px;
+    padding-top: 48px;
+    border-bottom: 1px solid var(--nav-border);
+    padding-bottom: 48px;
+}
+
+.signal-now p:last-child {
+    max-width: 760px;
+}
+
 .proof-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -516,8 +587,26 @@ nav {
     }
 
     .proof-strip,
-    .brief-grid {
+    .brief-grid,
+    .signal-grid,
+    .signal-now {
         grid-template-columns: 1fr;
+    }
+
+    .home-signal {
+        padding: 0 24px 84px;
+    }
+
+    .signal-intro {
+        margin-bottom: 40px;
+    }
+
+    .signal-card {
+        min-height: auto;
+    }
+
+    .signal-index {
+        margin-bottom: 48px;
     }
 
     .proof-strip {

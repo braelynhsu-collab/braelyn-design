@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://braelynhsu-collab.github.io/braelyn-design/sitemap.xml
