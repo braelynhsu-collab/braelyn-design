@@ -208,6 +208,17 @@
     </nav>
 
     <section class="hero concept-hero">
+        <div class="interactive-orb" id="interactiveOrb" aria-hidden="true">
+            <div class="orb-glow"></div>
+            <div class="orb-plane orb-plane-a" data-depth="18"></div>
+            <div class="orb-plane orb-plane-b" data-depth="-14"></div>
+            <div class="orb-plane orb-plane-c" data-depth="9"></div>
+            <div class="orb-core" data-depth="24">
+                <span>Brand Systems</span>
+                <span>Campaign Direction</span>
+                <span>AI Workflow</span>
+            </div>
+        </div>
         <div class="concept-stack">
             <p class="concept-kicker">Portfolio / Thinking System</p>
             <h1 class="concept-title">Design is Thinking Made Visual</h1>
@@ -298,6 +309,37 @@
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
         });
+
+        const orb = document.getElementById('interactiveOrb');
+        if (orb && !window.matchMedia('(pointer: coarse)').matches) {
+            const glow = orb.querySelector('.orb-glow');
+            const layers = orb.querySelectorAll('[data-depth]');
+
+            orb.addEventListener('mousemove', (e) => {
+                const rect = orb.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+                orb.style.setProperty('--mx', `${(x + 0.5) * 100}%`);
+                orb.style.setProperty('--my', `${(y + 0.5) * 100}%`);
+
+                layers.forEach((layer) => {
+                    const depth = Number(layer.dataset.depth || 0);
+                    layer.style.transform = `translate(-50%, -50%) translate3d(${x * depth}px, ${y * depth}px, 0) rotateX(${-y * 8}deg) rotateY(${x * 8}deg)`;
+                });
+
+                if (glow) {
+                    glow.style.transform = `translate3d(${x * 42}px, ${y * 42}px, 0)`;
+                }
+            });
+
+            orb.addEventListener('mouseleave', () => {
+                layers.forEach((layer) => {
+                    layer.style.transform = '';
+                });
+                if (glow) glow.style.transform = '';
+            });
+        }
     </script>
     <script src="theme.js"></script>
 

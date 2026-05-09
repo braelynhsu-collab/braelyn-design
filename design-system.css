@@ -76,6 +76,7 @@ nav {
 }
 
 .concept-hero {
+    position: relative;
     min-height: 100vh !important;
     height: auto !important;
     display: flex !important;
@@ -84,11 +85,137 @@ nav {
     text-align: center !important;
     padding-top: 140px !important;
     padding-bottom: 96px !important;
+    overflow: hidden;
 }
 
 .concept-stack {
+    position: relative;
+    z-index: 2;
     width: min(1120px, 100%);
     margin: 0 auto;
+}
+
+.interactive-orb {
+    --mx: 50%;
+    --my: 50%;
+    position: absolute;
+    inset: 108px 64px 80px;
+    z-index: 1;
+    pointer-events: auto;
+    perspective: 1200px;
+}
+
+.interactive-orb::before {
+    content: '';
+    position: absolute;
+    inset: 8% 14%;
+    border: 1px solid var(--nav-border);
+    opacity: 0.7;
+}
+
+.interactive-orb::after {
+    content: 'Move / Hover';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: var(--muted-color);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    opacity: 0.42;
+}
+
+.orb-glow {
+    position: absolute;
+    left: calc(var(--mx) - 190px);
+    top: calc(var(--my) - 190px);
+    width: 380px;
+    height: 380px;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle, rgba(138, 28, 28, 0.22), transparent 58%),
+        radial-gradient(circle, rgba(255, 255, 255, 0.38), transparent 45%);
+    filter: blur(12px);
+    mix-blend-mode: multiply;
+    opacity: 0.65;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+[data-theme="dark"] .orb-glow {
+    mix-blend-mode: screen;
+    opacity: 0.35;
+}
+
+.orb-plane,
+.orb-core {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, border-color 0.35s ease;
+    will-change: transform;
+}
+
+.orb-plane-a {
+    width: min(42vw, 620px);
+    height: min(42vw, 620px);
+    border: 1px solid var(--nav-border);
+    transform: translate(-50%, -50%) rotate(18deg);
+}
+
+.orb-plane-b {
+    width: min(28vw, 420px);
+    height: min(28vw, 420px);
+    border: 1px solid rgba(138, 28, 28, 0.42);
+    transform: translate(-50%, -50%) rotate(-24deg);
+}
+
+.orb-plane-c {
+    width: min(18vw, 280px);
+    height: min(18vw, 280px);
+    border: 1px solid var(--text-color);
+    opacity: 0.18;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.orb-core {
+    width: min(22vw, 340px);
+    min-width: 240px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px solid var(--nav-border);
+    background: color-mix(in srgb, var(--bg-color) 76%, transparent);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.96);
+}
+
+.orb-core span {
+    color: var(--text-color);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.interactive-orb:hover .orb-core {
+    opacity: 1;
+}
+
+.interactive-orb:hover .orb-plane-a,
+.interactive-orb:hover .orb-plane-b,
+.interactive-orb:hover .orb-plane-c {
+    border-color: rgba(138, 28, 28, 0.48);
+}
+
+.interactive-orb:hover .orb-glow {
+    opacity: 0.9;
 }
 
 .concept-kicker {
@@ -628,6 +755,31 @@ nav {
     .concept-hero {
         padding-top: 120px !important;
         padding-bottom: 72px !important;
+    }
+
+    .interactive-orb {
+        inset: 96px 24px 56px;
+        opacity: 0.72;
+        pointer-events: none;
+    }
+
+    .interactive-orb::after {
+        display: none;
+    }
+
+    .orb-plane-a {
+        width: 72vw;
+        height: 72vw;
+    }
+
+    .orb-plane-b {
+        width: 48vw;
+        height: 48vw;
+    }
+
+    .orb-plane-c,
+    .orb-core {
+        display: none;
     }
 
     .concept-kicker {
