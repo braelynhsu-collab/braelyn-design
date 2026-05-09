@@ -249,6 +249,82 @@ nav {
     font-size: clamp(14px, 1vw, 18px);
 }
 
+.proof-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin: -6rem 0 12rem;
+    background: var(--nav-border);
+    border: 1px solid var(--nav-border);
+}
+
+.proof-item {
+    min-height: 180px;
+    padding: 32px;
+    background: var(--bg-color);
+}
+
+.proof-number {
+    display: block;
+    margin-bottom: 28px;
+    font-size: clamp(36px, 5vw, 76px);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    color: var(--text-color);
+}
+
+.proof-label {
+    max-width: 260px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0.08em;
+    color: var(--muted-color);
+}
+
+.brief-panel {
+    margin-top: 12rem;
+    padding-top: 5rem;
+    border-top: 1px solid var(--nav-border);
+}
+
+.brief-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 8rem;
+}
+
+.brief-title {
+    font-size: clamp(1.6rem, 3vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.05em;
+}
+
+.brief-items {
+    display: grid;
+    gap: 1.2rem;
+    list-style: none;
+    color: var(--muted-color);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.brief-items li {
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--nav-border);
+}
+
+.brief-items strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--text-color);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 .context-text,
 .col-text,
 .body-text,
@@ -437,6 +513,19 @@ nav {
 
     .nav-links {
         gap: 18px !important;
+    }
+
+    .proof-strip,
+    .brief-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proof-strip {
+        margin: -3rem 0 8rem;
+    }
+
+    .brief-panel {
+        margin-top: 8rem;
     }
 
     .nav-cn {
