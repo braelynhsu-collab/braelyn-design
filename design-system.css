@@ -95,127 +95,76 @@ nav {
     margin: 0 auto;
 }
 
-.interactive-orb {
-    --mx: 50%;
-    --my: 50%;
+.orb-bg {
     position: absolute;
-    inset: 108px 64px 80px;
-    z-index: 1;
-    pointer-events: auto;
-    perspective: 1200px;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
 }
 
-.interactive-orb::before {
-    content: '';
-    position: absolute;
-    inset: 8% 14%;
-    border: 1px solid var(--nav-border);
-    opacity: 0.7;
-}
-
-.interactive-orb::after {
-    content: 'Move / Hover';
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    color: var(--muted-color);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    opacity: 0.42;
-}
-
-.orb-glow {
-    position: absolute;
-    left: calc(var(--mx) - 190px);
-    top: calc(var(--my) - 190px);
-    width: 380px;
-    height: 380px;
-    border-radius: 999px;
-    background:
-        radial-gradient(circle, rgba(138, 28, 28, 0.22), transparent 58%),
-        radial-gradient(circle, rgba(255, 255, 255, 0.38), transparent 45%);
-    filter: blur(12px);
-    mix-blend-mode: multiply;
-    opacity: 0.65;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
-}
-
-[data-theme="dark"] .orb-glow {
-    mix-blend-mode: screen;
-    opacity: 0.35;
-}
-
-.orb-plane,
-.orb-core {
+.orb-plane {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform-style: preserve-3d;
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, border-color 0.35s ease;
     will-change: transform;
+    transition: transform 0.08s linear;
 }
 
-.orb-plane-a {
-    width: min(42vw, 620px);
-    height: min(42vw, 620px);
+.orb-p1 {
+    width: min(40vw, 520px);
+    height: min(40vw, 520px);
     border: 1px solid var(--nav-border);
     transform: translate(-50%, -50%) rotate(18deg);
 }
 
-.orb-plane-b {
-    width: min(28vw, 420px);
-    height: min(28vw, 420px);
-    border: 1px solid rgba(138, 28, 28, 0.42);
+.orb-p2 {
+    width: min(28vw, 360px);
+    height: min(28vw, 360px);
+    border: 1px solid rgba(138, 28, 28, 0.30);
     transform: translate(-50%, -50%) rotate(-24deg);
 }
 
-.orb-plane-c {
-    width: min(18vw, 280px);
-    height: min(18vw, 280px);
+.orb-p3 {
+    width: min(18vw, 240px);
+    height: min(18vw, 240px);
     border: 1px solid var(--text-color);
-    opacity: 0.18;
+    opacity: 0.12;
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.orb-core {
-    width: min(22vw, 340px);
-    min-width: 240px;
-    aspect-ratio: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    border: 1px solid var(--nav-border);
-    background: color-mix(in srgb, var(--bg-color) 76%, transparent);
-    backdrop-filter: blur(10px);
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.96);
+.orb-blur {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 340px;
+    height: 340px;
+    margin: -170px 0 0 -170px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(138, 28, 28, 0.10), transparent 60%);
+    filter: blur(20px);
+    will-change: transform;
+    transition: transform 0.08s linear;
 }
 
-.orb-core span {
-    color: var(--text-color);
-    font-size: 10px;
+[data-theme="dark"] .orb-blur {
+    background: radial-gradient(circle, rgba(138, 28, 28, 0.15), transparent 60%);
+}
+
+.hero-badge {
+    position: absolute;
+    left: 64px;
+    bottom: 64px;
+    z-index: 3;
+    display: flex;
+    gap: 20px;
+}
+
+.hero-badge span {
+    font-size: 9px;
     font-weight: 600;
     letter-spacing: 0.22em;
-    line-height: 1.2;
     text-transform: uppercase;
-}
-
-.interactive-orb:hover .orb-core {
-    opacity: 1;
-}
-
-.interactive-orb:hover .orb-plane-a,
-.interactive-orb:hover .orb-plane-b,
-.interactive-orb:hover .orb-plane-c {
-    border-color: rgba(138, 28, 28, 0.48);
-}
-
-.interactive-orb:hover .orb-glow {
-    opacity: 0.9;
+    color: var(--muted-color);
 }
 
 .concept-kicker {
@@ -757,28 +706,23 @@ nav {
         padding-bottom: 72px !important;
     }
 
-    .interactive-orb {
-        inset: 96px 24px 56px;
-        opacity: 0.72;
-        pointer-events: none;
+    .orb-bg {
+        opacity: 0.6;
     }
 
-    .interactive-orb::after {
-        display: none;
+    .orb-p1 {
+        width: 80vw;
+        height: 80vw;
     }
 
-    .orb-plane-a {
-        width: 72vw;
-        height: 72vw;
+    .orb-p2 {
+        width: 56vw;
+        height: 56vw;
     }
 
-    .orb-plane-b {
-        width: 48vw;
-        height: 48vw;
-    }
-
-    .orb-plane-c,
-    .orb-core {
+    .orb-p3,
+    .orb-blur,
+    .hero-badge {
         display: none;
     }
 
