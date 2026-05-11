@@ -208,30 +208,17 @@
     </nav>
 
     <section class="hero concept-hero">
-        <div class="orb-bg" id="orbBg" aria-hidden="true">
-            <div class="orb-plane orb-p1" data-depth="8"></div>
-            <div class="orb-plane orb-p2" data-depth="-5"></div>
-            <div class="orb-plane orb-p3" data-depth="3"></div>
-            <div class="orb-blur"></div>
-        </div>
-        <div class="hero-badge" aria-label="Capabilities">
-            <span>Brand Systems</span>
-            <span>Campaign Direction</span>
-            <span>AI Workflow</span>
-        </div>
+        <div class="hero-atmosphere" aria-hidden="true"></div>
         <div class="concept-stack">
-            <p class="concept-kicker">Portfolio / Thinking System</p>
-            <h1 class="concept-title">Design is Thinking Made Visual</h1>
-            <p class="concept-cn">设计是让构思得以实现</p>
-            <div class="concept-rule"></div>
-            <div class="concept-quote" aria-label="Design thinking principle">
-                <p class="quote-en">A problem well stated is a problem half solved</p>
-                <p class="quote-cn">阐述清楚问题就解决了一半</p>
-            </div>
+            <h1 class="concept-title">
+                DESIGN IS KNOWING<br>
+                WHICH ONES TO KEEP
+            </h1>
+            <p class="concept-cn">设计的本质，是对选择的判断与克制</p>
         </div>
     </section>
 
-    <section class="home-signal" aria-label="Braelyn 的个人定位">
+    <section class="home-signal fade-section" aria-label="Braelyn 的个人定位">
         <div class="signal-intro">
             <p class="section-label">Positioning</p>
             <h2 class="signal-title">Not only a portfolio. A living record of how I think, build and direct visual systems.</h2>
@@ -259,7 +246,7 @@
         </div>
     </section>
 
-    <section class="home-projects">
+    <section class="home-projects fade-section">
         <div class="projects-grid">
             <a href="lumina.html" class="project-item">
                 <div class="project-img-wrapper">
@@ -310,38 +297,20 @@
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
         });
 
-        const hero = document.querySelector('.concept-hero');
-        const orbBg = document.getElementById('orbBg');
-        if (orbBg && hero && !window.matchMedia('(pointer: coarse)').matches) {
-            const blur = orbBg.querySelector('.orb-blur');
-            const layers = orbBg.querySelectorAll('[data-depth]');
-            let tick = null;
-
-            hero.addEventListener('mousemove', (e) => {
-                if (tick) cancelAnimationFrame(tick);
-                tick = requestAnimationFrame(() => {
-                    const rect = hero.getBoundingClientRect();
-                    const x = (e.clientX - rect.left) / rect.width - 0.5;
-                    const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-                    layers.forEach((layer) => {
-                        const d = Number(layer.dataset.depth || 0);
-                        layer.style.transform = `translate(-50%, -50%) translate3d(${x * d}px, ${y * d}px, 0)`;
-                    });
-
-                    if (blur) {
-                        blur.style.transform = `translate3d(${(x * 40)}px, ${(y * 40)}px, 0)`;
-                    }
-                    tick = null;
-                });
+        // Reveal sections on scroll
+        const fadeSections = document.querySelectorAll('.fade-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
-
-            hero.addEventListener('mouseleave', () => {
-                if (tick) cancelAnimationFrame(tick);
-                layers.forEach((l) => l.style.transform = '');
-                if (blur) blur.style.transform = '';
-            });
-        }
+        }, {
+            threshold: 0.15,
+        });
+        fadeSections.forEach((section) => {
+            observer.observe(section);
+        });
     </script>
     <script src="theme.js"></script>
 

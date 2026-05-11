@@ -232,13 +232,13 @@
         </div>
     </nav>
 
-    <section class="contact-hero">
+    <section class="contact-hero fade-section">
         <h1 class="hero-title"><span class="title-en">Let's<br>Work</span><span class="title-cn">开始共创</span></h1>
         <p class="hero-sub">Available for select projects</p>
         <p class="contact-intro">如果你正在规划品牌、产品体验或一套更完整的视觉系统，发来一些背景即可。我们会从目标、受众和交付边界开始，把想法整理成可执行的方向。</p>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-section fade-section">
         <div class="contact-grid">
             <div>
                 <div class="contact-label">Email</div>
@@ -293,6 +293,16 @@
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
         });
+
+        const fadeSections = document.querySelectorAll('.fade-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+        fadeSections.forEach((section) => observer.observe(section));
     </script>
     <script src="theme.js"></script>
     <footer class="footer">

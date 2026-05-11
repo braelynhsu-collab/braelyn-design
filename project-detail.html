@@ -253,7 +253,7 @@
     </nav>
 
     <!-- 1. Hero -->
-    <section class="hero">
+    <section class="hero fade-section">
         <div class="hero-content">
             <h1 class="project-title"><span class="project-title-cn">光感系统</span><span class="project-title-en">Lumina</span></h1>
             <p class="project-desc">Product Design · 2026</p>
@@ -264,7 +264,7 @@
     </section>
 
     <!-- 2. Context -->
-    <section class="context">
+    <section class="context fade-section">
         <div class="section-label">Context</div>
         <p class="context-text">
             这是为现代数字产品建立的视觉系统。重点不是增加装饰，而是把产品构思转化成一致、可读、可执行的界面语言。
@@ -272,7 +272,7 @@
     </section>
 
     <!-- 3. Insight & Strategy -->
-    <section class="insight-strategy">
+    <section class="insight-strategy fade-section">
         <div class="two-col">
             <div>
                 <div class="section-label">Insight</div>
@@ -292,7 +292,7 @@
     </section>
 
     <!-- 4. Visual Execution -->
-    <section class="visuals">
+    <section class="visuals fade-section">
         <div class="full-image">
             <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=2400" style="aspect-ratio:16/9;" alt="">
         </div>
@@ -302,7 +302,7 @@
     </section>
 
     <!-- 5. Closing -->
-    <section class="closing">
+    <section class="closing fade-section">
         <div class="closing-text">
             Design is<br>knowing which<br>ones to keep
         </div>
@@ -349,6 +349,16 @@
 
         themeToggle.addEventListener('click', toggleTheme);
         setTheme(getTheme());
+
+        const fadeSections = document.querySelectorAll('.fade-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+        fadeSections.forEach((section) => observer.observe(section));
     </script>
     <footer class="footer">
         <div class="footer-inner">

@@ -243,7 +243,7 @@
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero fade-section">
         <div class="hero-content">
             <h1 class="project-title"><span class="project-title-cn">视觉叙事</span><span class="project-title-en">Vogue</span></h1>
             <p class="project-desc">Editorial Design · 2025</p>
@@ -253,14 +253,14 @@
         </div>
     </section>
 
-    <section class="context">
+    <section class="context fade-section">
         <div class="section-label">Context</div>
         <p class="context-text">
             这是一组围绕极简与奢华关系展开的时装视觉。画面需要足够有力量，同时保留刊物式的节奏、留白与优雅。
         </p>
     </section>
 
-    <section class="insight-strategy">
+    <section class="insight-strategy fade-section">
         <div class="two-col">
             <div>
                 <div class="section-label">Insight</div>
@@ -279,7 +279,7 @@
         </div>
     </section>
 
-    <section class="visuals">
+    <section class="visuals fade-section">
         <div class="full-image">
             <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=2400" style="aspect-ratio:16/9;" alt="">
         </div>
@@ -288,7 +288,7 @@
         </div>
     </section>
 
-    <section class="closing">
+    <section class="closing fade-section">
         <div class="closing-text">
             Fashion is<br>architecture<br>in motion
         </div>
@@ -308,6 +308,16 @@
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
         });
+
+        const fadeSections = document.querySelectorAll('.fade-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+        fadeSections.forEach((section) => observer.observe(section));
     </script>
     <script src="theme.js"></script>
     <footer class="footer">

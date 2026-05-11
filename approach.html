@@ -210,12 +210,12 @@
         </div>
     </nav>
 
-    <section class="page-header">
+    <section class="page-header fade-section">
         <h1 class="page-title"><span class="title-en">How I<br>Think</span><span class="title-cn">思考方法</span></h1>
         <p class="page-sub">Creative problem solving</p>
     </section>
 
-    <section class="content-section">
+    <section class="content-section fade-section">
         <div class="section-label">Core Philosophy</div>
         <div class="philosophy-grid">
             <div class="belief">
@@ -280,6 +280,16 @@
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
         });
+
+        const fadeSections = document.querySelectorAll('.fade-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+        fadeSections.forEach((section) => observer.observe(section));
     </script>
     <script src="theme.js"></script>
     <footer class="footer">

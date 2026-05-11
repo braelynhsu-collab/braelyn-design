@@ -237,12 +237,12 @@
         </div>
     </nav>
 
-    <section class="page-header">
+    <section class="page-header fade-section">
         <h1 class="page-title"><span class="title-en">About<br>Braelyn</span><span class="title-cn">设计与思考</span></h1>
         <p class="page-sub">Design strategist & creative director</p>
     </section>
 
-    <section class="content-section">
+    <section class="content-section fade-section">
         <div class="section-label">Introduction</div>
         <p class="intro-text">
             我是 Braelyn，视觉设计师与品牌视觉 Lead。近十年从乙方创意执行走到甲方品牌视觉管理，长期服务美妆、护肤、消费品牌与数字产品，把复杂构思整理成清晰、可执行、可延展的视觉系统。
@@ -332,6 +332,16 @@
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
         });
+
+        const fadeSections = document.querySelectorAll('.fade-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+        fadeSections.forEach((section) => observer.observe(section));
     </script>
     <script src="theme.js"></script>
     <footer class="footer">
