@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,47 +7,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        :root, [data-theme="light"] {
-            --bg-color: #FFFFFF; 
-            --text-color: #111; 
-            --accent-red: #8A1C1C; 
-            --nav-bg: rgba(255, 255, 255, 0.95);
-            --nav-border: rgba(0,0,0,0.05);
-            --font-main: 'Montserrat', sans-serif;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #111111;
-            --text-color: #F7F7F5;
-            --accent-red: #8A1C1C;
-            --nav-bg: rgba(17, 17, 17, 0.95);
-            --nav-border: rgba(255, 255, 255, 0.05);
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
         body { 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            font-family: var(--font-main); 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: var(--font-body); 
             overflow-x: hidden;
-            transition: background-color 0.5s, color 0.5s;
+            transition: background 0.4s, color 0.4s;
         }
 
         #cursor {
             position: fixed; top: 0; left: 0; width: 6px; height: 6px;
-            background: var(--accent-red); border-radius: 20px;
+            background: var(--accent); border-radius: 50%;
             pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, transform 0.1s ease-out, background 0.3s, border 0.3s;
+            transition: width 0.35s, height 0.35s, background 0.35s ease, opacity 0.35s ease;
         }
-        #cursor.active {
-            width: 45px; height: 45px; background: transparent;
-            border: 1px solid var(--accent-red);
+        #cursor.hover {
+            width: 32px; height: 32px;
+            background: transparent;
+            border: 1px solid var(--text);
+            opacity: 0.7;
         }
-        #cursor.active::after, #cursor.active::before {
-            content: ''; position: absolute; background: var(--accent-red);
-        }
-        #cursor.active::after { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        #cursor.active::before { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
         nav {
             position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem;
@@ -243,7 +223,7 @@
         </div>
     </nav>
 
-    <section class="hero fade-section">
+    <section class="hero">
         <div class="hero-content">
             <h1 class="project-title"><span class="project-title-cn">系统秩序</span><span class="project-title-en">System</span></h1>
             <p class="project-desc">UX/UI Design · 2024</p>
@@ -253,14 +233,14 @@
         </div>
     </section>
 
-    <section class="context fade-section">
+    <section class="context">
         <div class="section-label">Context</div>
         <p class="context-text">
             这是面向企业产品的完整设计系统。目标是建立可以跨产品扩展的界面语言，在提升效率的同时维持体验一致性。
         </p>
     </section>
 
-    <section class="insight-strategy fade-section">
+    <section class="insight-strategy">
         <div class="two-col">
             <div>
                 <div class="section-label">Insight</div>
@@ -279,7 +259,7 @@
         </div>
     </section>
 
-    <section class="visuals fade-section">
+    <section class="visuals">
         <div class="full-image">
             <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2400" style="aspect-ratio:16/9;" alt="">
         </div>
@@ -288,7 +268,7 @@
         </div>
     </section>
 
-    <section class="closing fade-section">
+    <section class="closing">
         <div class="closing-text">
             Systems enable<br>creative<br>freedom
         </div>
@@ -308,16 +288,6 @@
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
         });
-
-        const fadeSections = document.querySelectorAll('.fade-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15 });
-        fadeSections.forEach((section) => observer.observe(section));
     </script>
     <script src="theme.js"></script>
     <footer class="footer">

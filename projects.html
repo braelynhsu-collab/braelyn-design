@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,47 +8,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        :root, [data-theme="light"] {
-            --bg-color: #FFFFFF; 
-            --text-color: #111; 
-            --accent-red: #8A1C1C; 
-            --nav-bg: rgba(255, 255, 255, 0.95);
-            --nav-border: rgba(0,0,0,0.05);
-            --font-main: 'Montserrat', sans-serif;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #1A1A1A;
-            --text-color: #E8E8E8;
-            --accent-red: #6B1515;
-            --nav-bg: rgba(26, 26, 26, 0.95);
-            --nav-border: rgba(255, 255, 255, 0.05);
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
         body { 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            font-family: var(--font-main); 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: var(--font-body); 
             overflow-x: hidden;
-            transition: background-color 0.5s, color 0.5s;
+            transition: background 0.4s, color 0.4s;
         }
 
         #cursor {
             position: fixed; top: 0; left: 0; width: 6px; height: 6px;
-            background: var(--accent-red); border-radius: 20px;
+            background: var(--accent); border-radius: 50%;
             pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, transform 0.1s ease-out, background 0.3s, border 0.3s;
+            transition: width 0.35s, height 0.35s, background 0.35s ease, opacity 0.35s ease;
         }
-        #cursor.active {
-            width: 45px; height: 45px; background: transparent;
-            border: 1px solid var(--accent-red);
+        #cursor.hover {
+            width: 32px; height: 32px;
+            background: transparent;
+            border: 1px solid var(--text);
+            opacity: 0.7;
         }
-        #cursor.active::after, #cursor.active::before {
-            content: ''; position: absolute; background: var(--accent-red);
-        }
-        #cursor.active::after { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        #cursor.active::before { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
         nav {
             position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem;
@@ -202,132 +182,15 @@
         </div>
     </nav>
 
-    <section class="page-header fade-section">
+    <section class="page-header">
         <h1 class="page-title"><span class="title-en">Selected<br>Works</span><span class="title-cn">作品与系统</span></h1>
         <p class="page-sub">2021 — 2026</p>
     </section>
 
-    <section class="projects-list fade-section">
-        <!-- 项目1：全宽 -->
-        <div class="project-item full-width">
-            <a href="lumina.html" style="text-decoration:none; color:inherit;">
-                <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2400" style="aspect-ratio:21/9;">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-name"><span class="project-title-cn">光感系统</span><span class="project-title-en">Lumina</span></h3>
-                    <div class="project-meta">
-                        <div class="project-tag">Product Design</div>
-                        <div class="project-year">2026</div>
-                    </div>
-                </div>
-            </a>
-        </div>
+    <section class="projects-list"></section>
 
-        <!-- 项目2 -->
-        <div class="project-item">
-            <a href="vogue.html" style="text-decoration:none; color:inherit;">
-                <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1600" style="aspect-ratio:4/5;">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-name"><span class="project-title-cn">视觉叙事</span><span class="project-title-en">Vogue</span></h3>
-                    <div class="project-meta">
-                        <div class="project-tag">Editorial</div>
-                        <div class="project-year">2025</div>
-                    </div>
-                </div>
-            </a>
-        </div>
 
-        <!-- 项目3：全宽 -->
-        <div class="project-item full-width">
-            <a href="objekt.html" style="text-decoration:none; color:inherit;">
-                <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=2400" style="aspect-ratio:16/9;">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-name"><span class="project-title-cn">物与空间</span><span class="project-title-en">Objekt</span></h3>
-                    <div class="project-meta">
-                        <div class="project-tag">Art Direction</div>
-                        <div class="project-year">2025</div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- 项目4 -->
-        <div class="project-item">
-            <a href="identity.html" style="text-decoration:none; color:inherit;">
-                <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1600" style="aspect-ratio:16/9;">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-name"><span class="project-title-cn">识别构思</span><span class="project-title-en">Identity</span></h3>
-                    <div class="project-meta">
-                        <div class="project-tag">Branding</div>
-                        <div class="project-year">2024</div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- 项目5：全宽 -->
-        <div class="project-item full-width">
-            <a href="system.html" style="text-decoration:none; color:inherit;">
-                <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=2400" style="aspect-ratio:21/9;">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-name"><span class="project-title-cn">系统秩序</span><span class="project-title-en">System</span></h3>
-                    <div class="project-meta">
-                        <div class="project-tag">UX/UI Design</div>
-                        <div class="project-year">2024</div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- 项目6 -->
-        <div class="project-item">
-            <a href="future-studio.html" style="text-decoration:none; color:inherit;">
-                <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1600" style="aspect-ratio:16/10;">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-name"><span class="project-title-cn">未来构想</span><span class="project-title-en">Future Studio</span></h3>
-                    <div class="project-meta">
-                        <div class="project-tag">Concept</div>
-                        <div class="project-year">2023</div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <script>
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        const interactive = document.querySelectorAll('.project-img-wrapper, a, .theme-toggle');
-        interactive.forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-        });
-
-        const fadeSections = document.querySelectorAll('.fade-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15 });
-        fadeSections.forEach((section) => observer.observe(section));
-    </script>
+    <script src="projects.js"></script>
     <script src="theme.js"></script>
     <footer class="footer">
         <div class="footer-inner">

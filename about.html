@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,47 +8,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        :root, [data-theme="light"] {
-            --bg-color: #FFFFFF; 
-            --text-color: #111; 
-            --accent-red: #8A1C1C; 
-            --nav-bg: rgba(255, 255, 255, 0.95);
-            --nav-border: rgba(0,0,0,0.05);
-            --font-main: 'Montserrat', sans-serif;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #1A1A1A;
-            --text-color: #E8E8E8;
-            --accent-red: #6B1515;
-            --nav-bg: rgba(26, 26, 26, 0.95);
-            --nav-border: rgba(255, 255, 255, 0.05);
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
         body { 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            font-family: var(--font-main); 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: var(--font-body); 
             overflow-x: hidden;
-            transition: background-color 0.5s, color 0.5s;
+            transition: background 0.4s, color 0.4s;
         }
 
         #cursor {
             position: fixed; top: 0; left: 0; width: 6px; height: 6px;
-            background: var(--accent-red); border-radius: 20px;
+            background: var(--accent); border-radius: 50%;
             pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, transform 0.1s ease-out, background 0.3s, border 0.3s;
+            transition: width 0.35s, height 0.35s, background 0.35s ease, opacity 0.35s ease;
         }
-        #cursor.active {
-            width: 45px; height: 45px; background: transparent;
-            border: 1px solid var(--accent-red);
+        #cursor.hover {
+            width: 32px; height: 32px;
+            background: transparent;
+            border: 1px solid var(--text);
+            opacity: 0.7;
         }
-        #cursor.active::after, #cursor.active::before {
-            content: ''; position: absolute; background: var(--accent-red);
-        }
-        #cursor.active::after { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        #cursor.active::before { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
         nav {
             position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem;
@@ -237,12 +217,12 @@
         </div>
     </nav>
 
-    <section class="page-header fade-section">
+    <section class="page-header">
         <h1 class="page-title"><span class="title-en">About<br>Braelyn</span><span class="title-cn">设计与思考</span></h1>
         <p class="page-sub">Design strategist & creative director</p>
     </section>
 
-    <section class="content-section fade-section">
+    <section class="content-section">
         <div class="section-label">Introduction</div>
         <p class="intro-text">
             我是 Braelyn，视觉设计师与品牌视觉 Lead。近十年从乙方创意执行走到甲方品牌视觉管理，长期服务美妆、护肤、消费品牌与数字产品，把复杂构思整理成清晰、可执行、可延展的视觉系统。
@@ -332,16 +312,6 @@
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
         });
-
-        const fadeSections = document.querySelectorAll('.fade-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15 });
-        fadeSections.forEach((section) => observer.observe(section));
     </script>
     <script src="theme.js"></script>
     <footer class="footer">

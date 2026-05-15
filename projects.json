@@ -1,0 +1,92 @@
+[
+  {
+    "id": "lumina",
+    "title": {
+      "cn": "光感系统",
+      "en": "Lumina"
+    },
+    "description": "光感系统是一个产品设计项目，探索光影与交互的结合。",
+    "category": "Product Design",
+    "year": "2026",
+    "coverImage": "images/lumina/cover.jpg",
+    "aspectRatio": "21/9",
+    "fullWidth": true,
+    "url": "lumina.html",
+    "tags": ["产品设计", "交互设计", "光影"]
+  },
+  {
+    "id": "vogue",
+    "title": {
+      "cn": "视觉叙事",
+      "en": "Vogue"
+    },
+    "description": "视觉叙事是一个编辑设计项目，探索视觉故事讲述。",
+    "category": "Editorial",
+    "year": "2025",
+    "coverImage": "images/vogue/cover.jpg",
+    "aspectRatio": "4/5",
+    "fullWidth": false,
+    "url": "vogue.html",
+    "tags": ["编辑设计", "视觉叙事", "杂志"]
+  },
+  {
+    "id": "objekt",
+    "title": {
+      "cn": "物与空间",
+      "en": "Objekt"
+    },
+    "description": "物与空间是一个艺术指导项目，探索物体与空间的关系。",
+    "category": "Art Direction",
+    "year": "2025",
+    "coverImage": "images/objekt/cover.jpg",
+    "aspectRatio": "16/9",
+    "fullWidth": true,
+    "url": "objekt.html",
+    "tags": ["艺术指导", "空间设计", "物体"]
+  },
+  {
+    "id": "identity",
+    "title": {
+      "cn": "识别构思",
+      "en": "Identity"
+    },
+    "description": "识别构思是一个品牌设计项目，探索品牌识别系统。",
+    "category": "Branding",
+    "year": "2024",
+    "coverImage": "images/identity/cover.jpg",
+    "aspectRatio": "16/9",
+    "fullWidth": false,
+    "url": "identity.html",
+    "tags": ["品牌设计", "识别系统", "品牌"]
+  },
+  {
+    "id": "system",
+    "title": {
+      "cn": "系统秩序",
+      "en": "System"
+    },
+    "description": "系统秩序是一个UX/UI设计项目，探索系统化设计方法。",
+    "category": "UX/UI Design",
+    "year": "2024",
+    "coverImage": "images/system/cover.jpg",
+    "aspectRatio": "21/9",
+    "fullWidth": true,
+    "url": "system.html",
+    "tags": ["UX/UI设计", "系统设计", "用户体验"]
+  },
+  {
+    "id": "future-studio",
+    "title": {
+      "cn": "未来构想",
+      "en": "Future Studio"
+    },
+    "description": "未来构想是一个概念设计项目，探索未来设计趋势。",
+    "category": "Concept",
+    "year": "2023",
+    "coverImage": "images/future-studio/cover.jpg",
+    "aspectRatio": "16/10",
+    "fullWidth": false,
+    "url": "future-studio.html",
+    "tags": ["概念设计", "未来趋势", "创新"]
+  }
+]

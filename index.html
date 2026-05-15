@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,164 +11,35 @@
     <meta property="og:description" content="Brand visual lead and AI-driven creative working across beauty, campaign systems and visual identity.">
     <meta name="twitter:card" content="summary_large_image">
     <title>Braelyn. | Design is Thinking Made Visual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
     <style>
-        /* --- 设计系统：白天模式 (默认) --- */
-        :root, [data-theme="light"] {
-            --bg-color: #F7F7F5; 
-            --text-color: #111; 
-            --accent-red: #E2211C; 
-            --nav-bg: rgba(247, 247, 245, 0.95);
-            --nav-border: rgba(0,0,0,0.03);
-            --nav-shadow: rgba(0,0,0,0.08);
-            --hero-sub: #888;
-            --img-bg: transparent;
-            --img-hover-brightness: brightness(0.5);
-            --card-shadow: rgba(0,0,0,0.12);
-            --footer-border: rgba(0,0,0,0.06);
-            --font-main: 'Montserrat', sans-serif;
-        }
-
-        /* --- 设计系统：夜间模式 (五彩斑斓的黑) --- */
-        [data-theme="dark"] {
-            --bg-color: #0A0A0A; 
-            --text-color: #C8C8C8; 
-            --accent-red: #6B1515; 
-            --nav-bg: rgba(8, 8, 8, 0.95);
-            --nav-border: rgba(255,255,255,0.08);
-            --nav-shadow: rgba(255,255,255,0.1);
-            --hero-sub: #666;
-            --img-bg: #1A1A1A;
-            --img-hover-brightness: brightness(0.5);
-            --card-shadow: rgba(0,0,0,0.6);
-            --footer-border: rgba(255,255,255,0.08);
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
-        body { 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            font-family: var(--font-main); 
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            transition: background-color 0.5s, color 0.5s;
         }
-
-        /* --- 1. V12 磁吸准星指针 --- */
         #cursor {
-            position: fixed; top: 0; left: 0; width: 6px; height: 6px;
-            background: var(--accent-red); border-radius: 20px;
-            pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, transform 0.1s ease-out, background 0.3s, border 0.3s;
+            position: fixed; top: 0; left: 0;
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none; z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: width 0.35s, height 0.35s, background 0.35s ease, opacity 0.35s ease;
+            mix-blend-mode: difference;
         }
-        #cursor.active {
-            width: 45px; height: 45px; background: transparent;
-            border: 1px solid var(--accent-red);
-        }
-        #cursor.active::after, #cursor.active::before {
-            content: ''; position: absolute; background: var(--accent-red);
-        }
-        #cursor.active::after { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        #cursor.active::before { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-
-        /* --- 2. 导航栏 --- */
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem;
-            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
-            background-color: var(--nav-bg);
-            border-bottom: 1px solid var(--nav-border);
-            transition: background-color 0.5s, border-color 0.5s;
-        }
-        .logo { font-size: 26px; font-weight: 800; display: flex; align-items: baseline; letter-spacing: -1px; }
-        .logo span { width: 7px; height: 7px; background: var(--accent-red); border-radius: 50%; margin-left: 3px; }
-
-        .nav-links { display: flex; gap: 3rem; align-items: center; }
-        .nav-links a { 
-            font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
-            text-decoration: none; color: inherit; position: relative;
-            display: inline-block;
-            padding: 20px 0;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--accent-red); }
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: -18px; left: 10%; width: 80%; height: 2px;
-            border-radius: 50%; filter: blur(3px);
-            opacity: 0; transition: opacity 0.4s;
-            background: rgba(0,0,0,0.08);
-        }
-        [data-theme="dark"] .nav-links a::after { background: rgba(255,255,255,0.2); }
-        .nav-links a:hover::after { opacity: 0.5; }
-
-        /* 主题切换按钮 */
-        .theme-toggle {
-            background: none; border: none; color: inherit;
-            padding: 8px; cursor: none;
-            transition: opacity 0.3s;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .theme-toggle:hover { opacity: 0.7; }
-        .theme-toggle svg { transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
-        .theme-toggle:hover svg { transform: rotate(30deg); }
-
-        /* --- 3. 首屏 --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 4rem;
-        }
-        .hero-title { font-weight: 650; font-size: clamp(2.6rem, 5.8vw, 7rem); line-height: 1.04; letter-spacing: -0.045em; text-transform: uppercase; }
-        .hero-sub { margin-top: 1.6rem; font-weight: 400; font-size: 12px; letter-spacing: 3px; color: var(--hero-sub); text-transform: uppercase; }
-
-        /* --- 首页项目展示 --- */
-        .home-projects {
-            max-width: var(--grid-max);
-            margin: 0 auto;
-            padding: 0 64px 120px;
-        }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-        .project-item {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        .project-img-wrapper {
-            overflow: hidden;
-            border: 1px solid var(--nav-border);
-            background: var(--img-bg);
-        }
-        .project-img-wrapper img {
-            width: 100%;
-            height: 520px;
-            object-fit: cover;
-            transition: filter 0.5s, transform 0.5s;
-        }
-        .project-item:hover .project-img-wrapper img {
-            filter: var(--img-hover-brightness);
-            transform: scale(1.025);
-        }
-        .project-meta {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        /* 响应式 */
-        @media (max-width: 768px) {
-            nav { padding: 1.5rem 2rem; }
-            .nav-links { gap: 1.5rem; }
-            .hero { height: 86vh; padding: 0 2rem; }
-            .home-projects { padding: 0 24px 72px; }
-            .projects-grid { grid-template-columns: 1fr; gap: 48px; }
+        #cursor.hover {
+            width: 32px; height: 32px;
+            background: transparent;
+            border: 1px solid var(--text);
+            opacity: 0.7;
         }
     </style>
     <link rel="stylesheet" href="design-system.css">
@@ -191,7 +62,7 @@
         }
     </script>
 </head>
-<body data-theme="light">
+<body>
 
     <div id="cursor"></div>
 
@@ -208,13 +79,27 @@
     </nav>
 
     <section class="hero concept-hero">
-        <div class="hero-atmosphere" aria-hidden="true"></div>
+        <div class="orb-bg" id="orbBg" aria-hidden="true">
+            <div class="orb-plane orb-p1" data-depth="8"></div>
+            <div class="orb-plane orb-p2" data-depth="-5"></div>
+            <div class="orb-plane orb-p3" data-depth="3"></div>
+        </div>
+        <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
+        <div class="hero-glow-trail" id="heroGlowTrail" aria-hidden="true"></div>
+        <div class="hero-badge" aria-label="Capabilities">
+            <span>Brand Systems</span>
+            <span>Campaign Direction</span>
+            <span>AI Workflow</span>
+        </div>
         <div class="concept-stack">
-            <h1 class="concept-title">
-                DESIGN IS KNOWING<br>
-                WHICH ONES TO KEEP
-            </h1>
-            <p class="concept-cn">设计的本质，是对选择的判断与克制</p>
+            <p class="concept-kicker">Portfolio / Thinking System</p>
+            <h1 class="concept-title">Design is Thinking Made Visual</h1>
+            <p class="concept-cn">设计是让构思得以实现</p>
+            <div class="concept-rule"></div>
+            <div class="concept-quote" aria-label="Design thinking principle">
+                <p class="quote-en">A problem well stated is a problem half solved</p>
+                <p class="quote-cn">阐述清楚问题就解决了一半</p>
+            </div>
         </div>
     </section>
 
@@ -246,43 +131,50 @@
         </div>
     </section>
 
-    <section class="home-projects fade-section">
-        <div class="projects-grid">
-            <a href="lumina.html" class="project-item">
-                <div class="project-img-wrapper">
-                    <div class="project-placeholder" style="background: var(--img-bg); height: 520px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--nav-border);">
-                        <span style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-color);">Lumina</span>
+    <section class="hero-scroll" id="heroScroll">
+        <div class="sticky">
+            <div class="track" id="track">
+    
+                <div class="panel panel-gap"></div>
+    
+                <a href="lumina.html" class="panel panel-hero">
+                    <div class="panel-img" style="background: radial-gradient(ellipse at 40% 50%, rgba(180, 120, 60, 0.25), transparent 65%);"></div>
+                    <div class="panel-text">
+                        <span class="panel-number">01</span>
+                        <span class="panel-title-cn">光感系统</span>
+                        <span class="panel-title-en">Lumina</span>
                     </div>
-                </div>
-                <div class="project-meta">
-                    <span class="project-title-cn">光感系统</span>
-                    <span class="project-title-en">Lumina</span>
-                </div>
-            </a>
-            <a href="vogue.html" class="project-item">
-                <div class="project-img-wrapper">
-                    <div class="project-placeholder" style="background: var(--img-bg); height: 520px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--nav-border);">
-                        <span style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-color);">Vogue</span>
+                </a>
+    
+                <div class="panel panel-gap"></div>
+    
+                <a href="vogue.html" class="panel">
+                    <div class="panel-img" style="background: radial-gradient(ellipse at 60% 50%, rgba(60, 120, 180, 0.2), transparent 65%);"></div>
+                    <div class="panel-text">
+                        <span class="panel-number">02</span>
+                        <span class="panel-title-cn">视觉叙事</span>
+                        <span class="panel-title-en">Vogue</span>
                     </div>
-                </div>
-                <div class="project-meta">
-                    <span class="project-title-cn">视觉叙事</span>
-                    <span class="project-title-en">Vogue</span>
-                </div>
-            </a>
-            <a href="objekt.html" class="project-item">
-                <div class="project-img-wrapper">
-                    <div class="project-placeholder" style="background: var(--img-bg); height: 520px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--nav-border);">
-                        <span style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-color);">Objekt</span>
+                </a>
+    
+                <div class="panel panel-gap"></div>
+    
+                <a href="objekt.html" class="panel">
+                    <div class="panel-img" style="background: radial-gradient(ellipse at 50% 50%, rgba(120, 60, 160, 0.22), transparent 65%);"></div>
+                    <div class="panel-text">
+                        <span class="panel-number">03</span>
+                        <span class="panel-title-cn">物与空间</span>
+                        <span class="panel-title-en">Objekt</span>
                     </div>
-                </div>
-                <div class="project-meta">
-                    <span class="project-title-cn">物与空间</span>
-                    <span class="project-title-en">Objekt</span>
-                </div>
-            </a>
+                </a>
+    
+                <div class="panel panel-gap"></div>
+    
+            </div>
         </div>
     </section>
+
+    <button id="backToTop" aria-label="Back to top">↑</button>
 
     <script>
         const cursor = document.getElementById('cursor');
@@ -291,13 +183,100 @@
             cursor.style.top = e.clientY + 'px';
         });
 
-        const interactive = document.querySelectorAll('a, .theme-toggle');
+        const interactive = document.querySelectorAll('a, button, .theme-toggle');
         interactive.forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
         });
 
-        // Reveal sections on scroll
+        const hero = document.querySelector('.concept-hero');
+        const heroGlow = document.getElementById('heroGlow');
+        const heroGlowTrail = document.getElementById('heroGlowTrail');
+        const conceptStack = document.querySelector('.concept-stack');
+        if (hero && !window.matchMedia('(pointer: coarse)').matches) {
+            const orbBg = document.getElementById('orbBg');
+            const layers = orbBg ? Array.from(orbBg.querySelectorAll('[data-depth]')) : [];
+            const ORB_BASE = [18, -24, 45];
+            const ORB_RESPONSIVE = [0.4, 0.3, 0.5];
+            const TILT_MAX = 4;
+            const CENTER_ZONE = 0.3;
+            let glowX = 0, glowY = 0;
+            let trailX = 0, trailY = 0;
+            let tiltX = 0, tiltY = 0;
+            let orbRot = 0;
+            let targetX = 0, targetY = 0;
+            let targetTiltX = 0, targetTiltY = 0;
+            let targetOrbRot = 0;
+            let ticking = false;
+
+            function lerp(a, b, t) { return a + (b - a) * t; }
+
+            function animate() {
+                glowX = lerp(glowX, targetX, 0.18);
+                glowY = lerp(glowY, targetY, 0.18);
+                trailX = lerp(trailX, targetX, 0.08);
+                trailY = lerp(trailY, targetY, 0.08);
+                tiltX = lerp(tiltX, targetTiltX, 0.06);
+                tiltY = lerp(tiltY, targetTiltY, 0.06);
+                orbRot = lerp(orbRot, targetOrbRot, 0.05);
+
+                if (heroGlow) heroGlow.style.transform = `translate3d(${glowX}px,${glowY}px,0)`;
+                if (heroGlowTrail) heroGlowTrail.style.transform = `translate3d(${trailX}px,${trailY}px,0)`;
+                if (conceptStack) conceptStack.style.transform = `perspective(1000px) rotateY(${tiltY}deg) rotateX(${tiltX}deg)`;
+
+                for (let i = 0; i < layers.length; i++) {
+                    const r = ORB_BASE[i] + orbRot * ORB_RESPONSIVE[i];
+                    layers[i].style.transform = `translate(-50%,-50%) rotate(${r}deg)`;
+                }
+
+                const dx = Math.abs(glowX - targetX) + Math.abs(glowY - targetY);
+                const settled = dx < 0.5 && Math.abs(trailX - targetX) < 0.5 && Math.abs(trailY - targetY) < 0.5;
+
+                if (!settled) {
+                    ticking = requestAnimationFrame(animate);
+                } else {
+                    ticking = false;
+                }
+            }
+
+            hero.addEventListener('mousemove', (e) => {
+                const rect = hero.getBoundingClientRect();
+                const rx = (e.clientX - rect.left) / rect.width - 0.5;
+                const ry = (e.clientY - rect.top) / rect.height - 0.5;
+                targetX = rx * rect.width;
+                targetY = ry * rect.height;
+                targetTiltY = rx * TILT_MAX * 2;
+                targetTiltX = -ry * TILT_MAX * 2;
+
+                const dist = Math.sqrt(rx * rx + ry * ry);
+                targetOrbRot = dist < CENTER_ZONE ? rx * 90 : 0;
+
+                hero.classList.add('glow-active');
+                if (!ticking) ticking = requestAnimationFrame(animate);
+            });
+
+            hero.addEventListener('mouseleave', () => {
+                targetX = 0; targetY = 0;
+                targetTiltX = 0; targetTiltY = 0;
+                targetOrbRot = 0;
+                if (!ticking) ticking = requestAnimationFrame(animate);
+
+                const check = setInterval(() => {
+                    if (ticking) return;
+                    clearInterval(check);
+                    if (heroGlow) heroGlow.style.transform = '';
+                    if (heroGlowTrail) heroGlowTrail.style.transform = '';
+                    if (conceptStack) conceptStack.style.transform = '';
+                    for (let i = 0; i < layers.length; i++) {
+                        layers[i].style.transform = `translate(-50%,-50%) rotate(${ORB_BASE[i]}deg)`;
+                    }
+                    hero.classList.remove('glow-active');
+                    glowX = 0; glowY = 0; trailX = 0; trailY = 0;
+                    tiltX = 0; tiltY = 0; orbRot = 0;
+                }, 100);
+            });
+        }
+
         const fadeSections = document.querySelectorAll('.fade-section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -305,11 +284,53 @@
                     entry.target.classList.add('visible');
                 }
             });
-        }, {
-            threshold: 0.15,
+        }, { threshold: 0.15 });
+        fadeSections.forEach((section) => observer.observe(section));
+
+        const nav = document.querySelector('nav');
+        let scrollTick = null;
+        document.addEventListener('scroll', () => {
+            if (!scrollTick) {
+                scrollTick = requestAnimationFrame(() => {
+                    nav.classList.toggle('scrolled', window.scrollY > 60);
+                    scrollTick = null;
+                });
+            }
         });
-        fadeSections.forEach((section) => {
-            observer.observe(section);
+
+        const track = document.getElementById('track');
+        const scrollSection = document.getElementById('heroScroll');
+        let horzTick = null;
+        document.addEventListener('scroll', () => {
+            if (!horzTick) {
+                horzTick = requestAnimationFrame(() => {
+                    const rect = scrollSection.getBoundingClientRect();
+                    const sh = scrollSection.offsetHeight - window.innerHeight;
+                    const progress = Math.min(Math.max(-rect.top / sh, 0), 1);
+                    const maxMove = track.scrollWidth - window.innerWidth;
+                    gsap.to(track, {
+                        x: -maxMove * progress,
+                        duration: 0.6,
+                        ease: 'power3.out',
+                        overwrite: 'auto'
+                    });
+                    horzTick = null;
+                });
+            }
+        });
+
+        const backToTop = document.getElementById('backToTop');
+        let bttTick = null;
+        document.addEventListener('scroll', () => {
+            if (!bttTick) {
+                bttTick = requestAnimationFrame(() => {
+                    backToTop.classList.toggle('visible', window.scrollY > 500);
+                    bttTick = null;
+                });
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
     <script src="theme.js"></script>
