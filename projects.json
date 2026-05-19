@@ -1,18 +1,18 @@
 [
   {
-    "id": "lumina",
+    "id": "Purajuvé",
     "title": {
-      "cn": "光感系统",
-      "en": "Lumina"
+      "cn": "Purajuvé",
+      "en": "Purajuvé"
     },
-    "description": "光感系统是一个产品设计项目，探索光影与交互的结合。",
-    "category": "Product Design",
-    "year": "2026",
-    "coverImage": "images/lumina/cover.jpg",
-    "aspectRatio": "21/9",
-    "fullWidth": true,
-    "url": "lumina.html",
-    "tags": ["产品设计", "交互设计", "光影"]
+    "description": "Purajuvé 是一个美妆护肤品牌视觉系统项目，探索品牌从 0 到 1 的视觉建设。",
+    "category": "Branding",
+    "year": "2023",
+    "coverImage": "images/Purajuvé/cover.jpg",
+    "aspectRatio": "16/10",
+    "fullWidth": false,
+    "url": "future-studio.html",
+    "tags": ["品牌设计", "视觉系统", "美妆护肤"]
   },
   {
     "id": "vogue",
@@ -73,20 +73,5 @@
     "fullWidth": true,
     "url": "system.html",
     "tags": ["UX/UI设计", "系统设计", "用户体验"]
-  },
-  {
-    "id": "future-studio",
-    "title": {
-      "cn": "未来构想",
-      "en": "Future Studio"
-    },
-    "description": "未来构想是一个概念设计项目，探索未来设计趋势。",
-    "category": "Concept",
-    "year": "2023",
-    "coverImage": "images/future-studio/cover.jpg",
-    "aspectRatio": "16/10",
-    "fullWidth": false,
-    "url": "future-studio.html",
-    "tags": ["概念设计", "未来趋势", "创新"]
   }
 ]

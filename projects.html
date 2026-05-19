@@ -13,13 +13,12 @@
             background: var(--bg); 
             color: var(--text); 
             font-family: var(--font-body); 
-            overflow-x: hidden;
             transition: background 0.4s, color 0.4s;
         }
 
         #cursor {
             position: fixed; top: 0; left: 0; width: 6px; height: 6px;
-            background: var(--accent); border-radius: 50%;
+            background: #dc2626; border-radius: 50%;
             pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
             transition: width 0.35s, height 0.35s, background 0.35s ease, opacity 0.35s ease;
         }
@@ -187,10 +186,99 @@
         <p class="page-sub">2021 — 2026</p>
     </section>
 
-    <section class="projects-list"></section>
+    <section class="projects-list">
+        <!-- 项目1：Purajuvé -->
+        <div class="project-item">
+            <a href="future-studio.html" style="text-decoration:none; color:inherit;">
+                <div class="project-img-wrapper">
+                    <img src="images/Purajuvé/cover.jpg" style="aspect-ratio:16/10;">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-name"><span class="project-title-cn">Purajuvé</span><span class="project-title-en">Purajuvé</span></h3>
+                    <div class="project-meta">
+                        <div class="project-tag">Branding</div>
+                        <div class="project-year">2023</div>
+                    </div>
+                </div>
+            </a>
+        </div>
 
+        <!-- 项目2 -->
+        <div class="project-item">
+            <a href="vogue.html" style="text-decoration:none; color:inherit;">
+                <div class="project-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1600" style="aspect-ratio:4/5;">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-name"><span class="project-title-cn">视觉叙事</span><span class="project-title-en">Vogue</span></h3>
+                    <div class="project-meta">
+                        <div class="project-tag">Editorial</div>
+                        <div class="project-year">2025</div>
+                    </div>
+                </div>
+            </a>
+        </div>
 
-    <script src="projects.js"></script>
+        <!-- 项目3：全宽 -->
+        <div class="project-item full-width">
+            <a href="objekt.html" style="text-decoration:none; color:inherit;">
+                <div class="project-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=2400" style="aspect-ratio:16/9;">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-name"><span class="project-title-cn">物与空间</span><span class="project-title-en">Objekt</span></h3>
+                    <div class="project-meta">
+                        <div class="project-tag">Art Direction</div>
+                        <div class="project-year">2025</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- 项目4 -->
+        <div class="project-item">
+            <a href="identity.html" style="text-decoration:none; color:inherit;">
+                <div class="project-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1600" style="aspect-ratio:16/9;">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-name"><span class="project-title-cn">识别构思</span><span class="project-title-en">Identity</span></h3>
+                    <div class="project-meta">
+                        <div class="project-tag">Branding</div>
+                        <div class="project-year">2024</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- 项目5：全宽 -->
+        <div class="project-item full-width">
+            <a href="system.html" style="text-decoration:none; color:inherit;">
+                <div class="project-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=2400" style="aspect-ratio:21/9;">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-name"><span class="project-title-cn">系统秩序</span><span class="project-title-en">System</span></h3>
+                    <div class="project-meta">
+                        <div class="project-tag">UX/UI Design</div>
+                        <div class="project-year">2024</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        const interactive = document.querySelectorAll('a, button, .theme-toggle');
+        interactive.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+    </script>
     <script src="theme.js"></script>
     <footer class="footer">
         <div class="footer-inner">

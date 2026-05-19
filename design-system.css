@@ -10,7 +10,8 @@
     --muted: rgba(255, 255, 255, 0.5);
     --muted-line: rgba(255, 255, 255, 0.08);
     --accent: #8a1c1c;
-    --nav-blur: rgba(10, 10, 10, 0.88);
+    --nav-bg: rgba(10, 10, 10, 0.92);
+    --nav-blur: rgba(10, 10, 10, 0.92);
     --card-bg: rgba(255, 255, 255, 0.03);
 
     --font-heading: 'Montserrat', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
@@ -52,7 +53,8 @@
     --muted: rgba(0, 0, 0, 0.45);
     --muted-line: rgba(0, 0, 0, 0.08);
     --accent: #8a1c1c;
-    --nav-blur: rgba(245, 245, 243, 0.88);
+    --nav-bg: rgba(245, 245, 243, 0.92);
+    --nav-blur: rgba(245, 245, 243, 0.92);
     --card-bg: rgba(0, 0, 0, 0.03);
 
     --font-heading: 'Montserrat', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
@@ -99,7 +101,6 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
     transition: background 0.4s ease, color 0.4s ease;
 }
 
@@ -114,7 +115,6 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
 }
 
 img { display: block; max-width: 100%; }
@@ -176,12 +176,50 @@ h1, h2, h3, h4, .heading {
     mix-blend-mode: difference;
 }
 
-#cursor.hover {
+#cursor.hover,
+#cursor.active {
     width: 32px;
     height: 32px;
     background: transparent;
     border: 1px solid var(--text);
+    opacity: 0.85;
+}
+
+#cursor.hover::before,
+#cursor.hover::after,
+#cursor.active::before,
+#cursor.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: var(--text);
+    border-radius: 1px;
     opacity: 0.7;
+}
+
+#cursor.hover::before,
+#cursor.active::before {
+    width: 10px;
+    height: 1.5px;
+    transform: translate(-50%, -50%);
+}
+
+#cursor.hover::after,
+#cursor.active::after {
+    width: 1.5px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes cursor-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.15); }
+}
+
+#cursor.hover,
+#cursor.active {
+    animation: cursor-pulse 2s var(--ease-out) infinite;
 }
 
 /* --- Navigation --- */
@@ -194,16 +232,12 @@ nav {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: transparent;
+    background: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     transition:
         background 0.5s var(--ease-out),
         backdrop-filter 0.5s var(--ease-out);
-}
-
-nav.scrolled {
-    background: var(--nav-blur);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
 }
 
 .logo {
@@ -310,7 +344,6 @@ nav.scrolled {
     justify-content: center;
     text-align: center;
     padding: 160px 64px 120px;
-    overflow: hidden;
 }
 
 .concept-stack {
@@ -370,7 +403,6 @@ nav.scrolled {
     will-change: transform, opacity;
     pointer-events: none;
     z-index: 1;
-    mix-blend-mode: screen;
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -387,8 +419,7 @@ nav.scrolled {
     will-change: transform, opacity;
     pointer-events: none;
     z-index: 1;
-    mix-blend-mode: screen;
-    filter: blur(20px);
+    filter: blur(10px);
     transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -404,12 +435,10 @@ nav.scrolled {
 
 :root[data-theme="light"] .hero-glow {
     background: radial-gradient(circle, rgba(138, 28, 28, 0.22) 0%, rgba(138, 28, 28, 0.06) 30%, rgba(255, 180, 160, 0.02) 50%, transparent 65%);
-    mix-blend-mode: multiply;
 }
 
 :root[data-theme="light"] .hero-glow-trail {
     background: radial-gradient(circle, rgba(138, 28, 28, 0.08) 0%, rgba(255, 200, 180, 0.02) 40%, transparent 60%);
-    mix-blend-mode: multiply;
 }
 
 .concept-stack {
@@ -417,18 +446,15 @@ nav.scrolled {
     will-change: transform;
 }
 
-/* Noise overlay */
+/* Subtle depth overlay — lightweight CSS gradient, no SVG filter */
 .concept-hero::after {
     content: '';
     position: absolute;
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 256px 256px;
-    mix-blend-mode: overlay;
+    opacity: 0.4;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.15) 0%, transparent 60%);
 }
 
 .hero-badge {
