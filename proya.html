@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Braelyn. | System</title>
+    <title>Braelyn. | Proya</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -80,7 +80,7 @@
         .theme-toggle:hover svg { transform: rotate(30deg); }
 
         .hero {
-            padding: 14rem 6rem 0 6rem;
+            padding: 8rem 6rem 0 6rem;
         }
         .hero-content {
             max-width: 1400px;
@@ -104,72 +104,27 @@
         [data-theme="dark"] .project-desc { color: #555; }
 
         .hero-image {
-            margin-top: 5rem;
+            margin-top: 0;
             width: 100%;
             overflow: hidden;
         }
         .hero-image img {
             width: 100%;
-            aspect-ratio: 21/9;
-            object-fit: cover;
+            display: block;
         }
-
-        .context {
-            padding: 12rem 6rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .section-label {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-red);
-            margin-bottom: 2rem;
-        }
-        .context-text {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            line-height: 1.8;
-            max-width: 800px;
-            font-weight: 400;
-        }
-
-        .insight-strategy {
-            padding: 0 6rem 12rem 6rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8rem;
-        }
-        .col-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-        .col-text {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #666;
-        }
-        [data-theme="dark"] .col-text { color: #999; }
 
         .visuals {
-            padding: 0 6rem 12rem 6rem;
+            padding: 0 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         .full-image {
             width: 100%;
-            overflow: hidden;
-            margin-bottom: 8rem;
+            line-height: 0;
         }
-        .full-image:last-child { margin-bottom: 0; }
         .full-image img {
             width: 100%;
-            object-fit: cover;
+            display: block;
         }
 
         .closing {
@@ -218,11 +173,9 @@
         @media (max-width: 768px) {
             nav { padding: 1.5rem 2rem; }
             .nav-links { gap: 1.5rem; }
-            .hero { padding: 10rem 2rem 0 2rem; }
-            .context, .insight-strategy { padding: 8rem 2rem; }
-            .visuals { padding: 0 2rem 8rem 2rem; }
+            .hero { padding: 6rem 2rem 0 2rem; }
+            .visuals { padding: 0 2rem; }
             .closing { padding: 8rem 2rem 12rem 2rem; }
-            .two-col { grid-template-columns: 1fr; gap: 4rem; }
         }
     </style>
     <link rel="stylesheet" href="design-system.css">
@@ -245,54 +198,55 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1 class="project-title"><span class="project-title-cn">系统秩序</span><span class="project-title-en">System</span></h1>
-            <p class="project-desc">UX/UI Design · 2024</p>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=2400" alt="System">
-            </div>
-        </div>
-    </section>
-
-    <section class="context">
-        <div class="section-label">Context</div>
-        <p class="context-text">
-            这是面向企业产品的完整设计系统。目标是建立可以跨产品扩展的界面语言，在提升效率的同时维持体验一致性。
-        </p>
-    </section>
-
-    <section class="insight-strategy">
-        <div class="two-col">
-            <div>
-                <div class="section-label">Insight</div>
-                <h3 class="col-title">可扩展的基础</h3>
-                <p class="col-text">
-                    企业产品需要的不是单独页面，而是可复用的系统基础。团队可以继续扩展，而不破坏品牌与体验的连贯性。
-                </p>
-            </div>
-            <div>
-                <div class="section-label">Strategy</div>
-                <h3 class="col-title">系统化成长</h3>
-                <p class="col-text">
-                    模块化组件和清楚规范让团队更快推进，同时保证平台在长期迭代中不失去设计完整性。
-                </p>
-            </div>
+            <h1 class="project-title"><span class="project-title-cn">Proya 品牌升级</span><span class="project-title-en">Proya</span></h1>
+            <p class="project-desc">Branding</p>
         </div>
     </section>
 
     <section class="visuals">
         <div class="full-image">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2400" style="aspect-ratio:16/9;" alt="">
+            <img src="images/proya品牌升级/detail-01.png" alt="Proya 01">
         </div>
         <div class="full-image">
-            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=2400" style="aspect-ratio:21/9;" alt="">
+            <img src="images/proya品牌升级/detail-02.png" alt="Proya 02">
+        </div>
+        <div class="full-image">
+            <img src="images/proya品牌升级/detail-03.png" alt="Proya 03">
+        </div>
+        <div class="full-image">
+            <img src="images/proya品牌升级/detail-04.png" alt="Proya 04">
+        </div>
+        <div class="full-image">
+            <img src="images/proya品牌升级/detail-05.png" alt="Proya 05">
+        </div>
+        <div class="full-image">
+            <img src="images/proya品牌升级/detail-06.png" alt="Proya 06">
+        </div>
+        <div class="full-image">
+            <img src="images/proya品牌升级/detail-07.png" alt="Proya 07">
+        </div>
+        <div class="full-image">
+            <img src="images/proya品牌升级/detail-08.png" alt="Proya 08">
+        </div>
+        <div class="full-image">
+            <img src="images/proya品牌升级/detail-09.png" alt="Proya 09">
+        </div>
+        <div class="full-image">
+            <img src="images/proya品牌升级/detail-10.png" alt="Proya 10">
+        </div>
+        <div class="full-image">
+            <img src="images/proya品牌升级/detail-11.png" alt="Proya 11">
+        </div>
+        <div class="full-image">
+            <img src="images/proya品牌升级/detail-12.png" alt="Proya 12">
         </div>
     </section>
 
     <section class="closing">
         <div class="closing-text">
-            Systems enable<br>creative<br>freedom
+            Proya 品牌升级
         </div>
-        <div class="closing-year">2024</div>
+        <div class="closing-year">2025</div>
         <a href="projects.html" class="back-link">← Back to Projects</a>
     </section>
 

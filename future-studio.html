@@ -162,6 +162,14 @@
         }
         .back-link:hover { transform: translateY(-5px); }
 
+        /* 覆盖全局 hover 效果 - 项目详情页不需要图片放大 */
+        .full-image:hover img,
+        .hero-image:hover img,
+        .img-wrapper:hover img {
+            transform: none;
+            filter: none;
+        }
+
         @media (max-width: 768px) {
             nav { padding: 1.5rem 2rem; }
             .nav-links { gap: 1.5rem; }
@@ -197,28 +205,40 @@
 
     <section class="visuals">
         <div class="full-image">
-            <img src="images/Purajuvé/detail-01.jpg" alt="Purajuvé 01">
+            <img src="images/Purajuvé/detail-01.png" alt="Purajuvé 01">
         </div>
         <div class="full-image">
-            <img src="images/Purajuvé/detail-02.jpg" alt="Purajuvé 02">
+            <img src="images/Purajuvé/detail-02.png" alt="Purajuvé 02">
         </div>
         <div class="full-image">
-            <img src="images/Purajuvé/detail-03.jpg" alt="Purajuvé 03">
+            <img src="images/Purajuvé/detail-03.png" alt="Purajuvé 03">
         </div>
         <div class="full-image">
-            <img src="images/Purajuvé/detail-04.jpg" alt="Purajuvé 04">
+            <img src="images/Purajuvé/detail-04.png" alt="Purajuvé 04">
         </div>
         <div class="full-image">
-            <img src="images/Purajuvé/detail-05.jpg" alt="Purajuvé 05">
+            <img src="images/Purajuvé/detail-05.png" alt="Purajuvé 05">
         </div>
         <div class="full-image">
-            <img src="images/Purajuvé/detail-06.jpg" alt="Purajuvé 06">
+            <img src="images/Purajuvé/detail-06.png" alt="Purajuvé 06">
         </div>
         <div class="full-image">
-            <img src="images/Purajuvé/detail-07.jpg" alt="Purajuvé 07">
+            <img src="images/Purajuvé/detail-07.png" alt="Purajuvé 07">
         </div>
         <div class="full-image">
-            <img src="images/Purajuvé/detail-08.jpg" alt="Purajuvé 08">
+            <img src="images/Purajuvé/detail-08.png" alt="Purajuvé 08">
+        </div>
+        <div class="full-image">
+            <img src="images/Purajuvé/detail-09.png" alt="Purajuvé 09">
+        </div>
+        <div class="full-image">
+            <img src="images/Purajuvé/detail-10.png" alt="Purajuvé 10">
+        </div>
+        <div class="full-image">
+            <img src="images/Purajuvé/detail-11.png" alt="Purajuvé 11">
+        </div>
+        <div class="full-image">
+            <img src="images/Purajuvé/detail-12.png" alt="Purajuvé 12">
         </div>
     </section>
 

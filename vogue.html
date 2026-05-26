@@ -112,9 +112,7 @@
             width: 100%;
             aspect-ratio: 4/5;
             object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .hero-image:hover img { transform: scale(1.02); }
 
         .context {
             padding: 12rem 6rem;
@@ -172,9 +170,7 @@
         .full-image img {
             width: 100%;
             object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .full-image:hover img { transform: scale(1.02); }
 
         .closing {
             padding: 12rem 6rem 20rem 6rem;
@@ -210,6 +206,14 @@
             transition: transform 0.4s;
         }
         .back-link:hover { transform: translateY(-5px); }
+
+        /* 覆盖全局 hover 效果 - 项目详情页不需要图片放大 */
+        .full-image:hover img,
+        .hero-image:hover img,
+        .img-wrapper:hover img {
+            transform: none;
+            filter: none;
+        }
 
         @media (max-width: 768px) {
             nav { padding: 1.5rem 2rem; }
