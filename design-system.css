@@ -732,7 +732,7 @@ body::before {
 
 .panel {
     flex-shrink: 0;
-    height: 68vh;
+    aspect-ratio: 4/3;
     min-width: 50vw;
     position: relative;
     overflow: hidden;
@@ -745,7 +745,7 @@ body::before {
 }
 
 .panel-hero {
-    min-width: 85vw;
+    min-width: 50vw;
 }
 
 .panel-gap {
@@ -1215,7 +1215,7 @@ body::before {
     }
 
     .panel {
-        height: 50vh;
+        aspect-ratio: 4/3;
         min-width: 100%;
         margin: 0 0 24px;
     }
