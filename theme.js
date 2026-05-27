@@ -29,3 +29,11 @@
 
     btn.addEventListener('click', toggleTheme);
 })();
+
+// 媒体防盗保护
+(function() {
+    document.querySelectorAll('img, video').forEach(function(el) {
+        el.setAttribute('draggable', 'false');
+        el.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    });
+})();

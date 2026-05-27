@@ -161,14 +161,38 @@
                 </a>
     
                 <div class="panel panel-gap"></div>
-    
+
                 <a href="objekt.html" class="panel">
                     <div class="panel-img" style="background: radial-gradient(ellipse at 50% 50%, rgba(120, 60, 160, 0.22), transparent 65%);"></div>
                 </a>
-    
+
+                <div class="panel panel-gap"></div>
+
+                <div class="panel">
+                    <div class="panel-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); opacity:0.4;"></div>
+                </div>
+
+                <div class="panel panel-gap"></div>
+
+                <div class="panel">
+                    <div class="panel-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); opacity:0.4;"></div>
+                </div>
+
+                <div class="panel panel-gap"></div>
+
+                <div class="panel">
+                    <div class="panel-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); opacity:0.4;"></div>
+                </div>
+
                 <div class="panel panel-gap"></div>
     
             </div>
+
+            <div class="carousel-arrows">
+                <button class="carousel-arrow" id="carouselPrev" aria-label="Previous">&lt;</button>
+                <button class="carousel-arrow" id="carouselNext" aria-label="Next">&gt;</button>
+            </div>
+
         </div>
     </section>
 
@@ -319,6 +343,22 @@
                 });
             }
         });
+
+        /* Carousel arrow navigation */
+        const carouselPrev = document.getElementById('carouselPrev');
+        const carouselNext = document.getElementById('carouselNext');
+        if (carouselPrev && carouselNext) {
+            function moveCarousel(dir) {
+                const sh = scrollSection.offsetHeight - window.innerHeight;
+                if (sh <= 0) return;
+                const currentProgress = Math.min(Math.max(-scrollSection.getBoundingClientRect().top / sh, 0), 1);
+                const newProgress = Math.min(Math.max(currentProgress + dir * 0.25, 0), 1);
+                const targetY = scrollSection.offsetTop + newProgress * sh;
+                window.scrollTo({ top: targetY, behavior: 'smooth' });
+            }
+            carouselPrev.addEventListener('click', () => moveCarousel(-1));
+            carouselNext.addEventListener('click', () => moveCarousel(1));
+        }
 
         const backToTop = document.getElementById('backToTop');
         let bttTick = null;
