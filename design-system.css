@@ -751,7 +751,7 @@ body::before {
 
 .panel {
     flex-shrink: 0;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
     min-width: 20vw;
     position: relative;
     overflow: hidden;
@@ -760,7 +760,7 @@ body::before {
     justify-content: center;
     text-decoration: none;
     color: var(--text);
-    margin-right: 1.5vw;
+    margin-right: 0.8vw;
 }
 
 .panel-hero {
@@ -768,7 +768,7 @@ body::before {
 }
 
 .panel-gap {
-    min-width: 6vw;
+    min-width: 3vw;
     height: auto;
     pointer-events: none;
     background: transparent;
@@ -1281,9 +1281,9 @@ body::before {
     }
 
     .panel {
-        aspect-ratio: 4/3;
+        aspect-ratio: 16/9;
         min-width: 100%;
-        margin: 0 0 24px;
+        margin: 0 0 16px;
     }
 
     .panel-hero {
