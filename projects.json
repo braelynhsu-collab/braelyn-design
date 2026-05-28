@@ -45,21 +45,6 @@
     "tags": ["品牌设计", "视觉创意", "美妆护肤"]
   },
   {
-    "id": "objekt",
-    "title": {
-      "cn": "物与空间",
-      "en": "Objekt"
-    },
-    "description": "物与空间是一个艺术指导项目，探索物体与空间的关系。",
-    "category": "Art Direction",
-    "year": "2025",
-    "coverImage": "images/objekt/cover.png",
-    "aspectRatio": "16/9",
-    "fullWidth": true,
-    "url": "objekt.html",
-    "tags": ["艺术指导", "空间设计", "物体"]
-  },
-  {
     "id": "identity",
     "title": {
       "cn": "识别构思",
@@ -68,7 +53,7 @@
     "description": "识别构思是一个品牌设计项目，探索品牌识别系统。",
     "category": "Branding",
     "year": "2024",
-    "coverImage": "images/identity/cover.png",
+    "coverImage": "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=800",
     "aspectRatio": "16/9",
     "fullWidth": false,
     "url": "identity.html",
@@ -83,7 +68,7 @@
     "description": "系统秩序是一个UX/UI设计项目，探索系统化设计方法。",
     "category": "UX/UI Design",
     "year": "2024",
-    "coverImage": "images/system/cover.png",
+    "coverImage": "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800",
     "aspectRatio": "21/9",
     "fullWidth": true,
     "url": "system.html",
