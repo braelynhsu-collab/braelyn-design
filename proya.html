@@ -179,12 +179,93 @@
             filter: none !important;
         }
 
+        .project-description {
+            padding: 6rem 6rem 4rem 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .project-description .intro-line {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-red);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        .project-description h2 {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.4;
+            margin-bottom: 3rem;
+        }
+        .project-description .desc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .project-description .desc-block h3 {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-red);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+        .project-description .desc-block ul {
+            list-style: none;
+            padding: 0;
+        }
+        .project-description .desc-block ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 0.6rem;
+        }
+        .project-description .desc-block ul li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            opacity: 0.6;
+        }
+        .project-description .desc-divider {
+            height: 1px;
+            background: var(--muted-line);
+            margin-bottom: 2rem;
+        }
+        .project-footer {
+            padding: 2rem 6rem 6rem 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .project-footer .desc-note {
+            font-size: 11px;
+            line-height: 1.8;
+            color: var(--muted);
+            max-width: 900px;
+        }
+        .project-footer .desc-note + .desc-note {
+            margin-top: 0.8rem;
+        }
+        .project-footer .footer-divider {
+            height: 1px;
+            background: var(--muted-line);
+            margin-bottom: 2rem;
+        }
+
         @media (max-width: 768px) {
             nav { padding: 1.5rem 2rem; }
             .nav-links { gap: 1.5rem; }
             .hero { padding: 6rem 2rem 0 2rem; }
+            .project-description { padding: 4rem 2rem 3rem 2rem; }
+            .project-description .desc-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .project-footer { padding: 2rem 2rem 4rem 2rem; }
             .visuals { padding: 0 2rem; }
-            .closing { padding: 8rem 2rem 12rem 2rem; }
+            .closing { padding: 8rem 2rem 6rem 2rem; }
         }
     </style>
 </head>
@@ -211,43 +292,76 @@
         </div>
     </section>
 
+    <section class="project-description">
+        <p class="intro-line">Branding / 2023</p>
+        <h2>PROYA 品牌升级项目<br>设计中台品牌视觉负责人 / 主视觉统筹</h2>
+
+        <div class="desc-grid">
+            <div class="desc-block">
+                <h3>项目职责</h3>
+                <ul>
+                    <li>以设计中台品牌部负责人的身份主导品牌升级视觉方向探索，参与策略共创并完成视觉方向拆解；</li>
+                    <li>带领团队开展多轮品牌图形筛选、组合测试与系统优化，统筹品牌中英文标识与超级图形的适配逻辑；</li>
+                    <li>从品牌定位与理念出发，搭建具备识别性与延展性的品牌视觉语言；</li>
+                    <li>组织多轮内部提案比稿，把控提案逻辑、视觉表达节奏及交付标准；</li>
+                    <li>协同品牌、法务等多部门推进视觉方案验证、注册。</li>
+                </ul>
+            </div>
+            <div class="desc-block">
+                <h3>项目成果</h3>
+                <ul>
+                    <li>推动团队核心视觉方向在多轮内部评审中入选；</li>
+                    <li>完成品牌核心视觉资产体系搭建，形成兼容多场景传播的视觉表达基础；</li>
+                    <li>推进品牌视觉成果进入商标注册及规范化应用流程，为后续品牌升级落地提供系统支撑。</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
     <section class="visuals">
         <div class="full-image">
-<img src="images/proya品牌升级/detail-01.png" alt="Proya 01" loading="lazy">
-<img src="images/proya品牌升级/detail-02.png" alt="Proya 02" loading="lazy">
-<img src="images/proya品牌升级/detail-03.png" alt="Proya 03" loading="lazy">
-<img src="images/proya品牌升级/detail-04.png" alt="Proya 04" loading="lazy">
-<img src="images/proya品牌升级/detail-05.png" alt="Proya 05" loading="lazy">
-<img src="images/proya品牌升级/detail-06.png" alt="Proya 06" loading="lazy">
-<img src="images/proya品牌升级/detail-07.png" alt="Proya 07" loading="lazy">
-<img src="images/proya品牌升级/detail-08.png" alt="Proya 08" loading="lazy">
-<img src="images/proya品牌升级/detail-09.png" alt="Proya 09" loading="lazy">
-<img src="images/proya品牌升级/detail-10.png" alt="Proya 10" loading="lazy">
-<img src="images/proya品牌升级/detail-11.png" alt="Proya 11" loading="lazy">
-<img src="images/proya品牌升级/detail-12.png" alt="Proya 12" loading="lazy">
-<img src="images/proya品牌升级/detail-13.png" alt="Proya 13" loading="lazy">
-<img src="images/proya品牌升级/detail-14.png" alt="Proya 14" loading="lazy">
+<img src="images/proya品牌升级/detail-01.jpg" alt="Proya 01" loading="lazy" decoding="async" fetchpriority="high">
+<img src="images/proya品牌升级/detail-02.jpg" alt="Proya 02" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-03.jpg" alt="Proya 03" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-04.jpg" alt="Proya 04" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-05.jpg" alt="Proya 05" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-06.jpg" alt="Proya 06" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-07.jpg" alt="Proya 07" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-08.jpg" alt="Proya 08" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-09.jpg" alt="Proya 09" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-10.jpg" alt="Proya 10" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-11.jpg" alt="Proya 11" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-12.jpg" alt="Proya 12" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-13.jpg" alt="Proya 13" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-14.jpg" alt="Proya 14" loading="lazy" decoding="async">
 <div class="full-video">
-<video src="images/proya品牌升级/detail-15.mp4" autoplay muted loop playsinline preload="auto" controls></video>
+<video src="images/proya品牌升级/detail-15.mp4" autoplay muted loop playsinline preload="none" controls poster="images/proya品牌升级/detail-14.jpg"></video>
 </div>
-<img src="images/proya品牌升级/detail-16.png" alt="Proya 16" loading="lazy">
-<img src="images/proya品牌升级/detail-17.png" alt="Proya 17" loading="lazy">
-<img src="images/proya品牌升级/detail-18.png" alt="Proya 18" loading="lazy">
-<img src="images/proya品牌升级/detail-19.png" alt="Proya 19" loading="lazy">
-<img src="images/proya品牌升级/detail-20.png" alt="Proya 20" loading="lazy">
-<img src="images/proya品牌升级/detail-21.png" alt="Proya 21" loading="lazy">
-<img src="images/proya品牌升级/detail-22.png" alt="Proya 22" loading="lazy">
-<img src="images/proya品牌升级/detail-23.png" alt="Proya 23" loading="lazy">
-<img src="images/proya品牌升级/detail-24.png" alt="Proya 24" loading="lazy">
-<img src="images/proya品牌升级/detail-25.png" alt="Proya 25" loading="lazy">
+<img src="images/proya品牌升级/detail-16.jpg" alt="Proya 16" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-17.jpg" alt="Proya 17" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-18.jpg" alt="Proya 18" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-19.jpg" alt="Proya 19" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-20.jpg" alt="Proya 20" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-21.jpg" alt="Proya 21" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-22.jpg" alt="Proya 22" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-23.jpg" alt="Proya 23" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-24.jpg" alt="Proya 24" loading="lazy" decoding="async">
+<img src="images/proya品牌升级/detail-25.jpg" alt="Proya 25" loading="lazy" decoding="async">
         </div>
+    </section>
+
+    <section class="project-footer">
+        <div class="footer-divider"></div>
+        <p class="desc-note">*团队协作项目说明：本项目为 PROYA 品牌升级阶段团队协作项目。本人担任设计中台品牌组组长，主要负责品牌策略共创、视觉方向拆解、创意提案组织及整体视觉创意把控；项目中部分延展视觉呈现由团队成员协同完成，页面仅用于展示项目整体推进成果与系统化视觉思考。</p>
+        <p class="desc-note">*本页面内容仅用于作品展示，禁止任何形式的商业转载或传播。项目相关品牌资产及知识产权归所属品牌方及设计师所有，如涉及展示异议，请联系后及时删除。</p>
     </section>
 
     <section class="closing">
         <div class="closing-text">
             Proya 品牌升级
         </div>
-        <div class="closing-year">2025</div>
+        <div class="closing-year">2023</div>
         <a href="projects.html" class="back-link">← Back to Projects</a>
     </section>
 
