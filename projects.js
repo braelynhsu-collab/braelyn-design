@@ -39,9 +39,7 @@ class ProjectsLoader {
   }
 
   renderProjects() {
-    const sortedProjects = [...this.projects].sort((a, b) => b.year - a.year);
-    
-    sortedProjects.forEach(project => {
+    this.projects.forEach(project => {
       const projectElement = this.createProjectElement(project);
       this.container.appendChild(projectElement);
     });
