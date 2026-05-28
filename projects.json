@@ -30,6 +30,21 @@
     "tags": ["品牌设计", "品牌升级", "美妆护肤"]
   },
   {
+    "id": "proya-2023",
+    "title": {
+      "cn": "Proya 年底谢谢项目",
+      "en": "Proya 2023"
+    },
+    "description": "珀莱雅年底谢谢项目，以视觉创意传递品牌对消费者的感恩之心。",
+    "category": "Branding",
+    "year": "2023",
+    "coverImage": "images/Proya 年底谢谢项目「2023」/cover.jpg",
+    "aspectRatio": "16/10",
+    "fullWidth": false,
+    "url": "proya-2023.html",
+    "tags": ["品牌设计", "视觉创意", "美妆护肤"]
+  },
+  {
     "id": "objekt",
     "title": {
       "cn": "物与空间",
