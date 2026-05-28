@@ -49,7 +49,7 @@ class ProjectsLoader {
 
   createProjectElement(project) {
     const div = document.createElement('div');
-    div.className = `project-item ${project.fullWidth ? 'full-width' : ''}`;
+    div.className = 'project-item';
     div.dataset.year = project.year;
     div.dataset.category = project.category;
     

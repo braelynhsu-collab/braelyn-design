@@ -54,7 +54,7 @@
     "category": "Branding",
     "year": "2024",
     "coverImage": "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=800",
-    "aspectRatio": "16/9",
+    "aspectRatio": "16/10",
     "fullWidth": false,
     "url": "identity.html",
     "tags": ["品牌设计", "识别系统", "品牌"]
@@ -69,8 +69,8 @@
     "category": "UX/UI Design",
     "year": "2024",
     "coverImage": "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800",
-    "aspectRatio": "21/9",
-    "fullWidth": true,
+    "aspectRatio": "16/10",
+    "fullWidth": false,
     "url": "system.html",
     "tags": ["UX/UI设计", "系统设计", "用户体验"]
   }
