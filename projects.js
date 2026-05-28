@@ -15,7 +15,7 @@ class ProjectsLoader {
 
   async loadProjects() {
     try {
-      const response = await fetch('projects.json?_t=' + Date.now());
+      const response = await fetch('projects.json?_t=' + Date.now(), { cache: 'no-store' });
       if (!response.ok) {
         throw new Error('无法加载项目数据');
       }
