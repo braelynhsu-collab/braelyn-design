@@ -98,7 +98,7 @@
 
         .project-img-wrapper {
             width: 100%;
-            aspect-ratio: 4 / 3;
+            aspect-ratio: 16 / 9;
             overflow: hidden;
             border-radius: 4px;
             background: var(--card-bg, #f0f0f0);
@@ -113,6 +113,7 @@
         /* 项目信息 */
         .project-info {
             margin-top: 1.2rem;
+            text-align: left;
         }
         .project-name { 
             font-size: 1.1rem; 
@@ -120,13 +121,13 @@
             letter-spacing: 0;
             line-height: 1.3;
         }
-        .project-title-cn { display: inline; }
+        .project-title-cn { display: block; }
         .project-title-en { 
-            display: inline; 
+            display: block; 
             font-weight: 400;
             color: #888;
-            margin-left: 0.5rem;
             font-size: 0.85rem;
+            margin-top: 0.1rem;
         }
         [data-theme="dark"] .project-title-en { color: #666; }
         .project-meta {
