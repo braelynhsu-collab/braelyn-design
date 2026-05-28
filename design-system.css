@@ -173,7 +173,6 @@ h1, h2, h3, h4, .heading {
         height 0.35s var(--ease-out),
         background 0.35s ease,
         opacity 0.35s ease;
-    mix-blend-mode: difference;
 }
 
 #cursor.hover,
