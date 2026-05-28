@@ -5,8 +5,7 @@
     "category": "Branding",
     "year": "2025",
     "coverImage": "images/proya品牌升级/cover.png",
-    "url": "proya.html",
-    "tags": ["品牌设计", "品牌升级", "美妆护肤"]
+    "url": "proya.html"
   },
   {
     "id": "proya-2023",
@@ -14,8 +13,7 @@
     "category": "Branding",
     "year": "2023",
     "coverImage": "images/proya-2023-year-end/cover.jpg",
-    "url": "proya-2023.html",
-    "tags": ["品牌设计", "视觉创意"]
+    "url": "proya-2023.html"
   },
   {
     "id": "Purajuvé",
@@ -23,124 +21,110 @@
     "category": "Branding",
     "year": "2023",
     "coverImage": "images/Purajuvé/cover.png",
-    "url": "future-studio.html",
-    "tags": ["品牌设计", "视觉系统"]
+    "url": "future-studio.html"
   },
   {
     "id": "identity",
     "title": { "cn": "识别构思", "en": "Identity" },
     "category": "Branding",
     "year": "2024",
-    "coverImage": "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=800",
-    "url": "identity.html",
-    "tags": ["品牌设计"]
+    "coverImage": "https://placehold.co/800x600/4a5568/ffffff?text=Identity",
+    "url": "identity.html"
   },
   {
     "id": "system",
     "title": { "cn": "系统秩序", "en": "System" },
     "category": "UX/UI Design",
     "year": "2024",
-    "coverImage": "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800",
-    "url": "system.html",
-    "tags": ["UX/UI设计"]
+    "coverImage": "https://placehold.co/800x600/2d3748/e2e8f0?text=System",
+    "url": "system.html"
   },
   {
-    "id": "placeholder-01",
+    "id": "ph-01",
     "title": { "cn": "品牌视觉 01", "en": "Brand Identity 01" },
     "category": "Branding",
     "year": "2026",
-    "coverImage": "https://images.unsplash.com/photo-1558655146-9f4010e1ed9c?w=800&q=80",
-    "url": "#",
-    "tags": ["品牌设计"]
+    "coverImage": "https://placehold.co/800x600/553c9a/e9d8fd?text=Brand+Identity+01",
+    "url": "#"
   },
   {
-    "id": "placeholder-02",
+    "id": "ph-02",
     "title": { "cn": "品牌视觉 02", "en": "Brand Identity 02" },
     "category": "Branding",
     "year": "2026",
-    "coverImage": "https://images.unsplash.com/photo-1558597540-0ff46df63e49?w=800&q=80",
-    "url": "#",
-    "tags": ["品牌设计"]
+    "coverImage": "https://placehold.co/800x600/2c5282/bee3f8?text=Brand+Identity+02",
+    "url": "#"
   },
   {
-    "id": "placeholder-03",
+    "id": "ph-03",
     "title": { "cn": "包装设计 01", "en": "Packaging 01" },
     "category": "Packaging",
     "year": "2025",
-    "coverImage": "https://images.unsplash.com/photo-1541706848320-374c6aeef41e?w=800&q=80",
-    "url": "#",
-    "tags": ["包装设计"]
+    "coverImage": "https://placehold.co/800x600/276749/c6f6d5?text=Packaging+01",
+    "url": "#"
   },
   {
-    "id": "placeholder-04",
+    "id": "ph-04",
     "title": { "cn": "包装设计 02", "en": "Packaging 02" },
     "category": "Packaging",
     "year": "2025",
-    "coverImage": "https://images.unsplash.com/photo-1618005182384-a23d0f8f7a8e?w=800&q=80",
-    "url": "#",
-    "tags": ["包装设计"]
+    "coverImage": "https://placehold.co/800x600/9b2c2c/fed7d7?text=Packaging+02",
+    "url": "#"
   },
   {
-    "id": "placeholder-05",
+    "id": "ph-05",
     "title": { "cn": "Campaign 01", "en": "Campaign 01" },
     "category": "Campaign",
     "year": "2025",
-    "coverImage": "https://images.unsplash.com/photo-1507003211792-f78c6c9f5c6b?w=800&q=80",
-    "url": "#",
-    "tags": ["Campaign"]
+    "coverImage": "https://placehold.co/800x600/744210/feebc8?text=Campaign+01",
+    "url": "#"
   },
   {
-    "id": "placeholder-06",
+    "id": "ph-06",
     "title": { "cn": "品牌视觉 03", "en": "Brand Identity 03" },
     "category": "Branding",
     "year": "2024",
-    "coverImage": "https://images.unsplash.com/photo-1517694712208-9ddc0b9f8c6f?w=800&q=80",
-    "url": "#",
-    "tags": ["品牌设计"]
+    "coverImage": "https://placehold.co/800x600/702459/fbb6ce?text=Brand+Identity+03",
+    "url": "#"
   },
   {
-    "id": "placeholder-07",
+    "id": "ph-07",
     "title": { "cn": "UI/UX 项目 01", "en": "UI/UX Project 01" },
     "category": "UX/UI Design",
     "year": "2024",
-    "coverImage": "https://images.unsplash.com/photo-1586079363515-8e8f2b8c5d1b?w=800&q=80",
-    "url": "#",
-    "tags": ["UX/UI设计"]
+    "coverImage": "https://placehold.co/800x600/1a365d/63b3ed?text=UI%2FUX+01",
+    "url": "#"
   },
   {
-    "id": "placeholder-08",
+    "id": "ph-08",
     "title": { "cn": "艺术指导 01", "en": "Art Direction 01" },
     "category": "Art Direction",
     "year": "2023",
-    "coverImage": "https://images.unsplash.com/photo-1522541702515-2c67bde22e3d?w=800&q=80",
-    "url": "#",
-    "tags": ["艺术指导"]
+    "coverImage": "https://placehold.co/800x600/22543d/81e6d9?text=Art+Direction+01",
+    "url": "#"
   },
   {
-    "id": "placeholder-09",
+    "id": "ph-09",
     "title": { "cn": "Campaign 02", "en": "Campaign 02" },
     "category": "Campaign",
     "year": "2023",
-    "coverImage": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80",
-    "url": "#",
-    "tags": ["Campaign"]
+    "coverImage": "https://placehold.co/800x600/5a3e2b/e2c9a6?text=Campaign+02",
+    "url": "#"
   },
   {
-    "id": "placeholder-10",
+    "id": "ph-10",
     "title": { "cn": "实验项目 01", "en": "Experimental 01" },
     "category": "Art Direction",
     "year": "2022",
-    "coverImage": "https://images.unsplash.com/photo-1558597540-0ff46df63e49?w=800&q=80",
-    "url": "#",
-    "tags": ["实验性"]
+    "coverImage": "https://placehold.co/800x600/4a5568/cbd5e1?text=Experimental+01",
+    "url": "#"
   },
   {
-    "id": "placeholder-11",
+    "id": "ph-11",
     "title": { "cn": "品牌视觉 04", "en": "Brand Identity 04" },
     "category": "Branding",
     "year": "2021",
-    "coverImage": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
-    "url": "#",
-    "tags": ["品牌设计"]
+    "coverImage": "https://placehold.co/800x600/2d3748/a0aec0?text=Brand+Identity+04",
+    "url": "#"
   }
 ]
