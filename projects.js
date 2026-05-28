@@ -56,7 +56,7 @@ class ProjectsLoader {
     div.innerHTML = `
       <a href="${project.url}" style="text-decoration:none; color:inherit;">
         <div class="project-img-wrapper">
-          <img src="${project.coverImage}" style="aspect-ratio:${project.aspectRatio};" alt="${project.title.en}">
+          <img src="${project.coverImage}" alt="${project.title.en}">
         </div>
         <div class="project-info">
           <h3 class="project-name">
