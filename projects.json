@@ -1,5 +1,13 @@
 [
   {
+    "id": "Purajuvé",
+    "title": { "cn": "Purajuvé", "en": "Purajuvé" },
+    "category": "Branding",
+    "year": "2023",
+    "coverImage": "images/Purajuvé/cover.png",
+    "url": "future-studio.html"
+  },
+  {
     "id": "proya",
     "title": { "cn": "Proya 品牌升级", "en": "Proya" },
     "category": "Branding",
@@ -14,14 +22,6 @@
     "year": "2023",
     "coverImage": "images/proya-2023-year-end/cover.jpg",
     "url": "proya-2023.html"
-  },
-  {
-    "id": "Purajuvé",
-    "title": { "cn": "Purajuvé", "en": "Purajuvé" },
-    "category": "Branding",
-    "year": "2023",
-    "coverImage": "images/Purajuvé/cover.png",
-    "url": "future-studio.html"
   },
   {
     "id": "identity",
