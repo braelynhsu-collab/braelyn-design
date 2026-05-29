@@ -24,12 +24,12 @@
     "url": "proya-2023.html"
   },
   {
-    "id": "identity",
-    "title": { "cn": "识别构思", "en": "Identity" },
+    "id": "proya-38",
+    "title": { "cn": "Proya 38节项目", "en": "Proya 38 Festival" },
     "category": "Branding",
-    "year": "2024",
-    "coverImage": "https://placehold.co/800x600/4a5568/ffffff?text=Identity",
-    "url": "identity.html"
+    "year": "2025",
+    "coverImage": "images/proya38节项目/cover.png",
+    "url": "proya-38.html"
   },
   {
     "id": "system",

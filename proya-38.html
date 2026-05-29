@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proya 38节项目 — 珀莱雅三八妇女节品牌企划视觉创意，设计中台品牌视觉负责人。">
+    <title>Braelyn. | Proya 38 Festival</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design-system.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: var(--font-body); 
+            transition: background 0.4s, color 0.4s;
+        }
+
+        #cursor {
+            position: fixed; top: 0; left: 0; width: 6px; height: 6px;
+            background: #dc2626; border-radius: 50%;
+            pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
+            transition: width 0.35s, height 0.35s, background 0.35s ease, opacity 0.35s ease;
+        }
+        #cursor.hover {
+            width: 36px; height: 36px;
+            background: transparent;
+            border: 1px solid var(--text);
+            opacity: 0.8;
+            animation: cursor-breathe 2s ease-in-out infinite;
+        }
+        #cursor.hover::after {
+            content: '+';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--text);
+            line-height: 1;
+        }
+        @keyframes cursor-breathe {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.5; }
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem;
+            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--nav-border);
+        }
+        .logo { font-size: 26px; font-weight: 800; display: flex; align-items: baseline; letter-spacing: -1px; }
+        .logo span { width: 7px; height: 7px; background: var(--accent-red); border-radius: 50%; margin-left: 3px; }
+
+        .nav-links { display: flex; gap: 3rem; align-items: center; }
+        .nav-links a { 
+            font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+            text-decoration: none; color: inherit; position: relative;
+            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .nav-links a:hover { transform: translateY(-5px); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -18px; left: 10%; width: 80%; height: 2px;
+            background: rgba(0,0,0,0.08); border-radius: 50%; filter: blur(3px);
+            opacity: 0; transition: opacity 0.4s;
+        }
+        [data-theme="dark"] .nav-links a::after { background: rgba(255,255,255,0.08); }
+        .nav-links a:hover::after { opacity: 1; }
+
+        .theme-toggle {
+            background: none; border: none; color: inherit;
+            padding: 8px; cursor: none;
+            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .theme-toggle:hover { transform: translateY(-5px); }
+        .theme-toggle svg { transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
+        .theme-toggle:hover svg { transform: rotate(30deg); }
+
+        .hero {
+            padding: 8rem 6rem 0 6rem;
+        }
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .project-title {
+            font-weight: 700;
+            font-size: clamp(3rem, 8vw, 10rem);
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+        }
+        .project-desc {
+            margin-top: 3rem;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #888;
+            max-width: 600px;
+        }
+        [data-theme="dark"] .project-desc { color: #555; }
+
+        .hero-image {
+            margin-top: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+        .hero-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .visuals {
+            padding: 0 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .full-image {
+            width: 100%;
+            line-height: 0;
+        }
+        .full-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .closing {
+            padding: 12rem 6rem 20rem 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .closing-text {
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.3;
+            text-transform: uppercase;
+        }
+        .closing-year {
+            margin-top: 2rem;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #888;
+        }
+        [data-theme="dark"] .closing-year { color: #555; }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 4rem;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-red);
+            text-decoration: none;
+            transition: transform 0.4s;
+        }
+        .back-link:hover { transform: translateY(-5px); }
+
+        /* 覆盖全局 hover 效果 - 项目详情页不需要图片放大 */
+        .full-image:hover img,
+        .hero-image:hover img,
+        .img-wrapper:hover img {
+            transform: none !important;
+            filter: none !important;
+        }
+
+        .project-description {
+            padding: 6rem 6rem 4rem 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .project-description .intro-line {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-red);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        .project-description h2 {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.4;
+            margin-bottom: 3rem;
+        }
+        .project-description .desc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .project-description .desc-block h3 {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-red);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+        .project-description .desc-block ul {
+            list-style: none;
+            padding: 0;
+        }
+        .project-description .desc-block ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 0.6rem;
+        }
+        .project-description .desc-block ul li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            opacity: 0.6;
+        }
+        .project-description .desc-divider {
+            height: 1px;
+            background: var(--muted-line);
+            margin-bottom: 2rem;
+        }
+        .project-footer {
+            padding: 2rem 6rem 6rem 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .project-footer .desc-note {
+            font-size: 11px;
+            line-height: 1.8;
+            color: var(--muted);
+            max-width: 900px;
+        }
+        .project-footer .desc-note + .desc-note {
+            margin-top: 0.8rem;
+        }
+        .project-footer .footer-divider {
+            height: 1px;
+            background: var(--muted-line);
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1.5rem 2rem; }
+            .nav-links { gap: 1.5rem; }
+            .hero { padding: 6rem 2rem 0 2rem; }
+            .project-description { padding: 4rem 2rem 3rem 2rem; }
+            .project-description .desc-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .project-footer { padding: 2rem 2rem 4rem 2rem; }
+            .visuals { padding: 0 2rem; }
+            .closing { padding: 8rem 2rem 6rem 2rem; }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <div id="cursor"></div>
+
+    <nav>
+        <div class="logo">Braelyn<span></span></div>
+        <div class="nav-links">
+            <a href="index.html"><span class="nav-label"><span class="nav-en">Home</span></span></a>
+            <a href="projects.html"><span class="nav-label"><span class="nav-en">Projects</span></span></a>
+            <a href="approach.html"><span class="nav-label"><span class="nav-en">Approach</span></span></a>
+            <a href="about.html"><span class="nav-label"><span class="nav-en">About</span></span></a>
+            <a href="contact.html"><span class="nav-label"><span class="nav-en">Contact</span></span></a>
+            <button class="theme-toggle" id="themeToggle"></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="project-title"><span class="project-title-cn">Proya 38节项目</span><span class="project-title-en">Proya 38 Festival</span></h1>
+            <p class="project-desc">Branding / 2025</p>
+        </div>
+    </section>
+
+
+    <section class="visuals">
+        <div class="full-image">
+            <img src="images/proya38节项目/detail-01.png" alt="Proya 38 01" loading="lazy" decoding="async" fetchpriority="high">
+            <img src="images/proya38节项目/detail-02.png" alt="Proya 38 02" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-03.png" alt="Proya 38 03" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-04.png" alt="Proya 38 04" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-05.png" alt="Proya 38 05" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-06.png" alt="Proya 38 06" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-07.png" alt="Proya 38 07" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-08.png" alt="Proya 38 08" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-09.png" alt="Proya 38 09" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-10.png" alt="Proya 38 10" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-11.png" alt="Proya 38 11" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-12.png" alt="Proya 38 12" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-13.png" alt="Proya 38 13" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-14.png" alt="Proya 38 14" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-15.png" alt="Proya 38 15" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-16.png" alt="Proya 38 16" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-17.png" alt="Proya 38 17" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-18.png" alt="Proya 38 18" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-19.png" alt="Proya 38 19" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-20.png" alt="Proya 38 20" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-21.png" alt="Proya 38 21" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-22.png" alt="Proya 38 22" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-23.png" alt="Proya 38 23" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-24.png" alt="Proya 38 24" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-25.png" alt="Proya 38 25" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-26.png" alt="Proya 38 26" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-27.png" alt="Proya 38 27" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-28.png" alt="Proya 38 28" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-29.png" alt="Proya 38 29" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-30.png" alt="Proya 38 30" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-31.png" alt="Proya 38 31" loading="lazy" decoding="async">
+            <img src="images/proya38节项目/detail-32.png" alt="Proya 38 32" loading="lazy" decoding="async">
+        </div>
+    </section>
+
+    <section class="project-footer">
+        <div class="footer-divider"></div>
+        <p class="desc-note">*本页面内容仅用于作品展示，禁止任何形式的商业转载或传播。项目相关品牌资产及知识产权归所属品牌方及设计师所有，如涉及展示异议，请联系后及时删除。</p>
+    </section>
+
+    <section class="closing">
+        <div class="closing-text">
+            Proya 38 Festival
+        </div>
+        <div class="closing-year">2025</div>
+        <a href="projects.html" class="back-link">← Back to Projects</a>
+    </section>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        const interactive = document.querySelectorAll('.project-img-wrapper, a, .theme-toggle');
+        interactive.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+        });
+    </script>
+    <script src="theme.js"></script>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">Braelyn<span class="footer-dot"></span></span>
+                <p class="footer-bio">设计是让构思得以实现</p>
+            </div>
+            <div class="footer-contact">
+                <p class="footer-label">联系 / Contact</p>
+                <a href="mailto:braelyn_hsu@foxmail.com">braelyn_hsu@foxmail.com</a>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 Braelyn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
