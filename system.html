@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Braelyn. | System</title>
+    <title>Braelyn. | proya光影科技展UI设计</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css?v=4">
     
     <style>
         .hero {
-            padding: 14rem 6rem 0 6rem;
+            padding: 8rem 6rem 0 6rem;
         }
         .hero-content {
             max-width: 1400px;
@@ -32,60 +32,6 @@
         }
         [data-theme="dark"] .project-desc { color: #555; }
 
-        .hero-image {
-            margin-top: 0;
-            width: 100%;
-            overflow: hidden;
-        }
-        .hero-image img {
-            width: 100%;
-            display: block;
-        }
-
-        .context {
-            padding: 12rem 6rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .section-label {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-red);
-            margin-bottom: 2rem;
-        }
-        .context-text {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            line-height: 1.8;
-            max-width: 800px;
-            font-weight: 400;
-        }
-
-        .insight-strategy {
-            padding: 0 6rem 12rem 6rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8rem;
-        }
-        .col-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-        .col-text {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #666;
-        }
-        [data-theme="dark"] .col-text { color: #999; }
-
         .visuals {
             padding: 0 6rem;
             max-width: 1400px;
@@ -100,28 +46,6 @@
             display: block;
         }
 
-        .closing {
-            padding: 12rem 6rem 20rem 6rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .closing-text {
-            font-size: clamp(1.5rem, 3vw, 3rem);
-            font-weight: 700;
-            letter-spacing: -1px;
-            line-height: 1.3;
-            text-transform: uppercase;
-        }
-        .closing-year {
-            margin-top: 2rem;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #888;
-        }
-        [data-theme="dark"] .closing-year { color: #555; }
-
         .back-link {
             display: inline-block;
             margin-top: 4rem;
@@ -135,7 +59,7 @@
         }
         .back-link:hover { transform: translateY(-5px); }
 
-        /* 覆盖全局 hover 效果 - 项目详情页不需要图片放大 */
+        /* Override global hover - project pages no need for image zoom */
         .full-image:hover img,
         .hero-image:hover img,
         .img-wrapper:hover img {
@@ -146,11 +70,8 @@
         @media (max-width: 768px) {
             nav { padding: 1.5rem 2rem; }
             .nav-links { gap: 1.5rem; }
-            .hero { padding: 10rem 2rem 0 2rem; }
-            .context, .insight-strategy { padding: 8rem 2rem; }
-            .visuals { padding: 0 2rem 8rem 2rem; }
-            .closing { padding: 8rem 2rem 12rem 2rem; }
-            .two-col { grid-template-columns: 1fr; gap: 4rem; }
+            .hero { padding: 6rem 2rem 0 2rem; }
+            .visuals { padding: 0 2rem; }
         }
     </style>
 </head>
@@ -179,83 +100,51 @@
         <div class="hero-content">
             <h1 class="project-title"><span class="project-title-cn">proya光影科技展UI设计</span><span class="project-title-en">System</span></h1>
             <p class="project-desc">UX/UI Design · 2023</p>
-            <div class="hero-image">
-                <img src="images/system/detail-01.png" alt="proya光影科技展UI设计">
-            </div>
-        </div>
-    </section>
-
-    <section class="context">
-        <div class="section-label">Context</div>
-        <p class="context-text">
-            这是面向企业产品的完整设计系统。目标是建立可以跨产品扩展的界面语言，在提升效率的同时维持体验一致性。
-        </p>
-    </section>
-
-    <section class="insight-strategy">
-        <div class="two-col">
-            <div>
-                <div class="section-label">Insight</div>
-                <h3 class="col-title">可扩展的基础</h3>
-                <p class="col-text">
-                    企业产品需要的不是单独页面，而是可复用的系统基础。团队可以继续扩展，而不破坏品牌与体验的连贯性。
-                </p>
-            </div>
-            <div>
-                <div class="section-label">Strategy</div>
-                <h3 class="col-title">系统化成长</h3>
-                <p class="col-text">
-                    模块化组件和清楚规范让团队更快推进，同时保证平台在长期迭代中不失去设计完整性。
-                </p>
-            </div>
         </div>
     </section>
 
     <section class="visuals">
         <div class="full-image">
-            <img src="images/system/detail-02.png" style="aspect-ratio:16/9;" alt="">
+            <img src="images/system/detail-01.png" alt="" loading="lazy" decoding="async">
         </div>
         <div class="full-image">
-            <img src="images/system/detail-03.png" style="aspect-ratio:16/9;" alt="">
+            <img src="images/system/detail-02.png" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="full-image">
+            <img src="images/system/detail-03.png" alt="" loading="lazy" decoding="async">
         </div>
     </section>
 
-    <section class="closing">
-        <div class="closing-text">
-            Systems enable<br>creative<br>freedom
-        </div>
-        <div class="closing-year">2023</div>
+    <section style="padding: 6rem; text-align: center;">
         <a href="projects.html" class="back-link">← Back to Projects</a>
     </section>
 
     <script>
         const cursor = document.getElementById('cursor');
+        const interactive = document.querySelectorAll('.full-image img, a, .theme-toggle');
+
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+            mouseX = e.clientX;
+            mouseY = e.clientY;
         });
 
-        const interactive = document.querySelectorAll('.project-img-wrapper, a, .theme-toggle');
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.12;
+            cursorY += (mouseY - cursorY) * 0.12;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
         interactive.forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
         });
     </script>
-    <script src="theme.js"></script>
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <span class="footer-logo">Braelyn<span class="footer-dot"></span></span>
-                <p class="footer-bio">设计是让构思得以实现</p>
-            </div>
-            <div class="footer-contact">
-                <p class="footer-label">联系 / Contact</p>
-                <a href="mailto:braelyn_hsu@foxmail.com">braelyn_hsu@foxmail.com</a>
-            </div>
-            <div class="footer-copy">
-                <p>&copy; 2026 Braelyn. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+
 </body>
 </html>
