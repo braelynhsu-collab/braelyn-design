@@ -16,45 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--font-body);
-            -webkit-font-smoothing: antialiased;
-        }
-        #cursor {
-            position: fixed; top: 0; left: 0;
-            width: 6px; height: 6px;
-            background: #dc2626;
-            border-radius: 50%;
-            pointer-events: none; z-index: 10000;
-            transform: translate(-50%, -50%);
-            transition: width 0.35s, height 0.35s, background 0.35s ease, opacity 0.35s ease;
-        }
-        #cursor.hover {
-            width: 36px; height: 36px;
-            background: transparent;
-            border: 1px solid var(--text);
-            opacity: 0.8;
-            animation: cursor-breathe 2s ease-in-out infinite;
-        }
-        #cursor.hover::after {
-            content: '+';
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--text);
-            line-height: 1;
-        }
-        @keyframes cursor-breathe {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
-            50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.5; }
-        }
-    </style>
+
     <link rel="stylesheet" href="design-system.css?v=3">
     <script type="application/ld+json">
         {
@@ -147,45 +109,7 @@
     <section class="hero-scroll" id="heroScroll">
         <div class="sticky">
             <div class="track" id="track">
-    
                 <div class="panel panel-gap"></div>
-    
-                <a href="future-studio.html" class="panel panel-hero" style="aspect-ratio:16/9;margin-right:0.8vw;">
-                    <div class="panel-img" style="background-image: url('images/Purajuvé/cover.png'); background-size: cover; background-position: center;"></div>
-                </a>
-    
-                <div class="panel panel-gap"></div>
-    
-                <a href="proya.html" class="panel" style="aspect-ratio:16/9;margin-right:0.8vw;">
-                    <div class="panel-img" style="background-image: url('images/proya品牌升级/cover.png'); background-size: cover; background-position: center;"></div>
-                </a>
-    
-                <div class="panel panel-gap"></div>
-
-                <a href="proya-2023.html" class="panel" style="aspect-ratio:16/9;margin-right:0.8vw;">
-                    <div class="panel-img" style="background-image: url('images/proya-2023-year-end/cover.jpg'); background-size: cover; background-position: center;"></div>
-                </a>
-
-                <div class="panel panel-gap"></div>
-
-                <div class="panel" style="aspect-ratio:16/9;margin-right:0.8vw;">
-                    <div class="panel-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); opacity:0.4;"></div>
-                </div>
-
-                <div class="panel panel-gap"></div>
-
-                <div class="panel" style="aspect-ratio:16/9;margin-right:0.8vw;">
-                    <div class="panel-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); opacity:0.4;"></div>
-                </div>
-
-                <div class="panel panel-gap"></div>
-
-                <div class="panel" style="aspect-ratio:16/9;margin-right:0.8vw;">
-                    <div class="panel-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); opacity:0.4;"></div>
-                </div>
-
-                <div class="panel panel-gap"></div>
-    
             </div>
 
             <div class="carousel-arrows">
@@ -197,6 +121,30 @@
     </section>
 
     <button id="backToTop" aria-label="Back to top">↑</button>
+
+    <script>
+        fetch('projects.json', { cache: 'no-store' })
+            .then(r => r.json())
+            .then(projects => {
+                const track = document.getElementById('track');
+                const spacer = track.querySelector('.panel.panel-gap');
+                projects
+                    .filter(p => p.url && p.url !== '#')
+                    .forEach(p => {
+                        const link = document.createElement('a');
+                        link.href = p.url;
+                        link.className = 'panel';
+                        link.style.cssText = 'aspect-ratio:16/9;margin-right:0.8vw;';
+                        link.innerHTML = '<div class="panel-img" style="background-size:cover;background-position:center;"></div>';
+                        link.querySelector('.panel-img').style.backgroundImage = `url('${p.coverImage}')`;
+                        track.appendChild(link);
+
+                        const gap = document.createElement('div');
+                        gap.className = 'panel panel-gap';
+                        track.appendChild(gap);
+                    });
+            });
+    </script>
 
     <script>
         const cursor = document.getElementById('cursor');
