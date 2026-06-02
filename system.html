@@ -33,7 +33,7 @@
         [data-theme="dark"] .project-desc { color: #555; }
 
         .visuals {
-            padding: 0 6rem;
+            padding: 0 6rem 6rem 6rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -44,6 +44,17 @@
         .full-image img {
             width: 100%;
             display: block;
+        }
+        .visuals .divider {
+            height: 1px;
+            background: var(--muted-line);
+            margin: 3rem 0 2rem 0;
+        }
+        .visuals .desc-note {
+            font-size: 11px;
+            line-height: 1.8;
+            color: var(--muted);
+            max-width: 900px;
         }
 
         .back-link {
@@ -58,23 +69,6 @@
             transition: transform 0.4s;
         }
         .back-link:hover { transform: translateY(-5px); }
-
-        .project-footer {
-            padding: 2rem 6rem 6rem 6rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .project-footer .desc-note {
-            font-size: 11px;
-            line-height: 1.8;
-            color: var(--muted);
-            max-width: 900px;
-        }
-        .project-footer .footer-divider {
-            height: 1px;
-            background: var(--muted-line);
-            margin-bottom: 2rem;
-        }
 
         /* Override global hover - project pages no need for image zoom */
         .full-image:hover img,
@@ -130,16 +124,7 @@
         <div class="full-image">
             <img src="images/system/detail-03.png" alt="" loading="lazy" decoding="async">
         </div>
-    </section>
-
-    <section class="closing">
-        <div class="closing-text">proya光影科技展UI设计</div>
-        <div class="closing-year">2023</div>
-        <a href="projects.html" class="back-link">← Back to Projects</a>
-    </section>
-
-    <section class="project-footer">
-        <div class="footer-divider"></div>
+        <div class="divider"></div>
         <p class="desc-note">*本页面内容仅用于作品展示，禁止任何形式的商业转载或传播。项目相关品牌资产及知识产权归所属品牌方及设计师所有，如涉及展示异议，请联系后及时删除。</p>
     </section>
 
