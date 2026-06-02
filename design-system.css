@@ -1161,6 +1161,108 @@ body::before {
 .fade-section.visible .signal-card:nth-child(3) { transition-delay: 0.2s; }
 
 /* --- Responsive --- */
+
+/* Tablet (1024px) */
+@media (max-width: 1024px) {
+    /* --- Navigation --- */
+    nav {
+        padding: 28px 40px;
+    }
+
+    .nav-links {
+        gap: 2rem;
+    }
+
+    /* --- Shared layout containers --- */
+    .hero,
+    .page-header,
+    .contact-hero {
+        padding: 120px 48px 64px;
+    }
+
+    .content-section,
+    .projects-list,
+    .contact-section,
+    .context,
+    .insight-strategy,
+    .closing {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+
+    .home-signal {
+        padding: 0 48px var(--space-xl);
+    }
+
+    /* --- Projects page --- */
+    .projects-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+
+    /* --- About page --- */
+    .capabilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+    }
+
+    .style-grid {
+        gap: 5rem;
+    }
+
+    .client-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    /* --- Approach page --- */
+    .philosophy-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+    }
+
+    /* --- Contact page --- */
+    .contact-grid {
+        gap: 8rem;
+    }
+
+    /* --- Project detail pages --- */
+    .hero {
+        padding: 120px 48px 0;
+    }
+
+    .hero-content {
+        max-width: 1200px;
+    }
+
+    .context {
+        padding: 100px 48px;
+    }
+
+    .insight-strategy {
+        padding: 0 48px 100px;
+    }
+
+    .two-col {
+        gap: 5rem;
+    }
+
+    .visuals {
+        padding: 0 48px 100px;
+    }
+
+    .closing {
+        padding: 100px 48px 160px;
+    }
+
+    /* --- Footer --- */
+    .footer-inner {
+        padding: 0 48px;
+        gap: 36px;
+    }
+}
+
+/* Mobile (768px) */
 @media (max-width: 768px) {
     nav {
         padding: 20px 24px;
@@ -1330,10 +1432,327 @@ body::before {
         padding: 40px 0 32px;
     }
 
+    .projects-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .project-img-wrapper {
+        aspect-ratio: 16 / 9;
+    }
+
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .style-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .client-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .process-step {
+        padding: 3rem 0;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 6rem;
+        margin-top: 8rem;
+    }
+
+    .availability {
+        margin-top: 8rem;
+    }
+
+    .two-col {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .hero-image img {
+        aspect-ratio: 16 / 9;
+    }
+
+    .visuals {
+        padding: 0 24px 8rem;
+    }
+
+    .closing {
+        padding: 8rem 24px 12rem;
+    }
+
+    .closing-text {
+        font-size: clamp(24px, 6vw, 48px);
+    }
+
+    .contact-intro {
+        font-size: clamp(14px, 3vw, 18px);
+    }
+
+    .intro-text {
+        font-size: clamp(16px, 4vw, 24px);
+    }
+
+    .context-text,
+    .col-text {
+        font-size: clamp(14px, 3vw, 18px);
+    }
+
+    .brief-title {
+        font-size: clamp(20px, 5vw, 36px);
+    }
+
+    .brief-items {
+        font-size: 14px;
+    }
+
+    .belief {
+        font-size: clamp(14px, 3vw, 18px);
+    }
+
+    .step-title {
+        font-size: clamp(20px, 5vw, 36px);
+    }
+
+    .step-desc {
+        font-size: 14px;
+    }
+
+    .availability-text {
+        font-size: clamp(14px, 3vw, 18px);
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 3rem;
+    }
+
     #backToTop {
         bottom: 24px;
         right: 24px;
         width: 36px;
         height: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 16px 16px;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .nav-cn {
+        font-size: 10px;
+    }
+
+    .nav-en {
+        font-size: 8px;
+        letter-spacing: 0.15em;
+    }
+
+    .hero,
+    .page-header,
+    .contact-hero {
+        padding: 80px 16px 48px;
+    }
+
+    .concept-hero {
+        padding: 80px 16px 48px;
+    }
+
+    .content-section,
+    .projects-list,
+    .contact-section,
+    .context,
+    .insight-strategy,
+    .closing {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero-title,
+    .page-title,
+    .project-title,
+    .hero-title-en,
+    .title-en {
+        font-size: clamp(28px, 10vw, 42px);
+    }
+
+    .hero-title-cn,
+    .title-cn {
+        font-size: 14px;
+    }
+
+    .concept-title {
+        font-size: clamp(32px, 12vw, 52px);
+    }
+
+    .concept-cn {
+        font-size: 14px;
+    }
+
+    .home-signal {
+        padding: 0 16px var(--space-lg);
+    }
+
+    .signal-grid {
+        gap: 32px;
+    }
+
+    .signal-card h3 {
+        font-size: clamp(16px, 4vw, 20px);
+    }
+
+    .signal-card p {
+        font-size: 13px;
+    }
+
+    .projects-list {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding-bottom: 8rem;
+    }
+
+    .capabilities-grid {
+        gap: 2rem;
+    }
+
+    .client-list {
+        grid-template-columns: 1fr;
+    }
+
+    .style-grid {
+        gap: 3rem;
+    }
+
+    .philosophy-grid {
+        gap: 2rem;
+    }
+
+    .contact-grid {
+        gap: 4rem;
+        margin-top: 6rem;
+    }
+
+    .contact-value {
+        font-size: clamp(1.2rem, 5vw, 2rem);
+    }
+
+    .proof-strip {
+        margin: -2rem 0 6rem;
+    }
+
+    .proof-item {
+        padding: 24px 16px;
+    }
+
+    .proof-number {
+        font-size: clamp(24px, 8vw, 48px);
+    }
+
+    .brief-panel {
+        margin-top: 6rem;
+    }
+
+    .brief-grid {
+        gap: 3rem;
+    }
+
+    .footer-inner {
+        padding: 0 16px;
+        gap: 24px;
+    }
+
+    .footer {
+        padding: 32px 0 24px;
+    }
+
+    .footer-logo {
+        font-size: 18px;
+    }
+
+    .closing-text {
+        font-size: clamp(20px, 8vw, 36px);
+    }
+
+    .closing {
+        padding: 6rem 16px 8rem;
+    }
+
+    a, button, .theme-toggle, .project-item, .back-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .theme-toggle {
+        padding: 12px;
+    }
+
+    .back-link {
+        padding: 12px 0;
+    }
+
+    .track {
+        padding: 0 16px;
+    }
+
+    .panel {
+        margin: 0 0 12px;
+    }
+
+    .intro-text {
+        margin-bottom: 8rem;
+    }
+
+    .capabilities,
+    .work-style,
+    .clients {
+        margin-bottom: 8rem;
+    }
+
+    .availability {
+        margin-top: 6rem;
+    }
+
+    .brief-title {
+        font-size: clamp(18px, 6vw, 28px);
+    }
+
+    .belief {
+        font-size: clamp(14px, 4vw, 16px);
+    }
+
+    .step-title {
+        font-size: clamp(18px, 6vw, 28px);
+    }
+
+    .availability-text {
+        font-size: clamp(14px, 4vw, 16px);
     }
 }
