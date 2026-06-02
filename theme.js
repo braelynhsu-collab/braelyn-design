@@ -6,7 +6,7 @@
 
     function getTimeTheme() {
         const hour = new Date().getHours();
-        return (hour >= 6 && hour < 18) ? 'light' : 'dark';
+        return (hour >= 8 && hour < 18) ? 'light' : 'dark';
     }
 
     function setTheme(theme) {
@@ -23,11 +23,14 @@
         sessionStorage.setItem('braelyn-theme-override', newTheme);
     }
 
-    const override = sessionStorage.getItem('braelyn-theme-override');
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const override = isMobile ? null : sessionStorage.getItem('braelyn-theme-override');
     const theme = override || getTimeTheme();
     setTheme(theme);
 
-    btn.addEventListener('click', toggleTheme);
+    if (!isMobile) {
+        btn.addEventListener('click', toggleTheme);
+    }
 })();
 
 /* =============================
