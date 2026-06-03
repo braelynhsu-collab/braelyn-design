@@ -42,6 +42,59 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
+        /* 全宽大图 (1920px 原始) */
+        .img-wide {
+            width: 100%;
+            line-height: 0;
+            margin-bottom: 3rem;
+        }
+        .img-wide img {
+            width: 100%;
+            display: block;
+        }
+
+        /* 居中窄图 (960px 原始 - 按原生尺寸显示，不过度拉伸) */
+        .img-narrow {
+            width: 100%;
+            line-height: 0;
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+        .img-narrow img {
+            width: 100%;
+            max-width: 700px;
+            display: block;
+        }
+
+        /* 两列并排 (小图分组展示) */
+        .img-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .img-pair .img-item {
+            line-height: 0;
+        }
+        .img-pair .img-item img {
+            width: 100%;
+            display: block;
+        }
+
+        .img-wide:last-child,
+        .img-narrow:last-child,
+        .img-pair:last-child {
+            margin-bottom: 0;
+        }
+
+        .full-image:hover img,
+        .hero-image:hover img,
+        .img-wrapper:hover img {
+            transform: none !important;
+            filter: none !important;
+        }
         .full-image {
             width: 100%;
             line-height: 0;
@@ -171,52 +224,54 @@
     </section>
 
     <section class="visuals">
-        <div class="full-image">
+        <!-- 窄图开场 - 960px 原生居中 -->
+        <div class="img-narrow">
             <img src="images/ellanse-cy23-imc/webp/detail-01.webp" alt="ELLANSE CY23 01" loading="lazy">
         </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-02.webp" alt="ELLANSE CY23 02" loading="lazy">
+
+        <!-- 两列并排 - 小图成组展示 -->
+        <div class="img-pair">
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-02.webp" alt="ELLANSE CY23 02" loading="lazy"></div>
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-03.webp" alt="ELLANSE CY23 03" loading="lazy"></div>
         </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-03.webp" alt="ELLANSE CY23 03" loading="lazy">
+
+        <div class="img-pair">
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-04.webp" alt="ELLANSE CY23 04" loading="lazy"></div>
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-05.webp" alt="ELLANSE CY23 05" loading="lazy"></div>
         </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-04.webp" alt="ELLANSE CY23 04" loading="lazy">
+
+        <div class="img-pair">
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-06.webp" alt="ELLANSE CY23 06" loading="lazy"></div>
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-07.webp" alt="ELLANSE CY23 07" loading="lazy"></div>
         </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-05.webp" alt="ELLANSE CY23 05" loading="lazy">
-        </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-06.webp" alt="ELLANSE CY23 06" loading="lazy">
-        </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-07.webp" alt="ELLANSE CY23 07" loading="lazy">
-        </div>
-        <div class="full-image">
+
+        <!-- 全宽大图 - 1920px 原生满幅 -->
+        <div class="img-wide">
             <img src="images/ellanse-cy23-imc/webp/detail-08.webp" alt="ELLANSE CY23 08" loading="lazy">
         </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-09.webp" alt="ELLANSE CY23 09" loading="lazy">
+
+        <!-- 并排继续 -->
+        <div class="img-pair">
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-09.webp" alt="ELLANSE CY23 09" loading="lazy"></div>
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-010.webp" alt="ELLANSE CY23 10" loading="lazy"></div>
         </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-010.webp" alt="ELLANSE CY23 10" loading="lazy">
+
+        <div class="img-pair">
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-011.webp" alt="ELLANSE CY23 11" loading="lazy"></div>
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-012.webp" alt="ELLANSE CY23 12" loading="lazy"></div>
         </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-011.webp" alt="ELLANSE CY23 11" loading="lazy">
+
+        <div class="img-pair">
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-013.webp" alt="ELLANSE CY23 13" loading="lazy"></div>
+            <div class="img-item"><img src="images/ellanse-cy23-imc/webp/detail-014.webp" alt="ELLANSE CY23 14" loading="lazy"></div>
         </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-012.webp" alt="ELLANSE CY23 12" loading="lazy">
-        </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-013.webp" alt="ELLANSE CY23 13" loading="lazy">
-        </div>
-        <div class="full-image">
-            <img src="images/ellanse-cy23-imc/webp/detail-014.webp" alt="ELLANSE CY23 14" loading="lazy">
-        </div>
-        <div class="full-image">
+
+        <!-- 全宽收尾 -->
+        <div class="img-wide">
             <img src="images/ellanse-cy23-imc/webp/detail-015.webp" alt="ELLANSE CY23 15" loading="lazy">
         </div>
-        <div class="full-image">
+
+        <div class="img-wide">
             <img src="images/ellanse-cy23-imc/webp/detail-016.webp" alt="ELLANSE CY23 16" loading="lazy">
         </div>
     </section>
