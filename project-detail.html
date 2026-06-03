@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Braelyn. | Lumina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -251,10 +253,16 @@
 
     <script>
         const cursor = document.getElementById('cursor');
+        let cursorX = 0, cursorY = 0;
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+            cursorX = e.clientX;
+            cursorY = e.clientY;
         });
+        function tickCursor() {
+            cursor.style.transform = 'translate(' + cursorX + 'px, ' + cursorY + 'px) translate(-50%, -50%)';
+            requestAnimationFrame(tickCursor);
+        }
+        tickCursor();
 
         const interactive = document.querySelectorAll('a, .theme-toggle, .hero-image, .full-image');
         interactive.forEach(el => {

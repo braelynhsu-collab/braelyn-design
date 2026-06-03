@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Braelyn 的设计方法：从理解问题、定义策略、设计表达，到沉淀可延展的视觉系统。">
     <title>Braelyn. | Approach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -199,10 +201,16 @@
 
     <script>
         const cursor = document.getElementById('cursor');
+        let cursorX = 0, cursorY = 0;
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+            cursorX = e.clientX;
+            cursorY = e.clientY;
         });
+        function tickCursor() {
+            cursor.style.transform = 'translate(' + cursorX + 'px, ' + cursorY + 'px) translate(-50%, -50%)';
+            requestAnimationFrame(tickCursor);
+        }
+        tickCursor();
 
         const interactive = document.querySelectorAll('a, .theme-toggle');
         interactive.forEach(el => {
