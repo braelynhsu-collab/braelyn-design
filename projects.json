@@ -57,11 +57,11 @@
   },
   {
     "id": "ph-03",
-    "title": { "cn": "包装设计 01", "en": "Packaging 01" },
+    "title": { "cn": "ELLANSE CY23 IMC CAMPAIGN", "en": "ELLANSE CY23 IMC CAMPAIGN" },
     "category": "Packaging",
     "year": "2025",
-    "coverImage": "https://placehold.co/800x600/276749/c6f6d5?text=Packaging+01",
-    "url": "#"
+    "coverImage": "images/ellanse-cy23-imc/webp/cover.webp",
+    "url": "ellanse-cy23-imc.html"
   },
   {
     "id": "ph-04",
