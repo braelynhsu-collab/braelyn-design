@@ -48,12 +48,12 @@
     "url": "clinique-ebci-repush.html"
   },
   {
-    "id": "ph-02",
-    "title": { "cn": "品牌视觉 02", "en": "Brand Identity 02" },
+    "id": "estee-lauder-dw",
+    "title": { "cn": "Estée Lauder DW CAMPAIGN", "en": "Estée Lauder DW CAMPAIGN" },
     "category": "Branding",
-    "year": "2026",
-    "coverImage": "https://placehold.co/800x600/2c5282/bee3f8?text=Brand+Identity+02",
-    "url": "#"
+    "year": "2023",
+    "coverImage": "images/estee-lauder-dw/webp/cover.webp",
+    "url": "estee-lauder-dw.html"
   },
   {
     "id": "ph-03",
