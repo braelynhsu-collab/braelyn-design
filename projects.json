@@ -40,12 +40,12 @@
     "url": "system.html"
   },
   {
-    "id": "ph-01",
-    "title": { "cn": "品牌视觉 01", "en": "Brand Identity 01" },
+    "id": "clinique-ebci",
+    "title": { "cn": "Clinique EBCI CAMPAIGN", "en": "Clinique EBCI CAMPAIGN" },
     "category": "Branding",
-    "year": "2026",
-    "coverImage": "https://placehold.co/800x600/553c9a/e9d8fd?text=Brand+Identity+01",
-    "url": "#"
+      "year": "2023",
+    "coverImage": "images/clinique-ebci-repush/cover.png",
+    "url": "clinique-ebci-repush.html"
   },
   {
     "id": "ph-02",

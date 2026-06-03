@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braelyn. | 倩碧EBCI REPUSH CAMPAIGN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design-system.css">
+    
+    <style>
+        .hero {
+            padding: 8rem 6rem 6rem 6rem;
+        }
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .project-title {
+            font-weight: 700;
+            font-size: clamp(2.5rem, 7vw, 8rem);
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+        .project-title-cn {
+            display: block;
+            font-size: clamp(1.8rem, 5vw, 5rem);
+        }
+        .project-title-en {
+            display: block;
+            font-weight: 400;
+            font-size: clamp(1rem, 2.5vw, 2.5rem);
+            color: #888;
+            margin-top: 0.3rem;
+        }
+        [data-theme="dark"] .project-title-en { color: #555; }
+        .project-desc {
+            margin-top: 2rem;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #888;
+            max-width: 600px;
+        }
+        [data-theme="dark"] .project-desc { color: #555; }
+
+        .hero-image {
+            margin-top: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+        .hero-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .visuals {
+            padding: 0 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .full-image {
+            width: 100%;
+            line-height: 0;
+        }
+        .full-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .closing {
+            padding: 12rem 6rem 20rem 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .closing-text {
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.3;
+            text-transform: uppercase;
+        }
+        .closing-year {
+            margin-top: 2rem;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #888;
+        }
+        [data-theme="dark"] .closing-year { color: #555; }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 4rem;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-red);
+            text-decoration: none;
+            transition: transform 0.4s;
+        }
+        .back-link:hover { transform: translateY(-5px); }
+
+        /* 覆盖全局 hover 效果 - 项目详情页不需要图片放大 */
+        .full-image:hover img,
+        .hero-image:hover img,
+        .img-wrapper:hover img {
+            transform: none !important;
+            filter: none !important;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1.5rem 2rem; }
+            .nav-links { gap: 1.5rem; }
+            .hero { padding: 6rem 2rem 0 2rem; }
+            .visuals { padding: 0 2rem; }
+            .closing { padding: 8rem 2rem 12rem 2rem; }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <div id="cursor"></div>
+
+    <nav>
+            <div class="logo">Braelyn<span></span></div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html"><span class="nav-label"><span class="nav-en">Home</span></span></a>
+                <a href="projects.html"><span class="nav-label"><span class="nav-en">Projects</span></span></a>
+                <a href="approach.html"><span class="nav-label"><span class="nav-en">Approach</span></span></a>
+                <a href="about.html"><span class="nav-label"><span class="nav-en">About</span></span></a>
+                <a href="contact.html"><span class="nav-label"><span class="nav-en">Contact</span></span></a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"></button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="project-title">
+                <span class="project-title-cn">倩碧 Clinique EBCI CAMPAIGN</span>
+                <span class="project-title-en">Clinique EBCI CAMPAIGN 2023</span>
+            </h1>
+        </div>
+    </section>
+
+    <section class="visuals">
+        <div class="full-image">
+            <img src="images/clinique-ebci-repush/detail-01.png" alt="Clinique EBCI REPUSH 01">
+        </div>
+        <div class="full-image">
+            <img src="images/clinique-ebci-repush/detail-02.png" alt="Clinique EBCI REPUSH 02">
+        </div>
+        <div class="full-image">
+            <img src="images/clinique-ebci-repush/detail-03.png" alt="Clinique EBCI REPUSH 03">
+        </div>
+        <div class="full-image">
+            <img src="images/clinique-ebci-repush/detail-04.png" alt="Clinique EBCI REPUSH 04">
+        </div>
+        <div class="full-image">
+            <img src="images/clinique-ebci-repush/detail-05.png" alt="Clinique EBCI REPUSH 05">
+        </div>
+    </section>
+
+    <section class="closing">
+        <div class="closing-text">
+            倩碧 Clinique EBCI REPUSH CAMPAIGN
+        </div>
+        <div class="closing-year">2023</div>
+        <a href="projects.html" class="back-link">← Back to Projects</a>
+    </section>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        const interactive = document.querySelectorAll('.project-img-wrapper, a, .theme-toggle');
+        interactive.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+        });
+    </script>
+    <script src="theme.js"></script>
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">Braelyn<span class="footer-dot"></span></span>
+                <p class="footer-bio">设计是让构思得以实现</p>
+            </div>
+            <div class="footer-contact">
+                <p class="footer-label">联系 / Contact</p>
+                <a href="mailto:braelyn_hsu@foxmail.com">braelyn_hsu@foxmail.com</a>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 Braelyn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
