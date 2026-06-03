@@ -4,7 +4,7 @@
     "title": { "cn": "Purajuvé", "en": "Purajuvé" },
     "category": "Branding",
     "year": "2023",
-    "coverImage": "images/Purajuvé/cover.png",
+    "coverImage": "images/Purajuvé/webp/cover.webp",
     "url": "future-studio.html"
   },
   {
@@ -12,7 +12,7 @@
     "title": { "cn": "Proya 品牌升级", "en": "Proya" },
     "category": "Branding",
     "year": "2025",
-    "coverImage": "images/proya品牌升级/cover.png",
+    "coverImage": "images/proya品牌升级/webp/cover.webp",
     "url": "proya.html"
   },
   {
@@ -20,7 +20,7 @@
     "title": { "cn": "Proya 年底谢谢项目", "en": "Proya 2023" },
     "category": "Branding",
     "year": "2023",
-    "coverImage": "images/proya-2023-year-end/cover.jpg",
+    "coverImage": "images/proya-2023-year-end/webp/cover.webp",
     "url": "proya-2023.html"
   },
   {
@@ -28,7 +28,7 @@
     "title": { "cn": "Proya 38节项目", "en": "Proya 38 Festival" },
     "category": "Branding",
     "year": "2025",
-    "coverImage": "images/proya38节项目/cover.jpg",
+    "coverImage": "images/proya38节项目/webp/cover.webp",
     "url": "proya-38.html"
   },
   {
@@ -36,7 +36,7 @@
     "title": { "cn": "proya光影科技展UI设计", "en": "System" },
     "category": "UX/UI Design",
     "year": "2023",
-    "coverImage": "images/system/cover.png",
+    "coverImage": "images/system/webp/cover.webp",
     "url": "system.html"
   },
   {
@@ -44,7 +44,7 @@
     "title": { "cn": "Clinique EBCI CAMPAIGN", "en": "Clinique EBCI CAMPAIGN" },
     "category": "Branding",
       "year": "2023",
-    "coverImage": "images/clinique-ebci-repush/jpg/cover.jpg",
+    "coverImage": "images/clinique-ebci-repush/webp/cover.webp",
     "url": "clinique-ebci-repush.html"
   },
   {
