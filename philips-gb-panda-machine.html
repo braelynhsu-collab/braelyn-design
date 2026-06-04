@@ -146,24 +146,26 @@
         }
     </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo"><a href="index.html">Braelyn.</a></div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="projects.html">Projects</a>
-                <a href="approach.html">Approach</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
+<body data-theme="light">
+
+    <div id="cursor"></div>
+
+    <nav>
+            <div class="logo">Braelyn<span></span></div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html"><span class="nav-label"><span class="nav-en">Home</span></span></a>
+                <a href="projects.html"><span class="nav-label"><span class="nav-en">Projects</span></span></a>
+                <a href="approach.html"><span class="nav-label"><span class="nav-en">Approach</span></span></a>
+                <a href="about.html"><span class="nav-label"><span class="nav-en">About</span></span></a>
+                <a href="contact.html"><span class="nav-label"><span class="nav-en">Contact</span></span></a>
             </div>
-            <div class="theme-toggle" id="themeToggle">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"></button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </nav>
-    </header>
 
     <section class="hero">
         <div class="hero-content">
