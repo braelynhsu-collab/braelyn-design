@@ -64,12 +64,12 @@
     "url": "ellanse-cy23-imc.html"
   },
   {
-    "id": "ph-04",
-    "title": { "cn": "包装设计 02", "en": "Packaging 02" },
+    "id": "philips-panda",
+    "title": { "cn": "PHILIPS G&B PANDA MACHINE", "en": "PHILIPS G&B PANDA MACHINE" },
     "category": "Packaging",
-    "year": "2025",
-    "coverImage": "https://placehold.co/800x600/9b2c2c/fed7d7?text=Packaging+02",
-    "url": "#"
+    "year": "2023",
+    "coverImage": "images/philips-gb-panda-machine/webp/cover.webp",
+    "url": "philips-gb-panda-machine.html"
   },
   {
     "id": "ph-05",
