@@ -85,8 +85,9 @@
     "title": { "cn": "双妹视频脚本分镜设计", "en": "双妹视频脚本分镜设计" },
     "category": "Campaign",
     "year": "2025",
-    "coverImage": "https://placehold.co/800x600/744210/feebc8?text=Campaign+01",
-    "url": "#"
+    "coverImage": "images/双妹视频脚本分镜设计/webp/cover.webp",
+    "coverThumb": "images/双妹视频脚本分镜设计/thumbs/cover.webp",
+    "url": "shuangmei-storyboard.html"
   },
   {
     "id": "ph-06",
