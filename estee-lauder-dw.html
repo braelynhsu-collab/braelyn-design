@@ -84,6 +84,25 @@
         }
         .back-link:hover { transform: translateY(-5px); }
 
+        .disclaimer {
+            max-width: 1400px;
+            margin: 8rem auto 0 auto;
+            padding: 0 6rem;
+        }
+        .disclaimer-inner {
+            border-top: 1px solid var(--muted-line);
+            padding-top: 3rem;
+        }
+        .disclaimer-body {
+            font-size: 11px;
+            line-height: 1.9;
+            color: #999;
+            max-width: 800px;
+        }
+        .disclaimer-body p {
+            margin-bottom: 1rem;
+        }
+
         }
 
         @media (max-width: 768px) {
@@ -91,6 +110,7 @@
             .nav-links { gap: 1.5rem; }
             .hero { padding: 6rem 2rem 4rem 2rem; }
             .visuals { padding: 0 2rem; }
+            .disclaimer { padding: 0 2rem; margin-top: 5rem; }
             .closing { padding: 8rem 2rem 12rem 2rem; }
         }
     </style>
@@ -146,9 +166,19 @@
         </div>
     </section>
 
+    <section class="disclaimer">
+        <div class="disclaimer-inner">
+            <div class="disclaimer-body">
+                <p>* 团队协作项目说明：本项目为在 MINKA CHINA 团队协作项目。本人担任创意组长，主要负责品牌策略共创、视觉方向拆解、创意提案组织及整体视觉创意把控；项目中部分延展视觉呈现由团队成员协同完成，页面仅用于展示项目整体推进成果与系统化视觉思考。</p>
+                <p>* 本页面内容仅用于作品展示，禁止任何形式的商业转载或传播。项目相关品牌资产及知识产权归所属品牌方及设计师所有，如涉及展示异议，请联系后及时删除。</p>
+            </div>
+        </div>
+    </section>
+
     <section class="closing">
         <div class="closing-text">
-            Estée Lauder DW CAMPAIGN
+            <span class="project-title-cn">雅诗兰黛 DW CAMPAIGN</span>
+            <span class="project-title-en">ESTÉE LAUDER DW CAMPAIGN</span>
         </div>
         <div class="closing-year">2023</div>
         <a href="projects.html" class="back-link">← Back to Projects</a>
