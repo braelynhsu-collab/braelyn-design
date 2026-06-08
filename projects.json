@@ -123,7 +123,7 @@
     "year": "2023",
     "coverImage": "images/ABSOLUT定制UI界面设计/webp/cover.webp",
     "coverThumb": "images/ABSOLUT定制UI界面设计/webp/cover.webp",
-    "url": "#"
+    "url": "javascript:void(0)"
   },
   {
     "id": "ph-10",
@@ -131,7 +131,7 @@
     "category": "Art Direction",
     "year": "2022",
     "coverImage": "https://placehold.co/800x600/4a5568/cbd5e1?text=Experimental+01",
-    "url": "#"
+    "url": "javascript:void(0)"
   },
   {
     "id": "ph-11",
@@ -139,6 +139,6 @@
     "category": "Branding",
     "year": "2021",
     "coverImage": "https://placehold.co/800x600/2d3748/a0aec0?text=Brand+Identity+04",
-    "url": "#"
+    "url": "javascript:void(0)"
   }
 ]
