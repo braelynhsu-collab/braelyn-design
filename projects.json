@@ -109,10 +109,11 @@
   },
   {
     "id": "ph-08",
-    "title": { "cn": "艺术指导 01", "en": "Art Direction 01" },
+    "title": { "cn": "Belly声纹定制UI设计", "en": "Belly Voiceprint Custom UI" },
     "category": "Art Direction",
     "year": "2023",
-    "coverImage": "https://placehold.co/800x600/22543d/81e6d9?text=Art+Direction+01",
+    "coverImage": "images/Belly声纹定制UI设计/webp/cover.webp",
+    "coverThumb": "images/Belly声纹定制UI设计/webp/cover.webp",
     "url": "#"
   },
   {
