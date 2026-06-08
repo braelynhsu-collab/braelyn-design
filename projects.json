@@ -47,7 +47,7 @@
   {
     "id": "clinique-ebci",
     "title": { "cn": "Clinique EBCI CAMPAIGN", "en": "Clinique EBCI CAMPAIGN" },
-    "category": "Branding",
+    "category": "Campaign",
       "year": "2023",
     "coverImage": "images/clinique-ebci-repush/webp/cover.webp",
     "coverThumb": "images/clinique-ebci-repush/thumbs/cover.webp",
@@ -56,7 +56,7 @@
   {
     "id": "estee-lauder-dw",
     "title": { "cn": "EL DW CAMPAIGN", "en": "EL DW CAMPAIGN" },
-    "category": "Branding",
+    "category": "Campaign",
     "year": "2023",
     "coverImage": "images/estee-lauder-dw/webp/cover.webp",
     "coverThumb": "images/estee-lauder-dw/thumbs/cover.webp",
