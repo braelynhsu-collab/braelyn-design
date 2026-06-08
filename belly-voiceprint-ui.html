@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braelyn. | Belly声纹定制UI设计</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design-system.css">
+    
+    <style>
+        .hero {
+            padding: 8rem 6rem 6rem 6rem;
+        }
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .project-title {
+            font-weight: 700;
+            font-size: clamp(2.5rem, 7vw, 8rem);
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+        .project-title-cn {
+            display: block;
+            font-size: clamp(1.8rem, 5vw, 5rem);
+        }
+        .project-title-en {
+            display: block;
+            font-weight: 400;
+            font-size: clamp(1rem, 2.5vw, 2.5rem);
+            color: #888;
+            margin-top: 0.3rem;
+        }
+        [data-theme="dark"] .project-title-en { color: #555; }
+
+        .visuals {
+            padding: 0 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .full-image {
+            width: 100%;
+            line-height: 0;
+        }
+        .full-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .closing {
+            padding: 12rem 6rem 20rem 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .closing-text {
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.3;
+            text-transform: uppercase;
+        }
+        .closing-year {
+            margin-top: 2rem;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #888;
+        }
+        [data-theme="dark"] .closing-year { color: #555; }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 4rem;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-red);
+            text-decoration: none;
+            transition: transform 0.4s;
+        }
+        .back-link:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body data-theme="light">
+
+    <div id="cursor"></div>
+
+    <nav>
+        <div class="logo">Braelyn<span></span></div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html"><span class="nav-label"><span class="nav-en">Home</span></span></a>
+            <a href="projects.html"><span class="nav-label"><span class="nav-en">Projects</span></span></a>
+            <a href="approach.html"><span class="nav-label"><span class="nav-en">Approach</span></span></a>
+            <a href="about.html"><span class="nav-label"><span class="nav-en">About</span></span></a>
+            <a href="contact.html"><span class="nav-label"><span class="nav-en">Contact</span></span></a>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle"></button>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="project-title">
+                <span class="project-title-cn">Belly 声纹定制 UI</span>
+                <span class="project-title-en">Belly — Voiceprint Customization UI</span>
+            </h1>
+        </div>
+    </section>
+
+    <section class="visuals">
+        <div class="full-image">
+            <img src="images/Belly声纹定制UI设计/detail-01.png" alt="Belly Voiceprint UI 01" loading="lazy">
+        </div>
+        <div class="full-image">
+            <img src="images/Belly声纹定制UI设计/detail-02.png" alt="Belly Voiceprint UI 02" loading="lazy">
+        </div>
+    </section>
+
+    <section class="closing">
+        <div class="closing-text">Belly Voiceprint UI</div>
+        <div class="closing-year">2023</div>
+        <a href="projects.html" class="back-link">← Back to Projects</a>
+    </section>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        let cursorX = 0, cursorY = 0;
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+        });
+        function tickCursor() {
+            const dx = cursorX - (parseFloat(cursor.style.left) || 0);
+            const dy = cursorY - (parseFloat(cursor.style.top) || 0);
+            cursor.style.left = (parseFloat(cursor.style.left) || 0) + dx * 0.2 + 'px';
+            cursor.style.top = (parseFloat(cursor.style.top) || 0) + dy * 0.2 + 'px';
+            requestAnimationFrame(tickCursor);
+        }
+        tickCursor();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const html = document.documentElement;
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) html.setAttribute('data-theme', savedTheme);
+            const toggle = document.getElementById('themeToggle');
+            if (toggle) {
+                toggle.addEventListener('click', () => {
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'dark' ? 'light' : 'dark';
+                    html.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                });
+            }
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('open');
+                    hamburger.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+    <script src="theme.js"></script>
+</body>
+</html>
