@@ -752,7 +752,7 @@ body::before {
 
 .panel {
     flex-shrink: 0;
-    min-width: 16vw;
+    width: 16vw;
     position: relative;
     overflow: hidden;
     display: flex;
