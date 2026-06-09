@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
 
-    <link rel="stylesheet" href="design-system.css?v=9">
+    <link rel="stylesheet" href="design-system.css?v=10">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -134,6 +134,7 @@
             .then(projects => {
                 const track = document.getElementById('track');
                 const spacer = track.querySelector('.panel.panel-gap');
+                if (spacer) spacer.remove();
                 projects
                     .filter(p => p.url && p.url !== '#')
                     .forEach(p => {
@@ -151,6 +152,58 @@
                         gap.className = 'panel panel-gap';
                         track.appendChild(gap);
                     });
+
+                /* --- Carousel auto-play + wheel control --- */
+                const panels = track.querySelectorAll('.panel:not(.panel-gap)');
+                const total = panels.length;
+                if (total < 2) return;
+                let current = 0;
+                let autoTimer;
+                const heroScroll = document.getElementById('heroScroll');
+                const prevBtn = document.getElementById('carouselPrev');
+                const nextBtn = document.getElementById('carouselNext');
+
+                function goTo(idx) {
+                    current = Math.min(Math.max(idx, 0), total - 1);
+                    const maxMove = track.scrollWidth - window.innerWidth;
+                    const progress = total > 1 ? current / (total - 1) : 0;
+                    gsap.to(track, {
+                        x: -(maxMove * progress),
+                        duration: 0.5,
+                        ease: 'power3.out',
+                        overwrite: 'auto'
+                    });
+                }
+
+                function startAuto() {
+                    stopAuto();
+                    autoTimer = setInterval(() => {
+                        goTo((current + 1) % total);
+                    }, 4000);
+                }
+
+                function stopAuto() {
+                    if (autoTimer) clearInterval(autoTimer);
+                }
+
+                /* Wheel: navigate panels, prevent page scroll */
+                heroScroll.addEventListener('wheel', (e) => {
+                    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+                    e.preventDefault();
+                    stopAuto();
+                    if (e.deltaY > 0) goTo(current + 1);
+                    else goTo(current - 1);
+                    startAuto();
+                }, { passive: false });
+
+                /* Arrow buttons */
+                if (prevBtn && nextBtn) {
+                    prevBtn.addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
+                    nextBtn.addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
+                }
+
+                goTo(0);
+                startAuto();
             });
     </script>
 
@@ -284,43 +337,6 @@
                 });
             }
         });
-
-        const track = document.getElementById('track');
-        const scrollSection = document.getElementById('heroScroll');
-        let horzTick = null;
-        document.addEventListener('scroll', () => {
-            if (!horzTick) {
-                horzTick = requestAnimationFrame(() => {
-                    const rect = scrollSection.getBoundingClientRect();
-                    const sh = scrollSection.offsetHeight - window.innerHeight;
-                    const progress = Math.min(Math.max(-rect.top / sh, 0), 1);
-                    const maxMove = track.scrollWidth - window.innerWidth;
-                    gsap.to(track, {
-                        x: -maxMove * progress,
-                        duration: 0.6,
-                        ease: 'power3.out',
-                        overwrite: 'auto'
-                    });
-                    horzTick = null;
-                });
-            }
-        });
-
-        /* Carousel arrow navigation */
-        const carouselPrev = document.getElementById('carouselPrev');
-        const carouselNext = document.getElementById('carouselNext');
-        if (carouselPrev && carouselNext) {
-            function moveCarousel(dir) {
-                const sh = scrollSection.offsetHeight - window.innerHeight;
-                if (sh <= 0) return;
-                const currentProgress = Math.min(Math.max(-scrollSection.getBoundingClientRect().top / sh, 0), 1);
-                const newProgress = Math.min(Math.max(currentProgress + dir * 0.25, 0), 1);
-                const targetY = scrollSection.offsetTop + newProgress * sh;
-                window.scrollTo({ top: targetY, behavior: 'smooth' });
-            }
-            carouselPrev.addEventListener('click', () => moveCarousel(-1));
-            carouselNext.addEventListener('click', () => moveCarousel(1));
-        }
 
         const backToTop = document.getElementById('backToTop');
         let bttTick = null;

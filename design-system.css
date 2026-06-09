@@ -730,17 +730,16 @@ body::before {
 
 /* --- Horizontal Scroll Section --- */
 .hero-scroll {
-    height: 200vh;
+    height: auto;
     position: relative;
 }
 
 .sticky {
-    position: sticky;
-    top: 0;
+    position: relative;
     height: auto;
     overflow: hidden;
     display: flex;
-    padding: 2vh 0;
+    padding: 1.5vh 0;
 }
 
 .track {
@@ -759,7 +758,7 @@ body::before {
     line-height: 0;
     text-decoration: none;
     color: var(--text);
-    margin-right: 0.8vw;
+    margin-right: 0.4vw;
 }
 
 .panel img {
@@ -776,7 +775,7 @@ body::before {
 }
 
 .panel-gap {
-    min-width: 3vw;
+    min-width: 1.5vw;
     pointer-events: none;
     background: transparent;
     margin-right: 0;
