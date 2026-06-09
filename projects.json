@@ -127,11 +127,12 @@
   },
   {
     "id": "ph-10",
-    "title": { "cn": "实验项目 01", "en": "Experimental 01" },
-    "category": "Art Direction",
-    "year": "2022",
-    "coverImage": "https://placehold.co/800x600/4a5568/cbd5e1?text=Experimental+01",
-    "url": "javascript:void(0)"
+    "title": { "cn": "周大福珠宝定制UI设计", "en": "Chow Tai Fook Jewelry Custom UI Design" },
+    "category": "UX/UI Design",
+    "year": "2020",
+    "coverImage": "images/周大福珠宝定制UI设计/cover.jpg",
+    "coverThumb": "images/周大福珠宝定制UI设计/thumbs/cover.jpg",
+    "url": "chow-tai-fook-jewelry-custom-ui.html"
   },
   {
     "id": "ph-11",
