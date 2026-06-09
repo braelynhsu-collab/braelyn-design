@@ -105,22 +105,36 @@
         }
         [data-theme="dark"] .style-item-text { color: #999; }
 
-        .clients {
-            margin-bottom: 12rem;
+        .brand-logos {
+            margin-bottom: 10rem;
         }
 
-        .client-list {
+        .logo-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 3rem;
-            margin-top: 4rem;
+            align-items: center;
         }
 
-        .client-name {
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
+        .client-logo {
+            width: 100%;
+            max-height: 48px;
+            object-fit: contain;
+            opacity: 0.55;
+            transition: opacity 0.3s ease;
+            filter: grayscale(1);
+        }
+        .client-logo:hover {
+            opacity: 1;
+            filter: grayscale(0);
+        }
+        [data-theme="dark"] .client-logo {
+            opacity: 0.45;
+            filter: grayscale(1) brightness(1.3);
+        }
+        [data-theme="dark"] .client-logo:hover {
+            opacity: 1;
+            filter: grayscale(0) brightness(1);
         }
 
         .proof-title {
@@ -132,7 +146,7 @@
         }
 
         .experience-list {
-            margin-bottom: 12rem;
+            margin-bottom: 6rem;
             display: flex;
             flex-direction: column;
             gap: 2rem;
@@ -179,7 +193,7 @@
             .content-section { padding: 0 2rem 8rem 2rem; }
             .capabilities-grid { grid-template-columns: 1fr; gap: 3rem; }
             .style-grid { grid-template-columns: 1fr; gap: 4rem; }
-            .client-list { grid-template-columns: repeat(2, 1fr); }
+            .logo-grid { grid-template-columns: repeat(2, 1fr); }
             .exp-item { flex-direction: column; gap: 0.3rem; }
             .exp-brand { min-width: auto; }
         }
@@ -289,6 +303,19 @@
             </div>
         </div>
 
+        <div class="brand-logos">
+            <div class="logo-grid">
+                <img src="images/logos/purajuve-logo.png" alt="Purajuvé" class="client-logo">
+                <img src="images/logos/proya-logo.png" alt="Proya" class="client-logo">
+                <img src="images/logos/estee-lauder-logo.png" alt="Estée Lauder" class="client-logo">
+                <img src="images/logos/loreal-logo.png" alt="L'Oréal" class="client-logo">
+                <img src="images/logos/clinique-logo.png" alt="Clinique" class="client-logo">
+                <img src="images/logos/lvmh-logo.png" alt="LVMH" class="client-logo">
+                <img src="images/logos/minka-logo.png" alt="Minka" class="client-logo">
+                <img src="images/logos/adsame-logo.png" alt="AdSame" class="client-logo">
+            </div>
+        </div>
+
         <div class="section-label">WORKING PRINCIPLES</div>
         <div class="work-style">
             <div class="style-grid">
@@ -310,20 +337,6 @@
                         通过清晰沟通推动团队协作与项目落地。
                     </p>
                 </div>
-            </div>
-        </div>
-
-        <div class="section-label">Selected Clients</div>
-        <div class="clients">
-            <div class="client-list">
-                <div class="client-name">Purajuvé</div>
-                <div class="client-name">Proya</div>
-                <div class="client-name">Estée Lauder</div>
-                <div class="client-name">L'Oréal</div>
-                <div class="client-name">Clinique</div>
-                <div class="client-name">LVMH</div>
-                <div class="client-name">Minka</div>
-                <div class="client-name">AdSame</div>
             </div>
         </div>
 
