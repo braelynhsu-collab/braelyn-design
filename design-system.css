@@ -741,7 +741,8 @@ body::before {
     height: 100vh;
     overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 6vh;
 }
 
 .track {
@@ -754,7 +755,7 @@ body::before {
 .panel {
     flex-shrink: 0;
     aspect-ratio: 16/9;
-    min-width: 20vw;
+    min-width: 35vw;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -766,7 +767,7 @@ body::before {
 }
 
 .panel-hero {
-    min-width: 20vw;
+    min-width: 42vw;
 }
 
 .panel-gap {
