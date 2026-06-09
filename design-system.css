@@ -775,6 +775,7 @@ body::before {
 }
 
 .panel-gap {
+    width: 0.2vw;
     min-width: 0.2vw;
     pointer-events: none;
     background: transparent;
