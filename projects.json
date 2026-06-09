@@ -1,6 +1,7 @@
 [
   {
     "id": "Purajuvé",
+    "aspectRatio": "8/5",
     "title": { "cn": "Purajuvé", "en": "Purajuvé" },
     "category": "Branding",
     "year": "2025",
@@ -91,6 +92,7 @@
   },
   {
     "id": "ph-06",
+    "aspectRatio": "4/3",
     "title": { "cn": "LVMH RETAIL LAB丝带定制UI", "en": "LVMH RETAIL LAB" },
     "category": "UX/UI Design",
     "year": "2020",
@@ -118,6 +120,7 @@
   },
   {
     "id": "ph-09",
+    "aspectRatio": "3/2",
     "title": { "cn": "ABSOLUT 定制UI界面设计", "en": "ABSOLUT Custom UI Design" },
     "category": "UX/UI Design",
     "year": "2023",

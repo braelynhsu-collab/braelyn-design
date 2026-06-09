@@ -742,7 +742,7 @@ body::before {
     overflow: hidden;
     display: flex;
     align-items: flex-start;
-    padding-top: 6vh;
+    padding-top: 2vh;
 }
 
 .track {
@@ -755,7 +755,7 @@ body::before {
 .panel {
     flex-shrink: 0;
     aspect-ratio: 16/9;
-    min-width: 35vw;
+    min-width: 28vw;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -767,7 +767,7 @@ body::before {
 }
 
 .panel-hero {
-    min-width: 42vw;
+    min-width: 36vw;
 }
 
 .panel-gap {
@@ -795,9 +795,11 @@ body::before {
 /* 轮播左右箭头导航 */
 .carousel-arrows {
     position: absolute;
-    inset: 0;
+    left: 0;
+    right: 0;
+    top: calc(2vh + 7.875vw);
+    transform: translateY(-50%);
     display: flex;
-    align-items: center;
     justify-content: space-between;
     padding: 0 1.5rem;
     pointer-events: none;
