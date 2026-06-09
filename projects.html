@@ -13,9 +13,6 @@
         /* --- Projects Page Editorial Style --- */
         .page-header {
             padding: 14rem 6rem 8rem 6rem;
-            text-align: left;
-            max-width: none;
-            margin: 0;
         }
         .page-title { 
             font-weight: 700; 
@@ -119,8 +116,8 @@
     </style>
     <link rel="stylesheet" href="design-system.css?v=4">
     <style>
-        /* Override external CSS: page header full-width left-align */
-        .page-header {
+        /* Force override: external CSS loads async and overrides inline style */
+        section.page-header {
             max-width: none;
             margin: 0;
             text-align: left;
