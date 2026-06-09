@@ -101,6 +101,7 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    cursor: none;
     transition: background 0.4s ease, color 0.4s ease;
 }
 
@@ -115,6 +116,7 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    cursor: none;
 }
 
 img { display: block; max-width: 100%; }
