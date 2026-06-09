@@ -115,18 +115,6 @@
         }
     </style>
     <link rel="stylesheet" href="design-system.css?v=4">
-    <style>
-        section.page-header {
-            max-width: none !important;
-            margin: 0 !important;
-            text-align: left !important;
-        }
-        .projects-list {
-            max-width: none !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-        }
-    </style>
 </head>
 <body data-theme="light">
 
@@ -149,12 +137,12 @@
             </div>
         </nav>
 
-    <section class="page-header">
+    <section class="page-header" style="max-width:none!important;margin:0!important;text-align:left!important">
         <h1 class="page-title"><span class="title-en">BRAND WORK</span><span class="title-cn">品牌与传播项目</span></h1>
         <p class="page-sub">Selected projects across brand identity, visual systems and integrated campaigns.</p>
     </section>
 
-    <section class="projects-list"></section>
+    <section class="projects-list" style="max-width:none!important;margin:0!important"></section>
     <script>
         const cursor = document.getElementById('cursor');
         let cursorX = 0, cursorY = 0;
