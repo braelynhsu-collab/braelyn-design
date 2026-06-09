@@ -758,7 +758,7 @@ body::before {
     display: flex;
     text-decoration: none;
     color: var(--text);
-    margin-right: 0.2vw;
+    margin-right: 0.1vw;
 }
 
 .panel img {
@@ -775,7 +775,7 @@ body::before {
 }
 
 .panel-gap {
-    min-width: 0.6vw;
+    min-width: 0.2vw;
     pointer-events: none;
     background: transparent;
     margin-right: 0;
