@@ -752,18 +752,18 @@ body::before {
 .panel {
     flex-shrink: 0;
     width: 16vw;
+    aspect-ratio: 16/9;
     position: relative;
     overflow: hidden;
     display: flex;
-    line-height: 0;
     text-decoration: none;
     color: var(--text);
-    margin-right: 0.4vw;
+    margin-right: 0.2vw;
 }
 
 .panel img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     object-fit: cover;
     transition: transform 0.8s var(--ease-out);
@@ -775,7 +775,7 @@ body::before {
 }
 
 .panel-gap {
-    min-width: 1.5vw;
+    min-width: 0.6vw;
     pointer-events: none;
     background: transparent;
     margin-right: 0;
