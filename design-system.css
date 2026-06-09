@@ -730,18 +730,17 @@ body::before {
 
 /* --- Horizontal Scroll Section --- */
 .hero-scroll {
-    height: 300vh;
+    height: 200vh;
     position: relative;
 }
 
 .sticky {
     position: sticky;
     top: 0;
-    height: 100vh;
+    height: auto;
     overflow: hidden;
     display: flex;
-    align-items: center;
-    padding: 4vh 0;
+    padding: 2vh 0;
 }
 
 .track {
@@ -753,7 +752,7 @@ body::before {
 
 .panel {
     flex-shrink: 0;
-    min-width: 22vw;
+    min-width: 16vw;
     position: relative;
     overflow: hidden;
     display: flex;
