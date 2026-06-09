@@ -621,7 +621,6 @@ a img, a video {
     pointer-events: auto;
 }
 .project-img-wrapper,
-.panel-img,
 .full-img,
 .full-video video {
     pointer-events: auto;
@@ -731,7 +730,7 @@ body::before {
 
 /* --- Horizontal Scroll Section --- */
 .hero-scroll {
-    height: 400vh;
+    height: 300vh;
     position: relative;
 }
 
@@ -741,8 +740,8 @@ body::before {
     height: 100vh;
     overflow: hidden;
     display: flex;
-    align-items: flex-start;
-    padding-top: 2vh;
+    align-items: center;
+    padding: 4vh 0;
 }
 
 .track {
@@ -754,52 +753,42 @@ body::before {
 
 .panel {
     flex-shrink: 0;
-    aspect-ratio: 16/9;
-    min-width: 28vw;
+    min-width: 22vw;
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    line-height: 0;
     text-decoration: none;
     color: var(--text);
     margin-right: 0.8vw;
 }
 
-.panel-hero {
-    min-width: 36vw;
+.panel img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-out);
+    will-change: transform;
+}
+
+.panel:hover img {
+    transform: scale(1.06);
 }
 
 .panel-gap {
     min-width: 3vw;
-    height: auto;
     pointer-events: none;
     background: transparent;
     margin-right: 0;
 }
 
-.panel-img {
-    position: absolute;
-    inset: -8%;
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.08);
-    transition: transform 0.8s var(--ease-out);
-    will-change: transform;
-}
-
-.panel:hover .panel-img {
-    transform: scale(1.14);
-}
-
 /* 轮播左右箭头导航 */
 .carousel-arrows {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: calc(2vh + 7.875vw);
-    transform: translateY(-50%);
+    inset: 0;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 0 1.5rem;
     pointer-events: none;
@@ -1484,14 +1473,13 @@ body::before {
     }
 
     .panel {
-        aspect-ratio: 16/9;
         min-width: 100%;
         margin: 0 0 16px;
     }
 
-    .panel-hero {
-        min-width: 100%;
-    }
+.panel-hero {
+    min-width: 28vw;
+}
 
     .panel-gap {
         display: none;
@@ -1499,10 +1487,6 @@ body::before {
 
     .carousel-arrows {
         display: none;
-    }
-
-    .panel-img {
-        inset: 0;
     }
 
     .proof-strip,

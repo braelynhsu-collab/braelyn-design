@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
 
-    <link rel="stylesheet" href="design-system.css?v=6">
+    <link rel="stylesheet" href="design-system.css?v=7">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -140,10 +140,11 @@
                         const link = document.createElement('a');
                         link.href = p.url;
                         link.className = 'panel';
-                        const ar = p.aspectRatio || '16/9';
-                        link.style.cssText = `aspect-ratio:${ar};margin-right:0.8vw;`;
-                        link.innerHTML = '<div class="panel-img" style="background-size:cover;background-position:center;"></div>';
-                        link.querySelector('.panel-img').style.backgroundImage = `url('${p.coverImage}')`;
+                        const img = document.createElement('img');
+                        img.src = p.coverImage;
+                        img.alt = p.title.en;
+                        img.loading = 'lazy';
+                        link.appendChild(img);
                         track.appendChild(link);
 
                         const gap = document.createElement('div');
