@@ -52,11 +52,27 @@
             margin: 0 auto;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12rem;
+        .conversation-topline {
+            margin-bottom: 1.5rem;
+            color: var(--accent-red);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .talk-section,
+        .reach-section,
+        .viewpoint-section {
             margin-top: 12rem;
+        }
+
+        .talk-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1px;
+            background: var(--muted-line);
+            border: 1px solid var(--muted-line);
         }
 
         .contact-label {
@@ -68,11 +84,58 @@
             margin-bottom: 2rem;
         }
 
+        .talk-card {
+            min-height: 220px;
+            padding: 2rem;
+            background: var(--bg-color);
+        }
+
+        .talk-number {
+            display: block;
+            margin-bottom: 4rem;
+            color: var(--muted-color, #777);
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .talk-title {
+            margin-bottom: 1rem;
+            font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+        }
+
+        .talk-text {
+            color: var(--muted-color, #777);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+        }
+
+        .reach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--muted-line);
+            border-top: 1px solid var(--muted-line);
+            border-bottom: 1px solid var(--muted-line);
+        }
+
+        .reach-card {
+            padding: 2.5rem 0;
+            background: var(--bg-color);
+        }
+
+        .reach-card + .reach-card {
+            padding-left: 2.5rem;
+        }
+
         .contact-value {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-size: clamp(1.2rem, 2vw, 2rem);
             font-weight: 700;
             letter-spacing: -1px;
-            text-transform: uppercase;
+            text-transform: none;
             overflow-wrap: anywhere;
         }
 
@@ -92,44 +155,44 @@
             letter-spacing: 0.03em;
         }
 
-        .brief-list {
-            display: grid;
-            gap: 1rem;
-            margin-top: 1.8rem;
-            list-style: none;
-            color: var(--muted-color, #777);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .brief-list li::before {
-            content: '-';
-            margin-right: 0.75rem;
-            color: var(--accent-red);
-        }
-
         .contact-status {
             color: var(--text-color);
         }
 
-        .availability {
-            margin-top: 12rem;
+        .brief-kicker {
+            margin-top: 1.4rem;
+            max-width: 420px;
+            color: var(--muted-color, #777);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .viewpoint-section {
+            max-width: 820px;
+            margin-left: auto;
+            margin-right: auto;
             text-align: center;
         }
 
-        .availability-text {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            line-height: 1.8;
-            max-width: 600px;
-            margin: 0 auto;
+        .viewpoint-text {
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            line-height: 1.35;
             font-weight: 400;
+            letter-spacing: -0.04em;
         }
 
         @media (max-width: 768px) {
-            .contact-hero { padding: 0 2rem; }
+            .contact-hero { min-height: 84vh; padding: 8rem 2rem 5rem; }
             .contact-section { padding: 0 2rem 12rem 2rem; }
-            .contact-grid { grid-template-columns: 1fr; gap: 6rem; margin-top: 8rem; }
-            .availability { margin-top: 8rem; }
+            .talk-section,
+            .reach-section,
+            .viewpoint-section { margin-top: 8rem; }
+            .talk-grid,
+            .reach-grid { grid-template-columns: 1fr; }
+            .talk-card { min-height: auto; }
+            .talk-number { margin-bottom: 2.5rem; }
+            .reach-card,
+            .reach-card + .reach-card { padding: 2rem 0; }
         }
 
         @media (pointer: coarse) {
@@ -161,51 +224,88 @@
         </nav>
 
     <section class="contact-hero">
-        <h1 class="hero-title"><span class="title-en">Let's<br>Work</span><span class="title-cn">开始共创</span></h1>
-        <p class="hero-sub">Available for select projects</p>
-        <p class="contact-intro">如果你正在规划品牌、产品体验或一套更完整的视觉系统，发来一些背景即可。我们会从目标、受众和交付边界开始，把想法整理成可执行的方向。</p>
+        <div class="conversation-topline">Start a conversation</div>
+        <h1 class="hero-title"><span class="title-en">Bring the<br>Question</span><span class="title-cn">从问题开始</span></h1>
+        <p class="hero-sub">I’ll help shape the direction</p>
+        <p class="contact-intro">带着真实问题来。我们从目标、受众和边界开始聊，把模糊的想法整理成可以被看见、讨论和推进的方向。</p>
     </section>
 
     <section class="contact-section">
-        <div class="contact-grid">
-            <div>
-                <div class="contact-label">Email</div>
-                <a href="mailto:braelyn_hsu@foxmail.com?subject=Project%20Inquiry%20for%20Braelyn" class="contact-link">
-                    <div class="contact-value">braelyn_hsu@foxmail.com</div>
-                </a>
-                <p class="contact-note">通常会在 2 个工作日内回复。你也可以直接附上项目时间线、预算范围或现有资料。</p>
-            </div>
-            <div>
-                <div class="contact-label">Social</div>
-                <a href="https://www.linkedin.com/in/braelynxu/" class="contact-link" target="_blank" rel="noopener noreferrer">
-                    <div class="contact-value">LinkedIn</div>
-                </a>
-                <ul class="brief-list" aria-label="社交联系方式">
-                    <li>WeChat: <span class="contact-status">Braelyn_X</span></li>
-                </ul>
+        <div class="talk-section" aria-label="可讨论的合作方向">
+            <div class="contact-label">What We Might Talk About</div>
+            <div class="talk-grid">
+                <div class="talk-card">
+                    <span class="talk-number">01</span>
+                    <h2 class="talk-title">Brand Upgrade</h2>
+                    <p class="talk-text">品牌升级、定位更新、视觉资产重构。</p>
+                </div>
+                <div class="talk-card">
+                    <span class="talk-number">02</span>
+                    <h2 class="talk-title">Campaign Direction</h2>
+                    <p class="talk-text">Campaign 主视觉、内容系统与传播视觉方向。</p>
+                </div>
+                <div class="talk-card">
+                    <span class="talk-number">03</span>
+                    <h2 class="talk-title">Visual System</h2>
+                    <p class="talk-text">VI、页面体验、设计规范和品牌资产体系。</p>
+                </div>
+                <div class="talk-card">
+                    <span class="talk-number">04</span>
+                    <h2 class="talk-title">Creative Operations</h2>
+                    <p class="talk-text">团队协作、供应商沟通和项目推进机制。</p>
+                </div>
+                <div class="talk-card">
+                    <span class="talk-number">05</span>
+                    <h2 class="talk-title">AI Workflow</h2>
+                    <p class="talk-text">AI 视觉实验、创意提效和设计流程探索。</p>
+                </div>
             </div>
         </div>
 
-        <div class="availability">
-            <div class="contact-label">Availability</div>
-            <p class="availability-text">
-                <span class="contact-status">目前可承接 2026 年第二季度开始的新项目。</span> 如果你正在规划品牌、产品或视觉系统，我们可以先用一次 30 分钟的对话确认方向、范围和下一步是否适合合作。
-            </p>
+        <div class="reach-section" aria-label="联系方式">
+            <div class="contact-label">How to Reach Me</div>
+            <div class="reach-grid">
+                <div class="reach-card">
+                    <div class="contact-label">Email</div>
+                    <a href="mailto:braelyn_hsu@foxmail.com?subject=Project%20Inquiry%20for%20Braelyn" class="contact-link">
+                        <div class="contact-value">braelyn_hsu@foxmail.com</div>
+                    </a>
+                    <p class="contact-note">项目合作、品牌沟通或阶段性咨询，可以从这里开始。</p>
+                </div>
+                <div class="reach-card">
+                    <div class="contact-label">LinkedIn</div>
+                    <a href="https://www.linkedin.com/in/braelynxu/" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-value">Professional Profile</div>
+                    </a>
+                    <p class="contact-note">适合职业机会、招聘沟通或长期合作讨论。</p>
+                </div>
+                <div class="reach-card">
+                    <div class="contact-label">WeChat</div>
+                    <div class="contact-value">Braelyn_X</div>
+                    <p class="contact-note">如果已经通过邮件说明背景，也可以用微信继续沟通。</p>
+                </div>
+            </div>
         </div>
 
         <div class="brief-panel" aria-label="项目沟通建议">
             <div class="brief-grid">
                 <div>
                     <div class="contact-label">Before You Write</div>
-                    <h2 class="brief-title">一封有效的项目邮件，最好先说清楚这些事。</h2>
+                    <h2 class="brief-title">You don’t need a perfect brief. Just tell me what feels unclear.</h2>
+                    <p class="brief-kicker">不需要一开始就想清楚所有答案。只要先把真实问题、阶段和限制说出来，我们就有了可以共同判断的起点。</p>
                 </div>
                 <ul class="brief-items">
-                    <li><strong>Context</strong>品牌、产品或业务目前处在什么阶段，为什么现在需要设计介入。</li>
-                    <li><strong>Scope</strong>你需要的是品牌 VI、Campaign、页面体验、视觉系统，还是一次诊断和方向建议。</li>
-                    <li><strong>Timeline</strong>期望启动和交付时间，如果有发布节点、提案节点或上线时间，也可以一起说明。</li>
-                    <li><strong>Materials</strong>现有品牌资料、参考方向、历史物料、团队分工和预算范围都能帮助更快判断合作方式。</li>
+                    <li><strong>Context</strong>现在处在什么阶段？为什么这个问题需要被重新看见？</li>
+                    <li><strong>Scope</strong>你需要品牌、Campaign、视觉系统，还是一次方向判断？</li>
+                    <li><strong>Timeline</strong>有没有明确启动、提案、发布或上线节点？</li>
+                    <li><strong>Materials</strong>已有资料、参考方向、历史物料、团队分工或预算范围。</li>
                 </ul>
             </div>
+        </div>
+
+        <div class="viewpoint-section" aria-label="设计观点">
+            <div class="contact-label">A Design Viewpoint</div>
+            <p class="viewpoint-text">设计不是先决定风格，而是先把模糊的问题变成可以被看见、讨论和判断的方向。</p>
         </div>
     </section>
 
