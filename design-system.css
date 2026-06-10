@@ -495,7 +495,7 @@ nav {
 }
 
 .concept-cn {
-    margin-top: var(--space-md, 48px);
+    margin-top: 64px;
     font-family: var(--font-body);
     font-size: clamp(16px, 1.6vw, 24px);
     font-weight: 300;
@@ -507,7 +507,7 @@ nav {
 .concept-rule {
     width: 1px;
     height: 80px;
-    margin: 56px auto 48px;
+    margin: 72px auto 56px;
     background: var(--muted-line);
 }
 
@@ -528,7 +528,7 @@ nav {
 }
 
 .quote-cn {
-    margin-top: 16px;
+    margin-top: 28px;
     font-family: var(--font-body);
     font-size: clamp(13px, 1.1vw, 16px);
     font-weight: 300;
