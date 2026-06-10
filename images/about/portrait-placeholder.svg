@@ -1,0 +1,9 @@
+<svg width="720" height="1000" viewBox="0 0 720 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="1000" fill="#ECEAE5"/>
+  <path d="M72 928V360C72 185.374 201.235 72 360 72C518.765 72 648 185.374 648 360V928H72Z" fill="#E2DED6" stroke="#8A1C1C" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M142 858V372C142 239.452 237.666 148 360 148C482.334 148 578 239.452 578 372V858H142Z" fill="#F5F5F3" stroke="#111111" stroke-opacity="0.08"/>
+  <circle cx="360" cy="370" r="82" fill="#D5D0C7"/>
+  <path d="M220 690C240 588 292 526 360 526C428 526 480 588 500 690" stroke="#D5D0C7" stroke-width="92" stroke-linecap="round"/>
+  <text x="360" y="810" text-anchor="middle" fill="#8A1C1C" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4">PORTRAIT</text>
+  <text x="360" y="850" text-anchor="middle" fill="#111111" fill-opacity="0.42" font-family="Montserrat, Arial, sans-serif" font-size="14" letter-spacing="3">BRAELYN XU</text>
+</svg>
