@@ -219,9 +219,9 @@
             width: auto;
             max-width: min(100%, var(--logo-max-width, 150px));
             object-fit: contain;
-            opacity: 0.55;
+            opacity: 0.62;
             transition: opacity 0.3s ease;
-            filter: grayscale(1);
+            filter: grayscale(1) invert(1) brightness(0.72) opacity(0.82);
         }
 
         .client-logo[alt="LVMH"] { --logo-height: 30px; --logo-max-width: 140px; }
@@ -234,16 +234,16 @@
         .client-logo[alt="Moët"] { --logo-height: 54px; --logo-max-width: 104px; }
 
         .client-logo:hover {
-            opacity: 1;
-            filter: grayscale(0);
+            opacity: 0.9;
+            filter: grayscale(1) invert(1) brightness(0.88) opacity(0.96);
         }
         [data-theme="dark"] .client-logo {
-            opacity: 0.45;
-            filter: grayscale(1) brightness(1.3);
+            opacity: 0.62;
+            filter: grayscale(1) invert(1) brightness(0.72) opacity(0.82);
         }
         [data-theme="dark"] .client-logo:hover {
-            opacity: 1;
-            filter: grayscale(0) brightness(1);
+            opacity: 0.9;
+            filter: grayscale(1) invert(1) brightness(0.88) opacity(0.96);
         }
 
         .proof-title {
@@ -323,7 +323,7 @@
             .exp-brand { min-width: auto; }
         }
     </style>
-    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="design-system.css?v=14">
 </head>
 <body data-theme="light">
 
