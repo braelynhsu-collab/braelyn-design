@@ -5,13 +5,13 @@
 
 /* --- Design Tokens (single source of truth) --- */
 :root[data-theme="dark"] {
-    --bg: #0a0a0a;
+    --bg: #140000;
     --text: #f5f5f5;
     --muted: rgba(255, 255, 255, 0.5);
     --muted-line: rgba(255, 255, 255, 0.08);
     --accent: #8a1c1c;
-    --nav-bg: rgba(10, 10, 10, 0.92);
-    --nav-blur: rgba(10, 10, 10, 0.92);
+    --nav-bg: rgba(20, 0, 0, 0.92);
+    --nav-blur: rgba(20, 0, 0, 0.92);
     --card-bg: rgba(255, 255, 255, 0.03);
 
     --font-heading: 'Montserrat', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
@@ -48,14 +48,14 @@
 }
 
 :root[data-theme="light"] {
-    --bg: #f5f5f3;
-    --text: #111111;
-    --muted: rgba(0, 0, 0, 0.45);
-    --muted-line: rgba(0, 0, 0, 0.08);
+    --bg: #140000;
+    --text: #f5f5f5;
+    --muted: rgba(255, 255, 255, 0.5);
+    --muted-line: rgba(255, 255, 255, 0.08);
     --accent: #8a1c1c;
-    --nav-bg: rgba(245, 245, 243, 0.92);
-    --nav-blur: rgba(245, 245, 243, 0.92);
-    --card-bg: rgba(0, 0, 0, 0.03);
+    --nav-bg: rgba(20, 0, 0, 0.92);
+    --nav-blur: rgba(20, 0, 0, 0.92);
+    --card-bg: rgba(255, 255, 255, 0.03);
 
     --font-heading: 'Montserrat', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
     --font-body: 'Montserrat', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
@@ -318,6 +318,7 @@ nav {
 }
 
 .theme-toggle {
+    display: none !important;
     background: none;
     border: none;
     color: var(--text);
@@ -325,7 +326,6 @@ nav {
     cursor: pointer;
     opacity: 0.5;
     transition: opacity 0.3s ease;
-    display: flex;
     align-items: center;
 }
 
@@ -672,6 +672,15 @@ body::before {
     line-height: 1.04;
     letter-spacing: -0.04em;
     color: var(--text);
+}
+
+.signal-cn {
+    margin-top: 36px;
+    color: var(--muted);
+    font-size: clamp(16px, 1.4vw, 22px);
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.06em;
 }
 
 .signal-grid {
