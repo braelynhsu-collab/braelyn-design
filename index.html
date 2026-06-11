@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
 
-    <link rel="stylesheet" href="design-system.css?v=17">
+    <link rel="stylesheet" href="design-system.css?v=18">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -40,6 +40,8 @@
 <body>
 
     <div id="cursor"></div>
+    <div class="page-glow" id="pageGlow" aria-hidden="true"></div>
+    <div class="page-glow-trail" id="pageGlowTrail" aria-hidden="true"></div>
 
     <nav>
         <div class="logo">Braelyn<span></span></div>
@@ -157,8 +159,7 @@
                 const panels = track.querySelectorAll('.panel:not(.panel-gap)');
                 const total = panels.length;
                 if (total < 2) return;
-                let current = 0;
-                let autoTimer;
+                let current = Math.min(5, total - 1);
                 const heroScroll = document.getElementById('heroScroll');
                 const prevBtn = document.getElementById('carouselPrev');
                 const nextBtn = document.getElementById('carouselNext');
@@ -168,57 +169,61 @@
                     panels.forEach((panel, panelIndex) => {
                         panel.classList.toggle('is-active', panelIndex === current);
                     });
-                    const maxMove = track.scrollWidth - window.innerWidth;
-                    const progress = total > 1 ? current / (total - 1) : 0;
+                    const targetPanel = panels[current];
+                    const targetCenter = targetPanel.offsetLeft + targetPanel.offsetWidth / 2;
+                    const viewportCenter = window.innerWidth / 2;
+                    const maxMove = Math.max(0, track.scrollWidth - window.innerWidth);
+                    const targetX = Math.min(Math.max(targetCenter - viewportCenter, 0), maxMove);
                     gsap.to(track, {
-                        x: -(maxMove * progress),
+                        x: -targetX,
                         duration: 0.5,
                         ease: 'power3.out',
                         overwrite: 'auto'
                     });
                 }
 
-                function startAuto() {
-                    stopAuto();
-                    autoTimer = setInterval(() => {
-                        goTo((current + 1) % total);
-                    }, 4000);
-                }
-
-                function stopAuto() {
-                    if (autoTimer) clearInterval(autoTimer);
-                }
-
                 /* Wheel: navigate panels, prevent page scroll */
                 heroScroll.addEventListener('wheel', (e) => {
                     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
                     e.preventDefault();
-                    stopAuto();
                     if (e.deltaY > 0) goTo(current + 1);
                     else goTo(current - 1);
-                    startAuto();
                 }, { passive: false });
 
                 /* Arrow buttons */
                 if (prevBtn && nextBtn) {
-                    prevBtn.addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
-                    nextBtn.addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
+                    prevBtn.addEventListener('click', () => { goTo(current - 1); });
+                    nextBtn.addEventListener('click', () => { goTo(current + 1); });
                 }
 
-                goTo(0);
-                startAuto();
+                panels.forEach((panel, panelIndex) => {
+                    panel.addEventListener('mouseenter', () => goTo(panelIndex));
+                });
+
+                goTo(current);
             });
     </script>
 
     <script>
         const cursor = document.getElementById('cursor');
+        const pageGlow = document.getElementById('pageGlow');
+        const pageGlowTrail = document.getElementById('pageGlowTrail');
         let cursorX = 0, cursorY = 0;
+        let pageGlowX = 0, pageGlowY = 0;
+        let pageTrailX = 0, pageTrailY = 0;
         document.addEventListener('mousemove', (e) => {
             cursorX = e.clientX;
             cursorY = e.clientY;
+            document.body.classList.add('cursor-active');
         });
         function tickCursor() {
             cursor.style.transform = 'translate(' + cursorX + 'px, ' + cursorY + 'px) translate(-50%, -50%)';
+            pageGlowX += (cursorX - pageGlowX) * 0.18;
+            pageGlowY += (cursorY - pageGlowY) * 0.18;
+            pageTrailX += (cursorX - pageTrailX) * 0.08;
+            pageTrailY += (cursorY - pageTrailY) * 0.08;
+            if (pageGlow) pageGlow.style.transform = `translate3d(${pageGlowX}px, ${pageGlowY}px, 0) translate(-50%, -50%)`;
+            if (pageGlowTrail) pageGlowTrail.style.transform = `translate3d(${pageTrailX}px, ${pageTrailY}px, 0) translate(-50%, -50%)`;
             requestAnimationFrame(tickCursor);
         }
         tickCursor();
@@ -227,6 +232,18 @@
         interactive.forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        document.addEventListener('pointerdown', (e) => {
+            if (window.matchMedia('(pointer: coarse)').matches) return;
+            document.body.classList.add('cursor-clicking');
+            const ripple = document.createElement('span');
+            ripple.className = 'cursor-ripple';
+            ripple.style.left = `${e.clientX}px`;
+            ripple.style.top = `${e.clientY}px`;
+            document.body.appendChild(ripple);
+            window.setTimeout(() => ripple.remove(), 650);
+            window.setTimeout(() => document.body.classList.remove('cursor-clicking'), 180);
         });
 
         const hero = document.querySelector('.concept-hero');
@@ -337,6 +354,44 @@
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        const splitSections = Array.from(document.querySelectorAll('.concept-hero, .home-signal, .hero-scroll'));
+        if (!window.matchMedia('(max-width: 768px), (prefers-reduced-motion: reduce)').matches && splitSections.length) {
+            let splitIndex = 0;
+            let splitLocked = false;
+
+            function nearestSplitIndex() {
+                let nearest = 0;
+                let nearestDistance = Infinity;
+                splitSections.forEach((section, index) => {
+                    const distance = Math.abs(section.getBoundingClientRect().top);
+                    if (distance < nearestDistance) {
+                        nearest = index;
+                        nearestDistance = distance;
+                    }
+                });
+                return nearest;
+            }
+
+            function goToSplit(index) {
+                splitIndex = Math.min(Math.max(index, 0), splitSections.length - 1);
+                splitLocked = true;
+                splitSections[splitIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                window.setTimeout(() => { splitLocked = false; }, 820);
+            }
+
+            window.addEventListener('wheel', (e) => {
+                if (e.defaultPrevented) return;
+                const inSplitFlow = splitSections.some(section => {
+                    const rect = section.getBoundingClientRect();
+                    return rect.top < window.innerHeight * 0.55 && rect.bottom > window.innerHeight * 0.45;
+                });
+                if (!inSplitFlow || splitLocked || Math.abs(e.deltaY) < 8) return;
+                e.preventDefault();
+                splitIndex = nearestSplitIndex();
+                goToSplit(splitIndex + (e.deltaY > 0 ? 1 : -1));
+            }, { passive: false });
+        }
     </script>
     <script src="theme.js"></script>
 
