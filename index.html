@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
 
-    <link rel="stylesheet" href="design-system.css?v=16">
+    <link rel="stylesheet" href="design-system.css?v=17">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -73,7 +73,7 @@
         </div>
         <div class="concept-stack">
             <p class="concept-kicker">Portfolio / Thinking System</p>
-            <h1 class="concept-title">Design is Thinking Made Visual</h1>
+            <h1 class="concept-title"><span class="hero-line" style="--i: 0">Design is</span><br> <span class="hero-line" style="--i: 1">Thinking Made Visual</span></h1>
             <p class="concept-cn">设计是让构思得以实现</p>
             <div class="concept-rule"></div>
             <div class="concept-quote" aria-label="Design thinking principle">
@@ -286,6 +286,21 @@
                 };
                 requestAnimationFrame(stopAfterSettled);
             });
+        }
+
+        var heroParallaxBg = document.getElementById('orbBg');
+        if (heroParallaxBg && hero) {
+            var pRaf = null;
+            function updateParallax() {
+                if (hero.getBoundingClientRect().bottom > 0) {
+                    heroParallaxBg.style.transform = 'translate3d(0,' + (window.scrollY * 0.55) + 'px,0)';
+                }
+                pRaf = null;
+            }
+            updateParallax();
+            window.addEventListener('scroll', function() {
+                if (!pRaf) pRaf = requestAnimationFrame(updateParallax);
+            }, { passive: true });
         }
 
         const fadeSections = document.querySelectorAll('.fade-section');
