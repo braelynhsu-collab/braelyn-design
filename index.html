@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
 
-    <link rel="stylesheet" href="design-system.css?v=18">
+    <link rel="stylesheet" href="design-system.css?v=19">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -161,6 +161,7 @@
                 if (total < 2) return;
                 let current = Math.min(5, total - 1);
                 const heroScroll = document.getElementById('heroScroll');
+                const carouselBand = heroScroll.querySelector('.sticky');
                 const prevBtn = document.getElementById('carouselPrev');
                 const nextBtn = document.getElementById('carouselNext');
 
@@ -173,7 +174,14 @@
                     const targetCenter = targetPanel.offsetLeft + targetPanel.offsetWidth / 2;
                     const viewportCenter = window.innerWidth / 2;
                     const maxMove = Math.max(0, track.scrollWidth - window.innerWidth);
-                    const targetX = Math.min(Math.max(targetCenter - viewportCenter, 0), maxMove);
+                    const edgeGap = Math.min(48, window.innerWidth * 0.04);
+                    let targetX = targetCenter - viewportCenter;
+                    if (current === 0) {
+                        targetX = targetPanel.offsetLeft - edgeGap;
+                    } else if (current === total - 1) {
+                        targetX = targetPanel.offsetLeft + targetPanel.offsetWidth - window.innerWidth + edgeGap;
+                    }
+                    targetX = Math.min(Math.max(targetX, 0), maxMove);
                     gsap.to(track, {
                         x: -targetX,
                         duration: 0.5,
@@ -185,10 +193,17 @@
                 /* Wheel: navigate panels, prevent page scroll */
                 heroScroll.addEventListener('wheel', (e) => {
                     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+                    const bandRect = carouselBand.getBoundingClientRect();
+                    const withinBand = e.clientY >= bandRect.top - 32 && e.clientY <= bandRect.bottom + 32;
+                    if (!withinBand) return;
+                    if ((current === 0 && e.deltaY < 0) || (current === total - 1 && e.deltaY > 0)) return;
                     e.preventDefault();
                     if (e.deltaY > 0) goTo(current + 1);
                     else goTo(current - 1);
                 }, { passive: false });
+
+                carouselBand.addEventListener('mouseenter', () => document.body.classList.add('carousel-focus'));
+                carouselBand.addEventListener('mouseleave', () => document.body.classList.remove('carousel-focus'));
 
                 /* Arrow buttons */
                 if (prevBtn && nextBtn) {
@@ -373,11 +388,24 @@
                 return nearest;
             }
 
+            function animateScrollTo(targetY, duration = 520) {
+                const startY = window.scrollY;
+                const distance = targetY - startY;
+                const startTime = performance.now();
+                function step(now) {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    window.scrollTo(0, startY + distance * eased);
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+
             function goToSplit(index) {
                 splitIndex = Math.min(Math.max(index, 0), splitSections.length - 1);
                 splitLocked = true;
-                splitSections[splitIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
-                window.setTimeout(() => { splitLocked = false; }, 820);
+                animateScrollTo(splitSections[splitIndex].offsetTop, 520);
+                window.setTimeout(() => { splitLocked = false; }, 560);
             }
 
             window.addEventListener('wheel', (e) => {
@@ -387,8 +415,9 @@
                     return rect.top < window.innerHeight * 0.55 && rect.bottom > window.innerHeight * 0.45;
                 });
                 if (!inSplitFlow || splitLocked || Math.abs(e.deltaY) < 8) return;
-                e.preventDefault();
                 splitIndex = nearestSplitIndex();
+                if ((splitIndex === 0 && e.deltaY < 0) || (splitIndex === splitSections.length - 1 && e.deltaY > 0)) return;
+                e.preventDefault();
                 goToSplit(splitIndex + (e.deltaY > 0 ? 1 : -1));
             }, { passive: false });
         }

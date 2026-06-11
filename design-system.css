@@ -138,6 +138,9 @@ body {
 body.cursor-active .page-glow,
 body.cursor-active .page-glow-trail { opacity: 1; }
 
+body.carousel-focus .page-glow,
+body.carousel-focus .page-glow-trail { opacity: 0; }
+
 body.cursor-clicking .page-glow {
     width: min(430px, 55vw);
     height: min(430px, 55vw);
@@ -1161,6 +1164,7 @@ body::before {
     border-top: 1px solid var(--muted-line);
     padding: 56px 0 48px;
     margin-top: var(--space-lg);
+    scroll-snap-align: start;
 }
 
 .footer-inner {
