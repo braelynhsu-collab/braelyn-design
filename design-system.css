@@ -354,29 +354,6 @@ nav {
     margin: 0 auto;
 }
 
-.concept-hero::before {
-    content: '';
-    position: absolute;
-    inset: -18% -12%;
-    z-index: 1;
-    pointer-events: none;
-    background:
-        linear-gradient(115deg, transparent 0%, transparent 42%, rgba(255, 42, 42, 0.14) 49%, rgba(255, 42, 42, 0.03) 54%, transparent 62%),
-        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.028) 0 1px, transparent 1px 96px),
-        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 96px);
-    mix-blend-mode: screen;
-    opacity: 0.7;
-    transform: translate3d(-18%, 0, 0);
-    animation: hero-scan 9s var(--ease-out) infinite;
-}
-
-@keyframes hero-scan {
-    0%, 12% { transform: translate3d(-22%, 0, 0); opacity: 0; }
-    28% { opacity: 0.72; }
-    58% { transform: translate3d(18%, 0, 0); opacity: 0.5; }
-    100% { transform: translate3d(34%, 0, 0); opacity: 0; }
-}
-
 .orb-bg {
     position: absolute;
     inset: 0;
@@ -443,7 +420,6 @@ nav {
     will-change: transform, opacity;
     pointer-events: none;
     z-index: 1;
-    filter: blur(10px);
     transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -541,17 +517,6 @@ nav {
     max-width: 620px;
     margin: 0 auto;
     position: relative;
-}
-
-.concept-quote::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: -22px;
-    width: 120px;
-    height: 1px;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, transparent, rgba(255, 84, 84, 0.62), transparent);
 }
 
 .quote-en {
@@ -1236,55 +1201,6 @@ body::before {
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
 }
 
-/* --- Hero Scanning Light --- */
-.hero-scan {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-    background: linear-gradient(
-        180deg,
-        transparent 0%,
-        rgba(138, 28, 28, 0.0) 15%,
-        rgba(138, 28, 28, 0.7) 45%,
-        rgba(200, 60, 40, 0.9) 50%,
-        rgba(138, 28, 28, 0.7) 55%,
-        rgba(138, 28, 28, 0.0) 85%,
-        transparent 100%
-    );
-    opacity: 0;
-    animation: heroScanSweep 8s var(--ease-out) infinite;
-    animation-delay: 2s;
-}
-
-.hero-scan::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -40px;
-    width: 82px;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(138, 28, 28, 0.04) 30%,
-        rgba(138, 28, 28, 0.08) 50%,
-        rgba(138, 28, 28, 0.04) 70%,
-        transparent 100%
-    );
-}
-
-@keyframes heroScanSweep {
-    0%   { left: -2%; opacity: 0; }
-    5%   { opacity: 0.7; }
-    45%  { opacity: 0.7; }
-    50%  { left: 102%; opacity: 0; }
-    100% { left: 102%; opacity: 0; }
-}
-
 /* --- Hero Title Glow --- */
 .concept-title {
     text-shadow: 0 0 80px rgba(138, 28, 28, 0.0);
@@ -1305,19 +1221,6 @@ body::before {
 }
 
 /* Panel idle dim — non-active panels slightly muted */
-.panel:not(.is-active):not(.panel-gap) {
-    filter: brightness(0.65);
-    transition: filter 0.6s var(--ease-out);
-}
-
-.panel:not(.is-active):not(.panel-gap):hover {
-    filter: brightness(0.85);
-}
-
-.panel.is-active:not(.panel-gap) {
-    filter: brightness(1);
-}
-
 /* --- Projects Page: Premium Card Hover --- */
 .project-item {
     position: relative;
@@ -1374,15 +1277,12 @@ body::before {
     transform: translateY(48px) scale(0.985);
     transition:
         opacity 1.2s var(--ease-out),
-        transform 1.4s var(--ease-out),
-        filter 1.2s var(--ease-out);
-    filter: blur(12px);
+        transform 1.4s var(--ease-out);
 }
 
 .fade-section.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
-    filter: blur(0);
 }
 
 /* Staggered children signal cards */
@@ -1705,8 +1605,7 @@ body::before {
     .hero-badge,
     .hero-glow,
     .hero-glow-trail,
-    .hero-grid,
-    .hero-scan {
+    .hero-grid {
         display: none;
     }
 

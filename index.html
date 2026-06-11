@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
 
-    <link rel="stylesheet" href="design-system.css?v=15">
+    <link rel="stylesheet" href="design-system.css?v=16">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -64,7 +64,6 @@
             <div class="orb-plane orb-p3" data-depth="3"></div>
         </div>
         <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-scan" aria-hidden="true"></div>
         <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
         <div class="hero-glow-trail" id="heroGlowTrail" aria-hidden="true"></div>
         <div class="hero-badge" aria-label="Capabilities">
@@ -233,21 +232,10 @@
         const hero = document.querySelector('.concept-hero');
         const heroGlow = document.getElementById('heroGlow');
         const heroGlowTrail = document.getElementById('heroGlowTrail');
-        const conceptStack = document.querySelector('.concept-stack');
         if (hero && !window.matchMedia('(pointer: coarse)').matches) {
-            const orbBg = document.getElementById('orbBg');
-            const layers = orbBg ? Array.from(orbBg.querySelectorAll('[data-depth]')) : [];
-            const ORB_BASE = [18, -24, 45];
-            const ORB_RESPONSIVE = [0.4, 0.3, 0.5];
-            const TILT_MAX = 4;
-            const CENTER_ZONE = 0.3;
             let glowX = 0, glowY = 0;
             let trailX = 0, trailY = 0;
-            let tiltX = 0, tiltY = 0;
-            let orbRot = 0;
             let targetX = 0, targetY = 0;
-            let targetTiltX = 0, targetTiltY = 0;
-            let targetOrbRot = 0;
             let ticking = false;
 
             function lerp(a, b, t) { return a + (b - a) * t; }
@@ -257,18 +245,9 @@
                 glowY = lerp(glowY, targetY, 0.32);
                 trailX = lerp(trailX, targetX, 0.14);
                 trailY = lerp(trailY, targetY, 0.14);
-                tiltX = lerp(tiltX, targetTiltX, 0.06);
-                tiltY = lerp(tiltY, targetTiltY, 0.06);
-                orbRot = lerp(orbRot, targetOrbRot, 0.05);
 
                 if (heroGlow) heroGlow.style.transform = `translate3d(${glowX}px,${glowY}px,0)`;
                 if (heroGlowTrail) heroGlowTrail.style.transform = `translate3d(${trailX}px,${trailY}px,0)`;
-                if (conceptStack) conceptStack.style.transform = `perspective(1000px) rotateY(${tiltY}deg) rotateX(${tiltX}deg)`;
-
-                for (let i = 0; i < layers.length; i++) {
-                    const r = ORB_BASE[i] + orbRot * ORB_RESPONSIVE[i];
-                    layers[i].style.transform = `translate(-50%,-50%) rotate(${r}deg)`;
-                }
 
                 const dx = Math.abs(glowX - targetX) + Math.abs(glowY - targetY);
                 const settled = dx < 0.5 && Math.abs(trailX - targetX) < 0.5 && Math.abs(trailY - targetY) < 0.5;
@@ -286,11 +265,6 @@
                 const ry = (e.clientY - rect.top) / rect.height - 0.5;
                 targetX = rx * rect.width;
                 targetY = ry * rect.height;
-                targetTiltY = rx * TILT_MAX * 2;
-                targetTiltX = -ry * TILT_MAX * 2;
-
-                const dist = Math.sqrt(rx * rx + ry * ry);
-                targetOrbRot = dist < CENTER_ZONE ? rx * 90 : 0;
 
                 hero.classList.add('glow-active');
                 if (!ticking) ticking = requestAnimationFrame(animate);
@@ -298,21 +272,14 @@
 
             hero.addEventListener('mouseleave', () => {
                 targetX = 0; targetY = 0;
-                targetTiltX = 0; targetTiltY = 0;
-                targetOrbRot = 0;
                 if (!ticking) ticking = requestAnimationFrame(animate);
 
                 const stopAfterSettled = () => {
                     if (!ticking) {
                         if (heroGlow) heroGlow.style.transform = '';
                         if (heroGlowTrail) heroGlowTrail.style.transform = '';
-                        if (conceptStack) conceptStack.style.transform = '';
-                        for (let i = 0; i < layers.length; i++) {
-                            layers[i].style.transform = `translate(-50%,-50%) rotate(${ORB_BASE[i]}deg)`;
-                        }
                         hero.classList.remove('glow-active');
                         glowX = 0; glowY = 0; trailX = 0; trailY = 0;
-                        tiltX = 0; tiltY = 0; orbRot = 0;
                     } else {
                         requestAnimationFrame(stopAfterSettled);
                     }
