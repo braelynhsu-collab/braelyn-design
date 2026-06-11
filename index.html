@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
 
-    <link rel="stylesheet" href="design-system.css?v=14">
+    <link rel="stylesheet" href="design-system.css?v=15">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -63,6 +63,8 @@
             <div class="orb-plane orb-p2" data-depth="-5"></div>
             <div class="orb-plane orb-p3" data-depth="3"></div>
         </div>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-scan" aria-hidden="true"></div>
         <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
         <div class="hero-glow-trail" id="heroGlowTrail" aria-hidden="true"></div>
         <div class="hero-badge" aria-label="Capabilities">
@@ -164,6 +166,9 @@
 
                 function goTo(idx) {
                     current = Math.min(Math.max(idx, 0), total - 1);
+                    panels.forEach((panel, panelIndex) => {
+                        panel.classList.toggle('is-active', panelIndex === current);
+                    });
                     const maxMove = track.scrollWidth - window.innerWidth;
                     const progress = total > 1 ? current / (total - 1) : 0;
                     gsap.to(track, {

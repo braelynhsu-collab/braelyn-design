@@ -41,27 +41,86 @@
 
         .project-item {
             position: relative;
+            transition: transform 0.55s var(--ease-out), opacity 0.55s var(--ease-out);
+        }
+
+        .project-item a {
+            display: block;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
         }
 
         .project-img-wrapper {
+            position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
             overflow: hidden;
             border-radius: 4px;
             background: var(--card-bg, #f0f0f0);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: border-color 0.55s var(--ease-out), box-shadow 0.55s var(--ease-out), transform 0.55s var(--ease-out);
+        }
+
+        .project-img-wrapper::before,
+        .project-img-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .project-img-wrapper::before {
+            background: linear-gradient(110deg, transparent 0%, transparent 40%, rgba(255, 54, 54, 0.24) 50%, transparent 60%, transparent 100%);
+            opacity: 0;
+            transform: translateX(-115%);
+            transition: transform 0.85s var(--ease-out), opacity 0.35s ease;
+        }
+
+        .project-img-wrapper::after {
+            box-shadow: inset 0 0 0 rgba(138, 28, 28, 0);
+            transition: box-shadow 0.55s var(--ease-out);
         }
         .project-img-wrapper img {
             width: 100%;
             height: 100%;
             display: block;
             object-fit: cover;
+            transition: transform 0.75s var(--ease-out), filter 0.55s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-item:hover .project-img-wrapper {
+            border-color: rgba(255, 84, 84, 0.42);
+            box-shadow: 0 22px 70px rgba(138, 28, 28, 0.22);
+        }
+
+        .project-item:hover .project-img-wrapper::before {
+            opacity: 1;
+            transform: translateX(115%);
+        }
+
+        .project-item:hover .project-img-wrapper::after {
+            box-shadow: inset 0 0 34px rgba(138, 28, 28, 0.22);
+        }
+
+        .project-item:hover .project-img-wrapper img {
+            transform: scale(1.045);
+            filter: saturate(1.08) contrast(1.03);
         }
 
         /* 项目信息 */
         .project-info {
             margin-top: 1.2rem;
             text-align: left;
+            transition: transform 0.55s var(--ease-out);
         }
+
+        .project-item:hover .project-info { transform: translateY(-4px); }
         .project-name { 
             font-size: 1.1rem; 
             font-weight: 600; 
@@ -114,7 +173,7 @@
             .projects-list { grid-template-columns: 1fr; }
         }
     </style>
-    <link rel="stylesheet" href="design-system.css?v=14">
+    <link rel="stylesheet" href="design-system.css?v=15">
 </head>
 <body data-theme="light">
 
@@ -136,12 +195,12 @@
             </div>
         </nav>
 
-    <section class="page-header" style="max-width:none!important;margin:0!important;text-align:left!important;padding-left:96px!important;padding-top:224px!important;padding-bottom:128px!important;padding-right:96px!important">
+    <section class="page-header fade-section" style="max-width:none!important;margin:0!important;text-align:left!important;padding-left:96px!important;padding-top:224px!important;padding-bottom:128px!important;padding-right:96px!important">
         <h1 class="page-title"><span class="title-en">BRAND WORK</span><span class="title-cn">品牌与传播项目</span></h1>
         <p class="page-sub">Selected projects across brand identity, visual systems and integrated campaigns.</p>
     </section>
 
-    <section class="projects-list" style="max-width:none!important;margin:0!important"></section>
+    <section class="projects-list fade-section" style="max-width:none!important;margin:0!important"></section>
     <script>
         const cursor = document.getElementById('cursor');
         let cursorX = 0, cursorY = 0;
@@ -162,6 +221,20 @@
     </script>
     <script src="theme.js"></script>
     <script src="projects.js"></script>
+    <script>
+        (function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.08 });
+            document.querySelectorAll('.fade-section').forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
+    </script>
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-brand">
