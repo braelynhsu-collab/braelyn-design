@@ -248,10 +248,10 @@
             function lerp(a, b, t) { return a + (b - a) * t; }
 
             function animate() {
-                glowX = lerp(glowX, targetX, 0.18);
-                glowY = lerp(glowY, targetY, 0.18);
-                trailX = lerp(trailX, targetX, 0.08);
-                trailY = lerp(trailY, targetY, 0.08);
+                glowX = lerp(glowX, targetX, 0.32);
+                glowY = lerp(glowY, targetY, 0.32);
+                trailX = lerp(trailX, targetX, 0.14);
+                trailY = lerp(trailY, targetY, 0.14);
                 tiltX = lerp(tiltX, targetTiltX, 0.06);
                 tiltY = lerp(tiltY, targetTiltY, 0.06);
                 orbRot = lerp(orbRot, targetOrbRot, 0.05);

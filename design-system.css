@@ -395,7 +395,7 @@ nav {
     top: 50%;
     width: min(420px, 60vw);
     height: min(420px, 60vw);
-    margin: min(-210px, -30vw) 0 0 min(-210px, -30vw);
+    margin: calc(min(420px, 60vw) / -2) 0 0 calc(min(420px, 60vw) / -2);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(138, 28, 28, 0.45) 0%, rgba(138, 28, 28, 0.12) 30%, rgba(255, 180, 160, 0.04) 50%, transparent 65%);
     opacity: 0;
@@ -411,7 +411,7 @@ nav {
     top: 50%;
     width: min(560px, 75vw);
     height: min(560px, 75vw);
-    margin: min(-280px, -37.5vw) 0 0 min(-280px, -37.5vw);
+    margin: calc(min(560px, 75vw) / -2) 0 0 calc(min(560px, 75vw) / -2);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(138, 28, 28, 0.15) 0%, rgba(255, 200, 180, 0.03) 40%, transparent 60%);
     opacity: 0;
