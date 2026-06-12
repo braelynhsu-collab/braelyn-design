@@ -923,8 +923,19 @@ body::before {
     box-shadow: 0 24px 80px rgba(138, 28, 28, 0.22);
 }
 
+.track:has(.panel:hover) .panel.is-active:not(:hover) {
+    opacity: 0.46;
+    transform: none;
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 rgba(138, 28, 28, 0);
+}
+
 .panel.is-active img {
     transform: scale(1.08);
+}
+
+.track:has(.panel:hover) .panel.is-active:not(:hover) img {
+    transform: none;
 }
 
 .panel-gap {

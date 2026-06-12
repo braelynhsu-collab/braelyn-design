@@ -165,11 +165,15 @@
                 const prevBtn = document.getElementById('carouselPrev');
                 const nextBtn = document.getElementById('carouselNext');
 
+                function setActive(idx) {
+                    panels.forEach((panel, panelIndex) => {
+                        panel.classList.toggle('is-active', panelIndex === idx);
+                    });
+                }
+
                 function goTo(idx) {
                     current = Math.min(Math.max(idx, 0), total - 1);
-                    panels.forEach((panel, panelIndex) => {
-                        panel.classList.toggle('is-active', panelIndex === current);
-                    });
+                    setActive(current);
                     const targetPanel = panels[current];
                     const targetCenter = targetPanel.offsetLeft + targetPanel.offsetWidth / 2;
                     const viewportCenter = window.innerWidth / 2;
@@ -212,7 +216,7 @@
                 }
 
                 panels.forEach((panel, panelIndex) => {
-                    panel.addEventListener('mouseenter', () => goTo(panelIndex));
+                    panel.addEventListener('mouseenter', () => setActive(panelIndex));
                 });
 
                 goTo(current);
