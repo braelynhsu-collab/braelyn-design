@@ -916,53 +916,6 @@ body::before {
     will-change: transform;
 }
 
-.carousel-caption {
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    z-index: 4;
-    display: grid;
-    gap: 3px;
-    padding: 10px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(8, 8, 8, 0.56);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    color: rgba(255, 255, 255, 0.9);
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.36s var(--ease-out), transform 0.36s var(--ease-out);
-    pointer-events: none;
-}
-
-.carousel-caption-kicker {
-    color: rgba(255, 84, 84, 0.9);
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-}
-
-.carousel-caption strong {
-    font-size: 12px;
-    line-height: 1.25;
-    font-weight: 700;
-}
-
-.carousel-caption em {
-    color: rgba(255, 255, 255, 0.64);
-    font-size: 10px;
-    line-height: 1.25;
-    font-style: normal;
-}
-
-.panel.is-active .carousel-caption,
-.panel:hover .carousel-caption {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .panel:hover img {
     transform: scale(1.06);
 }
@@ -1207,89 +1160,6 @@ body::before {
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
-}
-
-/* --- Project detail overview rail --- */
-.project-overview-rail {
-    max-width: var(--grid-max);
-    margin: 0 auto;
-    padding: 56px 64px 72px;
-}
-
-.project-overview-grid {
-    display: grid;
-    grid-template-columns: 1.25fr 1fr 0.55fr;
-    gap: 1px;
-    border: 1px solid var(--muted-line);
-    background: var(--muted-line);
-}
-
-.project-overview-grid > div {
-    min-width: 0;
-    padding: 24px;
-    background: var(--bg);
-}
-
-.project-overview-label,
-.project-page-nav span {
-    display: block;
-    margin-bottom: 12px;
-    color: var(--accent);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    line-height: 1.4;
-    text-transform: uppercase;
-}
-
-.project-overview-grid strong {
-    display: block;
-    color: var(--text);
-    font-size: clamp(17px, 1.4vw, 22px);
-    line-height: 1.25;
-}
-
-.project-overview-grid em {
-    display: block;
-    margin-top: 8px;
-    color: var(--muted);
-    font-size: 12px;
-    font-style: normal;
-    line-height: 1.6;
-}
-
-.project-page-nav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    margin-top: 1px;
-    background: var(--muted-line);
-    border: 1px solid var(--muted-line);
-    border-top: 0;
-}
-
-.project-page-nav a {
-    min-width: 0;
-    padding: 18px 24px;
-    background: var(--bg);
-    color: var(--text);
-    text-decoration: none;
-    transition: background 0.35s var(--ease-out), color 0.35s var(--ease-out);
-}
-
-.project-page-nav a:hover {
-    background: rgba(138, 28, 28, 0.12);
-}
-
-.project-page-nav strong {
-    display: block;
-    overflow: hidden;
-    color: var(--muted);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1.4;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 /* --- Body text utilities --- */
@@ -1792,11 +1662,6 @@ body::before {
         padding-right: 48px;
     }
 
-    .project-overview-rail {
-        padding-left: 48px;
-        padding-right: 48px;
-    }
-
     /* --- Projects page --- */
     .projects-list {
         grid-template-columns: repeat(3, 1fr);
@@ -1910,20 +1775,6 @@ body::before {
         scroll-snap-align: none;
     }
 
-    .project-overview-rail {
-        padding: 32px 24px 56px;
-    }
-
-    .project-overview-grid,
-    .project-page-nav {
-        grid-template-columns: 1fr;
-    }
-
-    .project-overview-grid > div,
-    .project-page-nav a {
-        padding: 18px;
-    }
-
     .concept-title {
         font-size: clamp(40px, 14vw, 68px);
         letter-spacing: -0.04em;
@@ -2015,14 +1866,6 @@ body::before {
     .panel {
         min-width: 100%;
         margin: 0 0 16px;
-    }
-
-    .carousel-caption {
-        opacity: 1;
-        transform: none;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
     }
 
     .panel:hover,
