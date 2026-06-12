@@ -7,6 +7,67 @@
 })();
 
 /* =============================
+   Project detail safe gutters
+   ============================= */
+(function() {
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    const excluded = new Set(['index.html', 'projects.html', 'about.html', 'contact.html', 'approach.html']);
+    if (excluded.has(page)) return;
+    if (!document.querySelector('.visuals, .project-description, .context')) return;
+
+    document.body.classList.add('project-detail-page');
+
+    const style = document.createElement('style');
+    style.textContent = `
+        @media (max-width: 768px) {
+            body.project-detail-page .project-description,
+            body.project-detail-page .project-footer,
+            body.project-detail-page .context,
+            body.project-detail-page .insight-strategy,
+            body.project-detail-page .visuals,
+            body.project-detail-page .closing {
+                padding-left: 24px !important;
+                padding-right: 24px !important;
+                box-sizing: border-box !important;
+            }
+
+            body.project-detail-page .project-description {
+                padding-top: 4.5rem !important;
+                padding-bottom: 3rem !important;
+            }
+
+            body.project-detail-page .project-description .desc-grid,
+            body.project-detail-page .two-col {
+                grid-template-columns: 1fr !important;
+                gap: 2.5rem !important;
+            }
+
+            body.project-detail-page .project-description h2,
+            body.project-detail-page .project-description .desc-block,
+            body.project-detail-page .project-footer .desc-note,
+            body.project-detail-page .context-text,
+            body.project-detail-page .col-text,
+            body.project-detail-page .col-title {
+                max-width: 100% !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body.project-detail-page .project-description,
+            body.project-detail-page .project-footer,
+            body.project-detail-page .context,
+            body.project-detail-page .insight-strategy,
+            body.project-detail-page .visuals,
+            body.project-detail-page .closing {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+})();
+
+/* =============================
    Mobile Hamburger Menu
    ============================= */
 (function() {
