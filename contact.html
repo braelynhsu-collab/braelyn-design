@@ -144,11 +144,12 @@
 
         .contact-note {
             margin-top: 1.2rem;
-            max-width: 420px;
+            max-width: none;
             color: var(--muted-color, #777);
             font-size: 0.9rem;
             line-height: 1.8;
-            letter-spacing: 0.03em;
+            letter-spacing: 0;
+            white-space: nowrap;
         }
 
         .contact-status {
@@ -195,6 +196,7 @@
             }
             .reach-card { padding: 2rem 0; }
             .reach-card + .reach-card { border-top: 1px solid var(--muted-line); }
+            .contact-note { white-space: normal; }
         }
 
         @media (pointer: coarse) {
@@ -308,8 +310,8 @@
         <div class="viewpoint-section" aria-label="设计观点">
             <div class="contact-label">A Design Viewpoint</div>
             <p class="viewpoint-text">
-                <span class="viewpoint-line">设计不是先决定风格，</span>
-                <span class="viewpoint-line">而是把模糊的问题变成可讨论、可判断的方向。</span>
+                <span class="viewpoint-line">设计不是先决定风格</span>
+                <span class="viewpoint-line">而是把模糊的问题变成可讨论、可判断的方向</span>
             </p>
         </div>
     </section>

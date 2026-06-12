@@ -101,13 +101,27 @@
             pointer-events: none;
         }
 
+        .portrait-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 54%;
+            z-index: 1;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: linear-gradient(90deg, rgba(17, 17, 17, 0.34), rgba(17, 17, 17, 0.12) 72%, transparent);
+            pointer-events: none;
+            mask-image: linear-gradient(90deg, #000 0%, #000 58%, transparent 100%);
+            -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 58%, transparent 100%);
+        }
+
         .portrait-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: 55% 42%;
-            transform: scale(1.08);
-            filter: blur(1.4px) brightness(0.72) saturate(0.88) contrast(1.05);
+            object-position: 76% 42%;
+            transform: scale(1.12);
+            filter: brightness(0.72) saturate(0.88) contrast(1.05);
         }
 
         .about-intro-block .intro-text {
@@ -231,7 +245,7 @@
         .client-logo[alt="Proya"] { --logo-height: 43px; --logo-max-width: 100px; }
         .client-logo[alt="Absolut"] { --logo-height: 30px; --logo-max-width: 145px; }
         .client-logo[alt="Pernod Ricard"] { --logo-height: 50px; --logo-max-width: 138px; }
-        .client-logo[alt="Moët"] { --logo-height: 54px; --logo-max-width: 104px; }
+        .client-logo[alt="Moët"] { --logo-height: 72px; --logo-max-width: 142px; }
 
         .client-logo:hover {
             opacity: 0.9;
@@ -307,7 +321,7 @@
                 margin-bottom: 8rem;
             }
             .portrait-frame img {
-                object-position: 58% 44%;
+                object-position: 72% 44%;
                 transform: scale(1.14);
             }
             .capabilities-grid { grid-template-columns: 1fr; gap: 3rem; }
