@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
 
-    <link rel="stylesheet" href="design-system.css?v=19">
+    <link rel="stylesheet" href="design-system.css?v=22">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -148,6 +148,14 @@
                         img.alt = p.title.en;
                         img.loading = 'lazy';
                         link.appendChild(img);
+                        const caption = document.createElement('div');
+                        caption.className = 'carousel-caption';
+                        caption.innerHTML = `
+                            <span class="carousel-caption-kicker">${p.category} / ${p.year}</span>
+                            <strong>${p.title.cn}</strong>
+                            <em>${p.title.en}</em>
+                        `;
+                        link.appendChild(caption);
                         track.appendChild(link);
 
                         const gap = document.createElement('div');
@@ -426,7 +434,7 @@
             }, { passive: false });
         }
     </script>
-    <script src="theme.js"></script>
+    <script src="theme.js?v=22"></script>
 
     <footer class="footer">
         <div class="footer-inner">

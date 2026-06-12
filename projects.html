@@ -161,19 +161,48 @@
             .projects-list { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 768px) {
-            .page-header { padding: 10rem 2rem 5rem 2rem; }
-            .projects-list { 
-                padding: 0 2rem 7rem 2rem;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+            .page-header { padding: 8rem 1.25rem 3.5rem 1.25rem; }
+            .page-title {
+                letter-spacing: -1px;
+                line-height: 1;
             }
-            .project-info { flex-direction: column; align-items: flex-start; }
+            .page-sub {
+                max-width: 26rem;
+                font-size: 11px;
+                line-height: 1.8;
+                letter-spacing: 2px;
+            }
+            .projects-list { 
+                padding: 0 1.25rem 6rem 1.25rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.35rem 1rem;
+            }
+            .project-img-wrapper { border-radius: 6px; }
+            .project-info {
+                margin-top: 0.85rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .project-name { font-size: 0.96rem; }
+            .project-title-en { font-size: 0.76rem; }
+            .project-meta {
+                flex-wrap: wrap;
+                gap: 0.45rem 0.8rem;
+            }
         }
         @media (max-width: 480px) {
-            .projects-list { grid-template-columns: 1fr; }
+            .projects-list {
+                grid-template-columns: 1fr;
+                gap: 1.75rem;
+            }
+            .project-img-wrapper { aspect-ratio: 4 / 3 !important; }
+            .project-item:hover,
+            .project-item:hover .project-info {
+                transform: none;
+            }
         }
     </style>
-    <link rel="stylesheet" href="design-system.css?v=16">
+    <link rel="stylesheet" href="design-system.css?v=22">
 </head>
 <body data-theme="light">
 
@@ -219,7 +248,7 @@
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
         });
     </script>
-    <script src="theme.js"></script>
+    <script src="theme.js?v=22"></script>
     <script src="projects.js"></script>
     <script>
         (function() {
